@@ -360,7 +360,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.="\"
     endif
-    if empty(Filesize())
+    if empty(Filesize()) && empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.="\"
     endif
