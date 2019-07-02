@@ -15,6 +15,7 @@ Plug taigacute/spaceline.vim
 - like Spacemacs
 - fatest startup
 - depends on coc.nvim
+- depends on nerdfonts
 
 - the structure of spaceline.vim
   - left:buffernumber filename filesize vimmode/cocdiagnostice githubinfo cocextensions
