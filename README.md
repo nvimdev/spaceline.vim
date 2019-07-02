@@ -25,6 +25,6 @@ Plug taigacute/spaceline.vim
 - when has error
   ![image](https://github.com/taigacute/IMG/blob/master/spaceline/error.png)
 
-# Lience
+# License
 
 MIT
