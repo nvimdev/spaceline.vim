@@ -10,12 +10,15 @@ vim statusline like emacs
 Plug taigacute/spaceline.vim
 ```
 
+- this plugin depends on coc,coc-git,nerdfonts.
+- support defx.
+
 # Feature
 
 - like Spacemacs
 - fatest startup
-- depends on coc.nvim
-- depends on nerdfonts
+
+# Structure
 
 - the structure of spaceline.vim
   - left:buffernumber filename filesize vimmode/cocdiagnostice githubinfo cocextensions
