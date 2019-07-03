@@ -32,9 +32,9 @@ let g:spaceline_seperate_emptyseperate
 
 - spaceline also provide separator group
 
-| group | ScreenShot                                                                 |
-| ----- | -------------------------------------------------------------------------- |
-| slant | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
+| group   | ScreenShot                                                                 |
+| ------- | -------------------------------------------------------------------------- |
+| `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
 
 # License
 
