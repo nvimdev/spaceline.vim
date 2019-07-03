@@ -1,4 +1,3 @@
-
 " =============================================================================
 " Filename: spaceline.vim
 " Author: taigacute
@@ -18,6 +17,17 @@ let s:seperate5 = get(g:, 'spaceline_seperate_5','')
 let s:seperate4 = get(g:, 'spaceline_seperate_4','')
 let s:EndSeperate = get(g:, 'spaceline_seperate_endseperate','')
 let s:emptySeperate1 = get(g:, 'spaceline_seperate_emptyseperate','')
+let s:seperate_group = get(g:, 'spaceline_seperate_group', 'slant')
+
+if s:seperate_group = 'slant'
+    let s:seperate1 = get(g:, 'spaceline_seperate_1','')
+    let s:seperate2 = get(g:, 'spaceline_seperate_2','')
+    let s:seperate3 = get(g:, 'spaceline_seperate_3','')
+    let s:seperate5 = get(g:, 'spaceline_seperate_5','')
+    let s:seperate4 = get(g:, 'spaceline_seperate_4','')
+    let s:EndSeperate = get(g:, 'spaceline_seperate_endseperate','')
+    let s:emptySeperate1 = get(g:, 'spaceline_seperate_emptyseperate','')
+endif
 
 function! s:vimacsline_is_lean() abort
   return &filetype =~? '\v^defx|mundo(diff)?$'
