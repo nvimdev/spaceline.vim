@@ -20,13 +20,13 @@ Plug 'taigacute/spaceline.vim'
 - you can custom every symbol in spaceline. there are some very useful settings.
 
 ```viml
-let g:spaceline_seperate_1                     ----> default value:''
-let g:spaceline_seperate_2                     ----> default value:''
-let g:spaceline_seperate_3                     ----> default value:''
-let g:spaceline_seperate_5                     ----> default value:''
-let g:spaceline_seperate_4                     ----> default value:''
-let g:spaceline_seperate_endseperate           ----> default value:''
-let g:spaceline_seperate_emptyseperate         ----> default value:''
+let g:spaceline_seperate_1
+let g:spaceline_seperate_2
+let g:spaceline_seperate_3
+let g:spaceline_seperate_5
+let g:spaceline_seperate_4
+let g:spaceline_seperate_endseperate
+let g:spaceline_seperate_emptyseperate
 
 ```
 
