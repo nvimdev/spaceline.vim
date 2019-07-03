@@ -29,16 +29,16 @@ let s:seperate_style = 'arro'
   | group   | ScreenShot                                                                        |
   | ------- | --------------------------------------------------------------------------------- |
   | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png) |
-  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png)        |
-  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png)        |
+  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png) |
+  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png) |
 
 - synataxcheck mode
 
-  | group   | ScreenShot                                                                        |
-  | ------- | --------------------------------------------------------------------------------- |
-  | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png)        |
-  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png) |
-  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png) |  |
+  | group   | ScreenShot                                                                 |
+  | ------- | -------------------------------------------------------------------------- |
+  | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png) |
+  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png) |
+  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
 
 # Custom
 
