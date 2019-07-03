@@ -1,6 +1,6 @@
 # spaceline.vim
 
-Vim Statusline Like Emacs Spaceline.
+Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute/ThinkVim)
 
 # Install
 
@@ -24,11 +24,21 @@ Plug 'taigacute/spaceline.vim'
 let s:seperate_style = 'arro'
 ```
 
-| group   | ScreenShot                                                                                                                                                   |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png) ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png) |
-| `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png) ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png) |
-| `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png) |  |
+- normal mode
+
+  | group   | ScreenShot                                                                        |
+  | ------- | --------------------------------------------------------------------------------- |
+  | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png) |
+  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png)        |
+  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png)        |
+
+- synataxcheck mode
+
+  | group   | ScreenShot                                                                        |
+  | ------- | --------------------------------------------------------------------------------- |
+  | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png)        |
+  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png) |
+  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png) |  |
 
 # Custom
 
