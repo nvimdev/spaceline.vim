@@ -7,7 +7,7 @@ vim statusline like emacs
 - Use Vim-plug
 
 ```
-Plug taigacute/spaceline.vim
+Plug 'taigacute/spaceline.vim'
 ```
 
 - this plugin depends on coc,coc-git,nerdfonts.
