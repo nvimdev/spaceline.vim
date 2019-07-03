@@ -1,33 +1,40 @@
 # spaceline.vim
 
-vim statusline like emacs
+Vim Statusline Like Emacs Spaceline.
 
 # Install
 
-- Use Vim-plug
+- Easy installed with a plugin manager like vim-plug
 
 ```
 Plug 'taigacute/spaceline.vim'
 ```
 
-- this plugin depends on coc,coc-git,nerdfonts.
-- support defx.
+# Supprot Plugin
 
-# Feature
+- [coc](https://github.com/neoclide/coc.nvim)
+- depends on coc extensions `coc-git`
 
-- like Spacemacs
-- fatest startup
+# Operation
 
-# Structure
+- you can custom every symbol in spaceline. there are some very useful settings.
 
-- the structure of spaceline.vim
-  - left:buffernumber filename filesize vimmode/cocdiagnostice githubinfo cocextensions
-  - right: fileEncode FileFormat lineinfo
+```viml
+let g:spaceline_seperate_1                     ----> default value:''
+let g:spaceline_seperate_2                     ----> default value:''
+let g:spaceline_seperate_3                     ----> default value:''
+let g:spaceline_seperate_5                     ----> default value:''
+let g:spaceline_seperate_4                     ----> default value:''
+let g:spaceline_seperate_endseperate           ----> default value:''
+let g:spaceline_seperate_emptyseperate         ----> default value:''
 
-![image](https://github.com/taigacute/IMG/blob/master/spaceline/spaceline.png)
+```
 
-- when has error
-  ![image](https://github.com/taigacute/IMG/blob/master/spaceline/error.png)
+# Spaceline
+
+| Separator | ScreenShot                                                                 |
+| --------- | -------------------------------------------------------------------------- |
+| slant     | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
 
 # License
 
