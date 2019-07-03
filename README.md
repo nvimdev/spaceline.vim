@@ -30,11 +30,11 @@ let g:spaceline_seperate_emptyseperate         ----> default value:''
 
 ```
 
-# Spaceline
+- spaceline also provide separator group
 
-| Separator | ScreenShot                                                                 |
-| --------- | -------------------------------------------------------------------------- |
-| slant     | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
+| group | ScreenShot                                                                 |
+| ----- | -------------------------------------------------------------------------- |
+| slant | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
 
 # License
 
