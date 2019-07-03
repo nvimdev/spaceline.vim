@@ -1,4 +1,24 @@
-" stausline 
+
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
+scriptencoding utf-8
+if exists('g:loaded_spaceline') || v:version < 700
+  finish
+endif
+let g:loaded_spaceline = 1
+
+let s:seperate1 = get(g:, 'spaceline_seperate_1','')
+let s:seperate2 = get(g:, 'spaceline_seperate_2','')
+let s:seperate3 = get(g:, 'spaceline_seperate_3','')
+let s:seperate5 = get(g:, 'spaceline_seperate_5','')
+let s:seperate4 = get(g:, 'spaceline_seperate_4','')
+let s:EndSeperate = get(g:, 'spaceline_seperate_endseperate','')
+let s:emptySeperate1 = get(g:, 'spaceline_seperate_emptyseperate','')
+
 function! s:vimacsline_is_lean() abort
   return &filetype =~? '\v^defx|mundo(diff)?$'
 endfunction
@@ -278,7 +298,7 @@ hi CocBar ctermbg=237 ctermfg=225 guibg=#3c3836 guifg=#6272a4
 hi Seperate4 ctermbg=237 ctermfg=black guibg=#3c3836 guifg=black
 hi StatusEncod ctermbg=black ctermfg=225 guibg=black guifg=#6272a4
 hi StatusFileFormat ctermbg=black ctermfg=225 guibg=black guifg=#6272a4
-hi StatusLineinfo ctermbg=237 ctermfg=black guibg=black guifg=#6272a4
+hi StatusLineinfo ctermbg=237 ctermfg=225 guibg=black guifg=#6272a4
 hi EndSeperate ctermbg=214 ctermfg=55 guibg=#fabd2f guifg=#5f00af
 
 hi VimMode ctermbg=black ctermfg=148 guibg=black guifg=#afd700
@@ -290,7 +310,7 @@ function! s:ActiveStatusLine()
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{VimacslineMode()}"
         let s:statusline.="%#Seperate1#"
-        let s:statusline.="\"
+        let s:statusline.=s:seperate1
         let s:statusline.="\ "
         let s:statusline.="%#FileName#"
         let s:statusline.="%{VimacsFilenameActive()}"
@@ -302,27 +322,27 @@ function! s:ActiveStatusLine()
         let s:statusline.="\ "
         let s:statusline.="%#StatusLineinfo#%{VimacsLineinfo()}"
         let s:statusline.="%#EndSeperate#"
-        let s:statusline.="\"
+        let s:statusline.=s:EndSeperate
         return s:statusline
     endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{VimacslineMode()}"
     let s:statusline.="%#Seperate1#"
-    let s:statusline.="\"
+    let s:statusline.=s:seperate1
     let s:statusline.="\ "
     let s:statusline.="%#FileName#"
     let s:statusline.="%{VimacsFilenameActive()}"
     let s:statusline.="\ "
     if !empty(Filesize())
         let s:statusline.="%#Seperate2#"
-        let s:statusline.="\"
+        let s:statusline.=s:seperate2
         let s:statusline.="\ "
         let s:statusline.="%#FileSize#"
         let s:statusline.="\ "
         let s:statusline.="%{Filesize()}"
         let s:statusline.="\ "
         let s:statusline.="%#Seperate3#"
-        let s:statusline.="\"
+        let s:statusline.=s:seperate3
     endif
 
     if !empty(VimacsLineCocError())|| !empty(VimacsLineCocWarn())||!empty(VimacslineCocFixes())
@@ -347,29 +367,29 @@ function! s:ActiveStatusLine()
     endif
     if !empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#Seperate2#"
-        let s:statusline.="\"
+        let s:statusline.=s:seperate2
         let s:statusline.="\ "
         let s:statusline.="%#GitInfo#"
         let s:statusline.="\ "
         let s:statusline.="%{VimacsLineGit()}"
         let s:statusline.="\ "
         let s:statusline.="%#Seperate5#"
-        let s:statusline.="\"
+        let s:statusline.=s:seperate5
     endif
     if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx'
         let s:statusline.="%#emptySeperate1#"
-        let s:statusline.="\"
+        let s:statusline.=s:emptySeperate1
     endif
     if empty(Filesize()) && empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#emptySeperate1#"
-        let s:statusline.="\"
+        let s:statusline.=s:emptySeperate1
     endif
     let s:statusline.="%#CocBar#"
     let s:statusline.="\ "
     let s:statusline.="%{CocStatusBar()}"
     let s:statusline.="%="
     let s:statusline.="%#Seperate4#"
-    let s:statusline.="\"
+    let s:statusline.=s:seperate4
     let s:statusline.="\ "
     let s:statusline.="%#StatusEncod#%{FileEncoding()}"
     let s:statusline.="\ "
@@ -377,7 +397,7 @@ function! s:ActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%#StatusLineinfo#%{VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.="\"
+    let s:statusline.=s:EndSeperate
     return s:statusline
 endfunction
 
@@ -406,7 +426,7 @@ function! s:InActiveStatusLine()
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{VimacslineMode()}"
     let s:statusline.="%#Seperate1#"
-    let s:statusline.="\"
+    let s:statusline.=s:seperate1
     let s:statusline.="\ "
     let s:statusline.="%#FileName#"
     let s:statusline.="%{VimacsFilenameActive()}"
@@ -419,7 +439,7 @@ function! s:InActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%#StatusLineinfo#%{VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.="\"
+    let s:statusline.=s:EndSeperate
     return s:statusline
 endfunction
 
@@ -431,7 +451,7 @@ function! SetInActiveStatusLine()
     let &l:statusline=s:InActiveStatusLine()
 endfunction
 
-augroup statusline
+augroup spaceline
 	autocmd!
 	autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call SetStatusline()
     autocmd WinLeave * call SetInActiveStatusLine()
