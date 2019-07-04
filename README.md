@@ -69,6 +69,10 @@ let g:spaceline_seperate_mode = 0
         let g:spaceline_seperate_emptyseperate = ''
 ```
 
+# Donate
+
+<img src="https://github.com/taigacute/IMG/blob/master/wechat/mm_reward_qrcode_1556454268864.png" width="50%"  height="50%">
+
 # License
 
 MIT
