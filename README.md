@@ -2,6 +2,11 @@
 
 Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute/ThinkVim)
 
+# Feature
+
+- We have airline, lightline, eleline, why make this plugin? They are great plugins, but they are limited and you can't set more separators.
+- More separator combinations make the status bar look better, but to handle combinations in different situations, spaceline does a good job in this area. The combination of each area is very good in different situations.
+
 # Install
 
 - Easy installed with a plugin manager like vim-plug
@@ -21,13 +26,14 @@ Plug 'taigacute/spaceline.vim'
 
 ```viml
 
-let s:seperate_style = 'arro'
+let s:seperate_style = 'arrow'
 ```
 
 - normal mode
 
   | group   | ScreenShot                                                                        |
   | ------- | --------------------------------------------------------------------------------- |
+  | `none`  | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none-normal.png)  |
   | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png) |
   | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png) |
   | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png) |
@@ -36,6 +42,7 @@ let s:seperate_style = 'arro'
 
   | group   | ScreenShot                                                                 |
   | ------- | -------------------------------------------------------------------------- |
+  | `none`  | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none.png)  |
   | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png) |
   | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png) |
   | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
