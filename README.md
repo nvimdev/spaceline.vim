@@ -53,21 +53,21 @@ let s:seperate_style = 'arrow'
 
 ```viml
 
-let s:seperate_mode = 0
+let g:spaceline_seperate_mode = 0
 ```
 
 - then set any seperate by these settings
 
 ```viml
-    let s:homemoderight
-    let s:filenameright
-    let s:filesizeright
-    let s:gitleft
-    let s:gitright
-    let s:lineinfoleft
-    let s:lineformatright
-    let s:EndSeperate
-    let s:emptySeperate1
+        let g:spaceline_homemode_right = ''
+        let g:spaceline_filename_left  = ''
+        let g:spaceline_filesize_right = ''
+        let g:spaceline_gitinfo_left   = ''
+        let g:spaceline_gitinfo_right  = ''
+        let g:spaceline_cocexts_right  = ''
+        let g:spaceline_lineformat_right = ''
+        let g:spaceline_seperate_endseperate = ''
+        let g:spaceline_seperate_emptyseperate = ''
 ```
 
 # License
