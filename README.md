@@ -25,8 +25,7 @@ Plug 'taigacute/spaceline.vim'
 - spaceline provide separator groups, include `arrow` `curve` `slant`.the default group is `arrow`
 
 ```viml
-
-let s:seperate_style = 'arrow'
+let g:spaceline_seperate_style= 'arrow'
 ```
 
 - normal mode
