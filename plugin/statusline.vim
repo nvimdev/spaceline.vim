@@ -103,7 +103,7 @@ function! s:SlantActiveStatusLine()
     let s:statusline.="%#FileName#"
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="\ "
-    if !empty(Filesize())
+    if !empty(spaceline#spaceline#Filesize())
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=s:filenameright
         let s:statusline.="\ "
@@ -147,7 +147,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=s:emptySeperate1
     endif
-    if empty(Filesize()) && empty(get(g:,'coc_git_status',''))
+    if empty(spaceline#spaceline#Filesize()) && empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=s:emptySeperate1
     endif
@@ -186,6 +186,7 @@ function! s:SlantInActiveStatusLine()
     let s:statusline.=s:EndSeperate
     return s:statusline
 endfunction
+
 function! s:SlantColor()
     hi HomeMode ctermbg=214 ctermfg=black guibg=#fabd2f guifg=black
     hi HomeModeRight ctermbg=black ctermfg=214 guibg=black guifg=#fabd2f
@@ -403,7 +404,7 @@ function! s:CustomActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="\ "
-    if !empty(Filesize())
+    if !empty(spaceline#spaceline#Filesize())
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=s:filenameright
         let s:statusline.="%#FileSize#"
