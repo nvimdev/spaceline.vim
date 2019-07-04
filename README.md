@@ -18,7 +18,7 @@ Plug 'taigacute/spaceline.vim'
 # Supprot Plugin
 
 - [coc](https://github.com/neoclide/coc.nvim)
-- depends on coc extensions `coc-git`
+- depends on coc extensions `coc-git` ,[vim-devicons](https://github.com/ryanoasis/vim-devicons)
 
 # Mode
 
