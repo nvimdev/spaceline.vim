@@ -1,4 +1,4 @@
-let s:symbol = get(g:, 'spaceline_line_symbol', 1)
+let s:symbol = get(g:, 'spaceline_line_symbol', 0)
 function! spaceline#spaceline#VimacsLineGit()
     if &filetype ==? 'defx'
        return ""
