@@ -46,6 +46,12 @@ let g:spaceline_seperate_style= 'arrow'
   | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png) |
   | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
 
+- if you doesnt like too many symbols in statusline, just set to 1, default 0
+
+```viml
+let g:spaceline_line_symbol = 0
+```
+
 # Custom
 
 - you can custom every symbol in spaceline. there are some very useful settings.first you should set the `g:seperate_mode` to 1
