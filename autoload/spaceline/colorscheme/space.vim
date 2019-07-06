@@ -1,4 +1,9 @@
-let s:slc={}
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================let s:slc={}
 let s:slc.yellow = ['fabd2f', 214]
 let s:slc.black = ['000000', 0]
 let s:slc.lightgray= ['d7d7d7', 188]
