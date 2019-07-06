@@ -1,3 +1,9 @@
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
 let s:symbol = get(g:, 'spaceline_line_symbol', 0)
 function! spaceline#spaceline#VimacsLineGit()
     if &filetype ==? 'defx'
