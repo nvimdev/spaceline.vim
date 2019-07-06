@@ -327,19 +327,13 @@ function! s:SetStatusline()
         call s:Spaceline_Color(s:spaceline_colorscheme)
         return
     endif
-    if s:seperate_style == 'curve'
-        let &l:statusline=s:ActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
-    elseif s:seperate_style == 'slant'
+    if s:seperate_style == 'slant'
         let &l:statusline=s:SlantActiveStatusLine()
         call s:SlantColor()
-    elseif s:seperate_style == 'arrow'
-        let &l:statusline=s:ActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
-    elseif s:seperate_style == 'none'
-        let &l:statusline=s:ActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
+        return
     endif
+    let &l:statusline=s:ActiveStatusLine()
+    call s:Spaceline_Color(s:spaceline_colorscheme)
 endfunction
 
 function! s:SetInActiveStatusLine()
@@ -348,19 +342,12 @@ function! s:SetInActiveStatusLine()
         call s:Spaceline_Color(s:spaceline_colorscheme)
         return
     endif
-    if s:seperate_style == 'curve'
-        let &l:statusline=s:InActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
-    elseif s:seperate_style == 'slant'
+    if s:seperate_style == 'slant'
         let &l:statusline=s:SlantInActiveStatusLine()
         call s:SlantColor()
-    elseif s:seperate_style == 'arrow'
-        let &l:statusline=s:InActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
-    elseif s:seperate_style == 'none'
-        let &l:statusline=s:InActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
     endif
+    let &l:statusline=s:InActiveStatusLine()
+    call s:Spaceline_Color(s:spaceline_colorscheme)
 endfunction
 augroup spaceline
 	autocmd!
