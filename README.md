@@ -52,6 +52,14 @@ let g:spaceline_seperate_style= 'arrow'
 let g:spaceline_line_symbol = 0
 ```
 
+# Colorscheme
+
+- use this setting to change the spaceline colorshceme.
+
+```viml
+let g:spaceline_colorscheme = 'space'
+```
+
 # Custom
 
 - you can custom every symbol in spaceline. there are some very useful settings.first you should set the `g:seperate_mode` to 1
