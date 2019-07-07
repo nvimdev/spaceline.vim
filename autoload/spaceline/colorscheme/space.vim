@@ -19,7 +19,7 @@ let s:slc.gray = ['3c3836', 237]
 function! spaceline#colorscheme#space#space()
     call spaceline#spaceline#SpaceHL('HomeMode', s:slc, 'black', 'yellow')
     " Notice the slant group color is different other groups
-    if get(g:, 'spaceline_seperate_style', 'slant')==? 'slant'
+    if get(g:, 'spaceline_seperate_style', 'arrow')==? 'slant'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'black')
         call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'purple','black')
         call spaceline#spaceline#SpaceHL('FileSizeRight',s:slc, 'purple','black')
