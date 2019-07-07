@@ -102,7 +102,7 @@ function! Vimacslinemode()
   if s:symbol == 1
   return l:result
   endif
-  return join(['ﮭ',l:result])
+  return join([' ','ﮭ',l:result])
 endfunction
 
 function! s:get_buffer_number()
