@@ -158,16 +158,12 @@ endfunction
 
 function! spaceline#spaceline#CocStatusBar() abort
     let status=get(g:, 'coc_status', '')
-    if empty(status)
-        return ""
-    endif
     let regstatus=substitute(status,"TSC","Ⓣ ","")
     let statusbar= split(regstatus)
     if &filetype ==? "go"
         let gobar ="Ⓖ "
         call add(statusbar,gobar)
     endif
-    "return join(statusbar," ")
     let s = join(statusbar," ")
     if empty(s)
         return ""
