@@ -30,21 +30,25 @@ let g:spaceline_seperate_style= 'arrow'
 
 - normal mode
 
-  | group   | ScreenShot                                                                        |
-  | ------- | --------------------------------------------------------------------------------- |
-  | `none`  | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none-normal.png)  |
-  | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png) |
-  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png) |
-  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png) |
+  | group        | ScreenShot                                                                             |
+  | ------------ | -------------------------------------------------------------------------------------- |
+  | `none`       | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none-normal.png)       |
+  | `arrow`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png)      |
+  | `arrow-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-fade-normal.png) |
+  | `curve`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png)      |
+  | `slant`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png)      |
+  | `slant-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-fade-normal.png) |
 
 - synataxcheck mode
 
-  | group   | ScreenShot                                                                 |
-  | ------- | -------------------------------------------------------------------------- |
-  | `none`  | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none.png)  |
-  | `arrow` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png) |
-  | `curve` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png) |
-  | `slant` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png) |
+  | group        | ScreenShot                                                                            |
+  | ------------ | ------------------------------------------------------------------------------------- |
+  | `none`       | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none.png)             |
+  | `arrow`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png)            |
+  | `arrow-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-fade-error.png) |
+  | `curve`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png)            |
+  | `slant`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png)            |
+  | `slant-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-fade-error.png) |
 
 - if you doesnt like too many symbols in statusline, just set to 1, default 0
 
