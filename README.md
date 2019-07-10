@@ -23,7 +23,7 @@ Plug 'taigacute/spaceline.vim'
 
 # Mode
 
-- spaceline provide separator groups, include `arrow` `curve` `slant`.the default group is `arrow`
+- spaceline provide some separator groups, the default group is `arrow`
 
 ```viml
 let g:spaceline_seperate_style= 'arrow'
