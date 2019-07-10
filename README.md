@@ -6,6 +6,7 @@ Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute
 
 - We have airline, lightline, eleline, why make this plugin? They are great plugins, but they are limited and you can't set more separators.
 - More separator combinations make the status bar look better, but to handle combinations in different situations, spaceline does a good job in this area. The combination of each area is very good in different situations.
+- spaceline fatest than lightline ,airline
 
 # Install
 
