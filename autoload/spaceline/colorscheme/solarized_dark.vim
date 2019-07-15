@@ -62,5 +62,5 @@ function! spaceline#colorscheme#solarized_dark#solarized_dark()
     call spaceline#spaceline#SpaceHL('StatusLineinfo',s:slc,  'base03',  'cyan')
     call spaceline#spaceline#SpaceHL('EndSeperate',s:slc,  'base03',  'green')
     call spaceline#spaceline#SpaceHL('VimMode',s:slc,  'base03',  'cyan')
-    call spaceline#spaceline#SpaceHL('emptySeperate1',s:slc,  'green',  'base03')
+    call spaceline#spaceline#SpaceHL('emptySeperate1',s:slc,  'cyan',  'base03')
 endfunction
