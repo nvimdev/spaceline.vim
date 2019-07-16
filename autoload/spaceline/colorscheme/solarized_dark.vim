@@ -1,6 +1,6 @@
 " =============================================================================
-" Filename: spaceline.vim
-" Author: taigacute
+" Filename: solarized_dark.vim
+" Author: appelgriebsch
 " URL: https://github.com/taigacute/spaceline.vim
 " License: MIT License
 " =============================================================================
