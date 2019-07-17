@@ -60,11 +60,13 @@ let g:spaceline_line_symbol = 0
 # Colorscheme
 
 - use this setting to change the spaceline colorshceme.
-- now only have `space` theme, we need more colorscheme for spaceline.if you can make a new one.Welcome PR.
 
 ```viml
 let g:spaceline_colorscheme = 'space'
 ```
+
+- solarized_dark made by [appelgriebsch](https://github.com/appelgriebsch)
+  ![image](https://github.com/taigacute/IMG/blob/master/spaceline/solarized_dark.png)
 
 # Custom
 
