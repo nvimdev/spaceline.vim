@@ -38,7 +38,9 @@ function! spaceline#spaceline#VimacsLineinfo() abort
         \      &filetype ==? 'defx'             ? ' ' :
         \      &filetype ==? 'denite'           ? ' ' :
         \      &filetype ==? 'tagbar'           ? ' ' :
+        \      &filetype ==? 'vista'       ? ' ' :
         \      &filetype ==? 'vista_kind'       ? ' ' :
+        \      &filetype ==? 'magit'       ? ' ' :
         \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
         \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
         \      printf(' %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
@@ -48,6 +50,7 @@ function! spaceline#spaceline#VimacsLineinfo() abort
   \      &filetype ==? 'denite'           ? ' ' :
   \      &filetype ==? 'tagbar'           ? ' ' :
   \      &filetype ==? 'vista_kind'       ? ' ' :
+  \      &filetype ==? 'magit'       ? ' ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
   \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
   \      printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
@@ -130,6 +133,9 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
     return ''
   endif
   if &filetype ==? 'defx'
+      return ''
+  endif
+  if &filetype ==? 'magit'
       return ''
   endif
   if empty(expand('%:t'))
@@ -227,6 +233,9 @@ function! spaceline#spaceline#FileEncoding()
     if &filetype==?'defx'
         return ""
     endif
+    if &filetype==?'magit'
+        return ""
+    endif
      let l:encod = (&fenc!=#""?&fenc:&enc)
      if s:symbol == 1
      return ' '.l:encod
@@ -238,6 +247,9 @@ function! spaceline#spaceline#VimacsLineFiletype()
     if &filetype==? 'defx'
         return ""
     endif
+    if &filetype==?'magit'
+        return ""
+    endif
     if s:symbol == 1
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' : 'no ft') : ''
     endif
@@ -246,6 +258,9 @@ endfunction
 
 function! spaceline#spaceline#VimacsLineFileformat()
     if &filetype==? 'defx'
+        return ""
+    endif
+    if &filetype==?'magit'
         return ""
     endif
     if s:symbol == 1
