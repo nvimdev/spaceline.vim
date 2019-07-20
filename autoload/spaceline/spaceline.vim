@@ -177,6 +177,9 @@ function! spaceline#spaceline#CocStatusBar() abort
     if &filetype ==? 'defx'
         return ""
     endif
+    if &filetype ==? 'magit'
+        return ""
+    endif
     if &filetype ==? 'vista'
         return ""
     endif
@@ -247,7 +250,7 @@ function! spaceline#spaceline#VimacsLineFiletype()
     if &filetype==? 'defx'
         return ""
     endif
-    if &filetype==?'magit'
+    if &filetype==? 'magit'
         return ""
     endif
     if s:symbol == 1
@@ -260,8 +263,8 @@ function! spaceline#spaceline#VimacsLineFileformat()
     if &filetype==? 'defx'
         return ""
     endif
-    if &filetype==?'magit'
-        return ""
+    if &filetype==? 'magit'
+        return ''
     endif
     if s:symbol == 1
   return winwidth(0) > 70 ? (' '.&fileformat . ' ' ) : ''
