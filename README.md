@@ -5,8 +5,8 @@ Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute
 # Feature
 
 - We have airline, lightline, eleline, why make this plugin? They are great plugins, but they are limited and you can't set more separators.
-- More separator combinations make the status bar look better, but to handle combinations in different situations, spaceline does a good job in this area. The combination of each area is very good in different situations.
-- spaceline fatest than lightline ,airline
+- More separator combinations make the status bar look better, and spaceline handles combinations in different situations, very well. The combination of each area is very good in different situations.
+- spaceline is faster than lightline and airline
 
 # Install
 
@@ -16,10 +16,11 @@ Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute
 Plug 'taigacute/spaceline.vim'
 ```
 
-# Supprot Plugin
+# Required Plugins
 
 - [coc](https://github.com/neoclide/coc.nvim)
-- depends on coc extensions `coc-git` ,[vim-devicons](https://github.com/ryanoasis/vim-devicons)
+- Depends on coc extensions `coc-git`
+- [vim-devicons](https://github.com/ryanoasis/vim-devicons)
 
 # Mode
 
@@ -40,7 +41,7 @@ let g:spaceline_seperate_style= 'arrow'
   | `slant`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png)      |
   | `slant-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-fade-normal.png) |
 
-- synataxcheck mode
+- syntaxcheck mode
 
   | group        | ScreenShot                                                                            |
   | ------------ | ------------------------------------------------------------------------------------- |
@@ -51,7 +52,7 @@ let g:spaceline_seperate_style= 'arrow'
   | `slant`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png)            |
   | `slant-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-fade-error.png) |
 
-- if you doesnt like too many symbols in statusline, just set to 1, default 0
+- If you don't like too many symbols in the statusline, just set to `1` (default is `0`)
 
 ```viml
 let g:spaceline_line_symbol = 0
@@ -59,7 +60,7 @@ let g:spaceline_line_symbol = 0
 
 # Colorscheme
 
-- use this setting to change the spaceline colorshceme.
+- Use this setting to change the spaceline colorscheme:
 
 ```viml
 let g:spaceline_colorscheme = 'space'
@@ -70,14 +71,13 @@ let g:spaceline_colorscheme = 'space'
 
 # Custom
 
-- you can custom every symbol in spaceline. there are some very useful settings.first you should set the `g:seperate_mode` to 1
+- You can customize every symbol in spaceline. There are some very useful settings, first, you should set the `g:seperate_mode` to `1`
 
 ```viml
-
 let g:spaceline_seperate_mode = 0
 ```
 
-- then set any seperate by these settings
+- Then set seperators by these settings:
 
 ```viml
         let g:spaceline_homemode_right = ''
