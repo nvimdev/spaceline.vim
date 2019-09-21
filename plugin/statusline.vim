@@ -21,7 +21,7 @@ if s:seperate_style ==1
 endif
 
 function! s:SlantActiveStatusLine()
-    if &filetype ==? 'defx' ||&filetype==?'vista'
+    if &filetype ==? 'defx' ||&filetype==?'vista' || &filetype ==? 'coc-explorer'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
@@ -81,7 +81,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%#GitRight#"
         let s:statusline.=s:sep.gitright
     endif
-    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx'
+    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer'
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=s:sep.emptySeperate1
     endif
@@ -125,7 +125,7 @@ function! s:SlantInActiveStatusLine()
     return s:statusline
 endfunction
 function! s:ActiveStatusLine()
-    if &filetype ==? 'defx' || &filetype==?'vista'
+    if &filetype ==? 'defx' || &filetype==?'vista' || &filetype==?'coc-explorer'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
@@ -187,7 +187,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#GitRight#"
         let s:statusline.=s:sep.gitright
     endif
-    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx'
+    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer'
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=s:sep.emptySeperate1
     endif
