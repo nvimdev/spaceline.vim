@@ -66,7 +66,7 @@ function! spaceline#spaceline#Filesize()abort
   if s:symbol == 1
     return Fsize(@%)
   endif
-    return "ﴬ".Fsize(@%)
+    return "ﴬ ".Fsize(@%)
 endfunction
 
 function! Fsize(f) abort
@@ -83,7 +83,7 @@ function! Fsize(f) abort
   else
     let size = printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'g'
   endif
-  return " ".size
+  return size
 endfunction
 
 function! spaceline#spaceline#VimacslineMode() abort
@@ -219,31 +219,31 @@ endfunction
 function! VimacsLineFname()
   let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft')
   if s:symbol == 1
-      let icon= ''
+    let icon = ''
   endif
   let filename = VimacsLineFilename()
-  let ret = [filename,icon]
+  let ret = [filename, icon]
   if filename == ''
     return ''
   endif
-  return join([icon,filename],' ')
+  return icon ? join([icon, filename], ' ') : filename
 endfunction
 function! VimacsLineFilename()
   return ('' != VimacsLineReadonly() ? VimacsLineReadonly() . ' ' : '') .
         \ ('' != expand('%:t') ? expand('%:t') : '')
 endfunction
 function! spaceline#spaceline#FileEncoding()
-    if &filetype==?'defx'
-        return ""
-    endif
-    if &filetype==?'magit'
-        return ""
-    endif
-     let l:encod = (&fenc!=#""?&fenc:&enc)
-     if s:symbol == 1
-     return ' '.l:encod
-     endif
-     return "".' '.l:encod
+  if &filetype ==? 'defx'
+    return ""
+  endif
+  if &filetype ==? 'magit'
+    return ""
+  endif
+  let l:encod = (&fenc !=# "" ? &fenc : &enc)
+  if s:symbol == 1
+    return l:encod
+  endif
+  return ' ' . l:encod
 endfunction
 
 function! spaceline#spaceline#VimacsLineFiletype()
