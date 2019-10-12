@@ -66,6 +66,8 @@ let g:spaceline_line_symbol = 0
 let g:spaceline_colorscheme = 'space'
 ```
 
+- base16_dark
+
 - solarized_dark made by [appelgriebsch](https://github.com/appelgriebsch)
   ![image](https://github.com/taigacute/IMG/blob/master/spaceline/solarized_dark.png)
 
