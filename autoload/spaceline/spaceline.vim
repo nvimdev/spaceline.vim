@@ -45,12 +45,13 @@ function! spaceline#spaceline#VimacsLineinfo() abort
         \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
         \      printf(' %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
     endif
-    return &filetype ==? 'help'             ? ''  :
+    return &filetype ==? 'help'           ? ''  :
   \      &filetype ==? 'defx'             ? ' ' :
+  \      &filetype ==? 'coc-explorer'     ? ' ' :
   \      &filetype ==? 'denite'           ? ' ' :
   \      &filetype ==? 'tagbar'           ? ' ' :
   \      &filetype ==? 'vista_kind'       ? ' ' :
-  \      &filetype ==? 'magit'       ? ' ' :
+  \      &filetype ==? 'magit'            ? ' ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
   \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
   \      printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
