@@ -29,7 +29,7 @@ function! s:vimacsline_is_lean() abort
 endfunction
 
 function! s:vimacsline_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|vista_kind|vista|magit|tagbar$'
+  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|vista_kind|vista|magit|tagbar$'
 endfunction
 
 function! spaceline#spaceline#VimacsLineinfo() abort
