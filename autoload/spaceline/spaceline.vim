@@ -133,6 +133,9 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
   if &filetype ==? 'vista'
     return ''
   endif
+  if &filetype ==? 'coc-explorer'
+      return ''
+  endif
   if &filetype ==? 'defx'
       return ''
   endif
