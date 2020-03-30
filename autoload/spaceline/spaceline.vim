@@ -106,7 +106,7 @@ function! Vimacslinemode()
   if s:symbol == 1
   return l:result
   endif
-  return join([' ', 'ﮭ',l:result])
+  return join([' ',l:result])
 endfunction
 
 function! s:get_buffer_number()
@@ -247,7 +247,7 @@ function! spaceline#spaceline#FileEncoding()
   if s:symbol == 1
     return l:encod
   endif
-  return ' ' . l:encod
+  return '  ' . l:encod
 endfunction
 
 function! spaceline#spaceline#VimacsLineFiletype()
