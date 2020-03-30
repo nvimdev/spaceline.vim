@@ -29,18 +29,19 @@ function! s:vimacsline_is_lean() abort
 endfunction
 
 function! s:vimacsline_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|vista_kind|vista|magit|tagbar$'
+  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|nerdtree|vista_kind|vista|magit|tagbar$'
 endfunction
 
 function! spaceline#spaceline#VimacsLineinfo() abort
     if s:symbol ==1
             return &filetype ==? 'help'             ? ''  :
         \      &filetype ==? 'defx'             ? ' ' :
+        \      &filetype ==? 'nerdtree'         ? ' ' :
         \      &filetype ==? 'denite'           ? ' ' :
         \      &filetype ==? 'tagbar'           ? ' ' :
-        \      &filetype ==? 'vista'       ? ' ' :
+        \      &filetype ==? 'vista'            ? ' ' :
         \      &filetype ==? 'vista_kind'       ? ' ' :
-        \      &filetype ==? 'magit'       ? ' ' :
+        \      &filetype ==? 'magit'            ? ' ' :
         \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
         \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
         \      printf(' %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
@@ -48,6 +49,7 @@ function! spaceline#spaceline#VimacsLineinfo() abort
     return &filetype ==? 'help'           ? ''  :
   \      &filetype ==? 'defx'             ? ' ' :
   \      &filetype ==? 'coc-explorer'     ? ' ' :
+  \      &filetype ==? 'nerdtree'         ? ' ' :
   \      &filetype ==? 'denite'           ? ' ' :
   \      &filetype ==? 'tagbar'           ? ' ' :
   \      &filetype ==? 'vista_kind'       ? ' ' :
@@ -134,6 +136,9 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
     return ''
   endif
   if &filetype ==? 'coc-explorer'
+      return ''
+  endif
+  if &filetype ==? 'nerdtree'
       return ''
   endif
   if &filetype ==? 'defx'
