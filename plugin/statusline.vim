@@ -234,9 +234,6 @@ function! s:Spaceline_Color(theme)
 endfunction
 
 function! s:SetStatusline()
-  if &filetype ==? 'Goyo'
-    return 0
-  else
     if s:seperate_mode ==1
         let &l:statusline=s:ActiveStatusLine()
         call s:Spaceline_Color(s:spaceline_colorscheme)
@@ -249,7 +246,6 @@ function! s:SetStatusline()
     endif
     let &l:statusline=s:ActiveStatusLine()
     call s:Spaceline_Color(s:spaceline_colorscheme)
-  endif
 endfunction
 
 function! s:SetInActiveStatusLine()
