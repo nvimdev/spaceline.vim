@@ -262,13 +262,14 @@ function! s:SetInActiveStatusLine()
     let &l:statusline=s:InActiveStatusLine()
     call s:Spaceline_Color(s:spaceline_colorscheme)
 endfunction
+
 augroup spaceline
-	autocmd!
-	autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call s:SetStatusline()
-    autocmd WinLeave * call s:SetInActiveStatusLine()
-    autocmd BufNewFile,ShellCmdPost,BufWritePost * call s:SetStatusline()
-    autocmd FileChangedShellPost,ColorScheme * call s:SetStatusline()
-    autocmd FileReadPre,ShellCmdPost,FileWritePost * call s:SetStatusline()
-    autocmd User CocStatusChange,CocGitStatusChange call s:SetStatusline()
-    autocmd  User CocDiagnosticChange call s:SetStatusline()
+  autocmd!
+  autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call s:SetStatusline()
+  autocmd WinLeave * call s:SetInActiveStatusLine()
+  autocmd BufNewFile,ShellCmdPost,BufWritePost * call s:SetStatusline()
+  autocmd FileChangedShellPost,ColorScheme * call s:SetStatusline()
+  autocmd FileReadPre,ShellCmdPost,FileWritePost * call s:SetStatusline()
+  autocmd User CocStatusChange,CocGitStatusChange call s:SetStatusline()
+  autocmd User CocDiagnosticChange call s:SetStatusline()
 augroup END "}}}
