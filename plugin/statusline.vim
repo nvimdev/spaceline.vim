@@ -44,7 +44,7 @@ function! s:SlantActiveStatusLine()
     if !empty(spaceline#spaceline#Filesize())
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=s:sep.filenameright
-        let s:statusline.="\ "
+        "let s:statusline.="\ "
         let s:statusline.="%#FileSize#"
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#Filesize()}"
@@ -72,8 +72,9 @@ function! s:SlantActiveStatusLine()
     endif
     if !empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#GitLeft#"
-        let s:statusline.=s:sep.gitleft
         let s:statusline.="\ "
+        let s:statusline.=s:sep.gitleft
+        "let s:statusline.="\ "
         let s:statusline.="%#GitInfo#"
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#VimacsLineGit()}"
@@ -95,7 +96,6 @@ function! s:SlantActiveStatusLine()
     let s:statusline.="%="
     let s:statusline.="%#LineInfoLeft#"
     let s:statusline.=s:sep.lineinfoleft
-    let s:statusline.="\ "
     let s:statusline.="%#StatusEncod#"
     let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
     let s:statusline.="\ "
@@ -151,11 +151,11 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=s:sep.filenameright
         let s:statusline.="%#FileSize#"
-        let s:statusline.="\ "
+        "let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#Filesize()}"
         let s:statusline.="\ "
         let s:statusline.="%#FileSizeRight#"
-        " let s:statusline.="\ "
+        let s:statusline.="\ "
         let s:statusline.=s:sep.filesizeright
     endif
 
