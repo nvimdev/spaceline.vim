@@ -55,7 +55,6 @@ function! s:SlantActiveStatusLine()
     if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn())
         let s:statusline.="\ "
         let s:statusline.="%#HeartSymbol#"
-        let s:statusline.="\ "
         let s:statusline.="%#CocError#"
         let s:statusline.="%{spaceline#spaceline#VimacsLineCocError()}"
         let s:statusline.="\ "
@@ -123,6 +122,7 @@ function! s:SlantInActiveStatusLine()
     let s:statusline.=s:sep.EndSeperate
     return s:statusline
 endfunction
+
 function! s:ActiveStatusLine()
     if &filetype ==? 'defx' || &filetype==?'vista' || &filetype==?'coc-explorer'
         let s:statusline=""
@@ -160,7 +160,6 @@ function! s:ActiveStatusLine()
 
     if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn())
         let s:statusline.="%#HeartSymbol#"
-        let s:statusline.="\ "
         let s:statusline.="%#CocError#"
         let s:statusline.="%{spaceline#spaceline#VimacsLineCocError()}"
         let s:statusline.="\ "
