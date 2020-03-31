@@ -13,7 +13,7 @@ function! spaceline#seperator#spacelineCustomSeperate()
         let s:seperator.gitright = get(g:, 'spaceline_gitinfo_right','')
         let s:seperator.lineinfoleft = get(g:, 'spaceline_cocexts_right','')
         let s:seperator.lineformatright = get(g:, 'spaceline_lineformat_right', '')
-        let s:seperator.EndSeperate = get(g:, 'spaceline_seperate_endseperate',' ')
+        let s:seperator.EndSeperate = get(g:, 'spaceline_seperate_endseperate','')
         let s:seperator.emptySeperate1 = get(g:, 'spaceline_seperate_emptyseperate','')
         return s:seperator
 endfunction
@@ -28,7 +28,7 @@ function! spaceline#seperator#spacelineStyle(style)
         let s:seperator.gitright = ''
         let s:seperator.lineinfoleft = ''
         let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ''
+        let s:seperator.EndSeperate = ''
         let s:seperator.emptySeperate1 = ''
     elseif a:style == 'slant-fade'
         let s:seperator.homemoderight = ''
@@ -38,7 +38,7 @@ function! spaceline#seperator#spacelineStyle(style)
         let s:seperator.gitright = ''
         let s:seperator.lineinfoleft = ''
         let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ''
+        let s:seperator.EndSeperate = ''
         let s:seperator.emptySeperate1 = ''
     elseif a:style == 'arrow-fade'
         let s:seperator.homemoderight = ''
