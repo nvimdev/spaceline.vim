@@ -34,7 +34,7 @@ endfunction
 
 function! spaceline#spaceline#VimacsLineinfo() abort
     if s:symbol ==1
-            return &filetype ==? 'help'             ? ''  :
+        return &filetype ==? 'help'             ? ''  :
         \      &filetype ==? 'defx'             ? ' ' :
         \      &filetype ==? 'nerdtree'         ? ' ' :
         \      &filetype ==? 'denite'           ? ' ' :
@@ -106,7 +106,7 @@ function! Vimacslinemode()
     let l:number = l:number / 10
   endfor
   if s:symbol == 1
-  return l:result
+    return l:result
   endif
   return join([' ',l:result])
 endfunction
@@ -220,6 +220,7 @@ function! spaceline#spaceline#VimacsLineCocWarn() abort
   endif
  return join(warnmsgs, ' ')
 endfunction
+
 function! VimacslineCocFixes() abort
   let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
   return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
@@ -281,13 +282,6 @@ function! spaceline#spaceline#VimacsLineFileformat()
   return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol().' '.&fileformat . ' ' ) : ''
 endfunction
 
-function! spaceline#spaceline#HeartErrorSymbol()
-  let l:cocdiaginfo = get(b:, 'coc_diagnostic_info', {})
-  if empty(l:cocdiaginfo)
-    return ''
-  endif
-  return " "
-endfunction
 
 function! spaceline#spaceline#VimMode()
   let l:mode=mode()
@@ -309,6 +303,7 @@ function! spaceline#spaceline#VimMode()
     return "SE"
   endif
 endfunction
+
 function! spaceline#spaceline#SpaceHL(group,slc,  fg, ...)
     " Arguments: group, guifg, guibg, gui, guisp
     let histring = 'hi ' . a:group . ' '

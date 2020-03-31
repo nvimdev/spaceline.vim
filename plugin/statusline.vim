@@ -56,7 +56,6 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="\ "
         let s:statusline.="%#HeartSymbol#"
         let s:statusline.="\ "
-        let s:statusline.="%{spaceline#spaceline#HeartErrorSymbol()}"
         let s:statusline.="%#CocError#"
         let s:statusline.="%{spaceline#spaceline#VimacsLineCocError()}"
         let s:statusline.="\ "
@@ -162,7 +161,6 @@ function! s:ActiveStatusLine()
     if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn())
         let s:statusline.="%#HeartSymbol#"
         let s:statusline.="\ "
-        let s:statusline.="%{spaceline#spaceline#HeartErrorSymbol()}"
         let s:statusline.="%#CocError#"
         let s:statusline.="%{spaceline#spaceline#VimacsLineCocError()}"
         let s:statusline.="\ "
