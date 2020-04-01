@@ -39,7 +39,7 @@ function! spaceline#seperator#spacelineStyle(style)
         let s:seperator.lineinfoleft = ''
         let s:seperator.lineformatright = ''
         let s:seperator.EndSeperate = ' '
-        let s:seperator.emptySeperate1 = ''
+        let s:seperator.emptySeperate1 = ''
     elseif a:style == 'slant-fade'
         let s:seperator.homemoderight = ''
         let s:seperator.filenameright = ''
