@@ -262,6 +262,7 @@ endfunction
 
 function! s:disablespaceline()
 	let &l:statusline=''
+  setlocal laststatus=0
 endfunction
 
 command! -nargs=?   -bar -bang DisableSpaceline call s:disablespaceline()
