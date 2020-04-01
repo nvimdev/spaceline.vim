@@ -154,7 +154,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%{spaceline#spaceline#Filesize()}"
         let s:statusline.="\ "
         let s:statusline.="%#FileSizeRight#"
-        let s:statusline.="\ "
+        "let s:statusline.=\ "
         let s:statusline.=s:sep.filesizeright
     endif
 
