@@ -10,8 +10,6 @@ if exists('g:loaded_spaceline') || v:version < 700
 endif
 let g:loaded_spaceline = 1
 
-let s:enable = 1
-
 let s:seperate_mode = get(g:, 'spaceline_seperate_mode', 0)
 let s:seperate_style = get(g:, 'spaceline_seperate_style', 'arrow')
 let s:spaceline_colorscheme = get(g:, 'spaceline_colorscheme', 'space')
@@ -262,21 +260,6 @@ function! s:SetInActiveStatusLine()
     call s:Spaceline_Color(s:spaceline_colorscheme)
 endfunction
 
-function! s:update_disable() abort
-  if s:enable == 1
-    return
-  endif
-  call setwinvar(0, '&statusline', '')
-endfunction
-
-function! s:disablespaceline()
-  augroup lightline-disable
-    autocmd!
-    autocmd WinEnter * call s:update_disable()
-  augroup END
-  let s:enable = 2
-endfunction
-
 augroup spaceline
   autocmd!
   autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call s:SetStatusline()
@@ -286,5 +269,4 @@ augroup spaceline
   autocmd FileReadPre,ShellCmdPost,FileWritePost * call s:SetStatusline()
   autocmd User CocStatusChange,CocGitStatusChange call s:SetStatusline()
   autocmd User CocDiagnosticChange call s:SetStatusline()
-  autocmd! User GoyoEnter nested call s:disablespaceline()
 augroup END "}}}
