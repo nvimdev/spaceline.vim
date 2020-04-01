@@ -264,7 +264,7 @@ function! s:SpacelineToggle()
 	if get(g:,'loaded_spaceline',0) ==1
     call s:SetStatusline()
   else
-    let &l:statusline=\
+    let &l:statusline=''
   endif
 endfunction
 
