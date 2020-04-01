@@ -17,7 +17,7 @@ let s:slc.lightblue = ['6272a4', 225]
 let s:slc.darkpurple = ['5f00af', 55]
 let s:slc.green = ['afd700', 148]
 let s:slc.gray = ['3c3836', 237]
-function! spaceline#colorscheme#spacev2#spacev2()
+function! spaceline#colorscheme#space#space()
     call spaceline#spaceline#SpaceHL('HomeMode', s:slc, 'navy', 'yellow')
     if get(g:,'spaceline_seperate_style', 'arrow') == 'slant'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
