@@ -68,7 +68,7 @@ function! spaceline#spaceline#Filesize()abort
   if &filetype ==? 'defx'
       return ''
   endif
-  return Fsize(@%)
+  return " ".Fsize(@%)
 endfunction
 
 function! Fsize(f) abort
