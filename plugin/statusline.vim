@@ -231,7 +231,7 @@ function! s:Spaceline_Color(theme)
 endfunction
 
 function! s:SetStatusline()
-  if get(g:,'loaded_spaceline',0) == 1
+  if get(g:,'loaded_spaceline',0)
     if s:seperate_mode ==1
         let &l:statusline=s:ActiveStatusLine()
         call s:Spaceline_Color(s:spaceline_colorscheme)
@@ -263,13 +263,6 @@ function! s:SetInActiveStatusLine()
     let &l:statusline=s:InActiveStatusLine()
     call s:Spaceline_Color(s:spaceline_colorscheme)
 endfunction
-
-function! s:disablespaceline()
-  let &l:statusline=''
-  setlocal laststatus=0
-endfunction
-
-command! -nargs=*  -bar -bang DisableSpaceline call s:disablespaceline()
 
 augroup spaceline
   autocmd!
