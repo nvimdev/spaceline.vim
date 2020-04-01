@@ -261,11 +261,11 @@ function! s:SetInActiveStatusLine()
 endfunction
 
 function! s:disablespaceline()
-	let &l:statusline=''
+  let &l:statusline=''
   setlocal laststatus=0
 endfunction
 
-command! -nargs=?   -bar -bang DisableSpaceline call s:disablespaceline()
+command! -nargs=*  -bar -bang DisableSpaceline call s:disablespaceline()
 
 augroup spaceline
   autocmd!
@@ -276,4 +276,6 @@ augroup spaceline
   autocmd FileReadPre,ShellCmdPost,FileWritePost * call s:SetStatusline()
   autocmd User CocStatusChange,CocGitStatusChange call s:SetStatusline()
   autocmd User CocDiagnosticChange call s:SetStatusline()
+  autocmd User GoyoEnter call s:disablespaceline()
+  autocmd User GoyoLeave call s:SetStatusline()
 augroup END "}}}
