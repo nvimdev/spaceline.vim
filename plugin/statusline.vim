@@ -1,4 +1,4 @@
-" =============================================================================
+zsh:1: command not found: =
 " Filename: spaceline.vim
 " Author: taigacute
 " URL: https://github.com/taigacute/spaceline.vim
@@ -231,6 +231,7 @@ function! s:Spaceline_Color(theme)
 endfunction
 
 function! s:SetStatusline()
+  if get(g:,'loaded_spaceline',0) == 1
     if s:seperate_mode ==1
         let &l:statusline=s:ActiveStatusLine()
         call s:Spaceline_Color(s:spaceline_colorscheme)
@@ -243,6 +244,9 @@ function! s:SetStatusline()
     endif
     let &l:statusline=s:ActiveStatusLine()
     call s:Spaceline_Color(s:spaceline_colorscheme)
+  else
+    let &l:statusline=''
+  endif
 endfunction
 
 function! s:SetInActiveStatusLine()
