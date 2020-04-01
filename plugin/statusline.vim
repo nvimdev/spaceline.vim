@@ -276,6 +276,6 @@ augroup spaceline
   autocmd FileReadPre,ShellCmdPost,FileWritePost * call s:SetStatusline()
   autocmd User CocStatusChange,CocGitStatusChange call s:SetStatusline()
   autocmd User CocDiagnosticChange call s:SetStatusline()
-  autocmd User GoyoEnter call s:disablespaceline()
-  autocmd User GoyoLeave call s:SetStatusline()
+  autocmd User GoyoEnter nested call s:disablespaceline()
+  autocmd User GoyoLeave nested call s:SetStatusline()
 augroup END "}}}
