@@ -270,11 +270,11 @@ endfunction
 
 augroup spaceline
   autocmd!
-  autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call s:s:SpacelineToggle()
+  autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call s:SpacelineToggle()
   autocmd WinLeave * call s:SetInActiveStatusLine()
-  autocmd BufNewFile,ShellCmdPost,BufWritePost * call s:s:SpacelineToggle()
-  autocmd FileChangedShellPost,ColorScheme * call s:s:SpacelineToggle()
-  autocmd FileReadPre,ShellCmdPost,FileWritePost * call s:s:SpacelineToggle()
-  autocmd User CocStatusChange,CocGitStatusChange call s:s:SpacelineToggle()
-  autocmd User CocDiagnosticChange call s:s:SpacelineToggle()
+  autocmd BufNewFile,ShellCmdPost,BufWritePost * call s:SpacelineToggle()
+  autocmd FileChangedShellPost,ColorScheme * call s:SpacelineToggle()
+  autocmd FileReadPre,ShellCmdPost,FileWritePost * call s:SpacelineToggle()
+  autocmd User CocStatusChange,CocGitStatusChange call s:SpacelineToggle()
+  autocmd User CocDiagnosticChange call s:SpacelineToggle()
 augroup END "}}}
