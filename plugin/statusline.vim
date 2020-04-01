@@ -260,6 +260,12 @@ function! s:SetInActiveStatusLine()
     call s:Spaceline_Color(s:spaceline_colorscheme)
 endfunction
 
+function! s:disablespaceline()
+	let &l:statusline=''
+endfunction
+
+command! -nargs=?   -bar -bang DisableSpaceline call s:disablespaceline()
+
 augroup spaceline
   autocmd!
   autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call s:SetStatusline()
