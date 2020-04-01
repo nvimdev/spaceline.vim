@@ -16,7 +16,7 @@ let s:slc.lightblue = ['6272a4', 225]
 let s:slc.darkpurple = ['5f00af', 55]
 let s:slc.green = ['afd700', 148]
 let s:slc.gray = ['3c3836', 237]
-function! spaceline#colorscheme#space#space()
+function! spaceline#colorscheme#spacev2#spacev2()
     call spaceline#spaceline#SpaceHL('HomeMode', s:slc, 'navy', 'yellow')
     if get(g:,'spaceline_seperate_style', 'arrow') == 'slant'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
@@ -25,11 +25,11 @@ function! spaceline#colorscheme#space#space()
         call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'purple',  'navy')
         call spaceline#spaceline#SpaceHL('Gitright',s:slc,  'purple',  'navy')
     elseif get(g:,'spaceline_seperate_style','arrow') == 'slant-cons'
-        call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'navy', 'yellow')
-        call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'purple','navy')
-        call spaceline#spaceline#SpaceHL('FileSizeRight',s:slc, 'navy','purple')
-        call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'purple',  'navy')
-        call spaceline#spaceline#SpaceHL('Gitright',s:slc,  'navy',  'purple')
+        call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
+        call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'navy','purple')
+        call spaceline#spaceline#SpaceHL('FileSizeRight',s:slc, 'purple','navy')
+        call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'navy',  'purple')
+        call spaceline#spaceline#SpaceHL('Gitright',s:slc,  'purple',  'navy')
     elseif get(g:,'spaceline_seperate_style','arrow') == 'slant-fade'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
         call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'purple','navy')
@@ -57,10 +57,8 @@ function! spaceline#colorscheme#space#space()
     call spaceline#spaceline#SpaceHL('GitInfo',s:slc,  'lightgray',  'purple')
     call spaceline#spaceline#SpaceHL('CocBar',s:slc,  'lightblue',  'navy')
     call spaceline#spaceline#SpaceHL('LineInfoLeft',s:slc,  'purple',  'navy')
-    if get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-fade'
+    if get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-fade' || get(g:,'spaceline_seperate_style','arrow') == 'slant-cons'
         call spaceline#spaceline#SpaceHL('LineFormatRight',s:slc,  'navy',  'purple')
-    elseif get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-cons'
-        call spaceline#spaceline#SpaceHL('LineFormatRight',s:slc,  'purple',  'navy')
     else
         call spaceline#spaceline#SpaceHL('LineFormatRight',s:slc,  'purple',  'navy')
     endif
