@@ -29,7 +29,7 @@ function! s:vimacsline_is_lean() abort
 endfunction
 
 function! s:vimacsline_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|nerdtree|vista_kind|vista|magit|tagbar$'
+  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|vim-plug|nerdtree|vista_kind|vista|magit|tagbar$'
 endfunction
 
 function! spaceline#spaceline#VimacsLineinfo() abort
@@ -39,6 +39,7 @@ function! spaceline#spaceline#VimacsLineinfo() abort
         \      &filetype ==? 'nerdtree'         ? ' ' :
         \      &filetype ==? 'denite'           ? ' ' :
         \      &filetype ==? 'tagbar'           ? ' ' :
+        \      &filetype ==? 'vim-plug'         ? ' ' :
         \      &filetype ==? 'vista'            ? ' ' :
         \      &filetype ==? 'vista_kind'       ? ' ' :
         \      &filetype ==? 'magit'            ? ' ' :
@@ -54,6 +55,7 @@ function! spaceline#spaceline#VimacsLineinfo() abort
   \      &filetype ==? 'tagbar'           ? ' ' :
   \      &filetype ==? 'vista_kind'       ? ' ' :
   \      &filetype ==? 'magit'            ? ' ' :
+  \      &filetype ==? 'vim-plug'            ? ' ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
   \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
   \      printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
@@ -136,6 +138,9 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
     return ''
   endif
   if &filetype ==? 'coc-explorer'
+      return ''
+  endif
+  if &filetype ==? 'vim-plug'
       return ''
   endif
   if &filetype ==? 'nerdtree'
