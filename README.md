@@ -71,6 +71,9 @@ let g:spaceline_colorscheme = 'space'
 - solarized_dark made by [appelgriebsch](https://github.com/appelgriebsch)
   ![image](https://github.com/taigacute/IMG/blob/master/spaceline/solarized_dark.png)
 
+# Goyo Support
+- check the thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
+
 # Custom
 
 - You can customize every symbol in spaceline. There are some very useful settings, first, you should set the `g:seperate_mode` to `1`
