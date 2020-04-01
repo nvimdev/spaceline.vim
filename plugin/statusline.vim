@@ -67,10 +67,11 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="\["
         let s:statusline.="%{spaceline#spaceline#VimMode()}"
         let s:statusline.="\]"
+        let s:statusline.="\ "
     endif
     if !empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#GitLeft#"
-        let s:statusline.="\ "
+        "let s:statusline.="\ "
         let s:statusline.=s:sep.gitleft
         "let s:statusline.="\ "
         let s:statusline.="%#GitInfo#"
