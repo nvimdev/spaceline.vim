@@ -68,10 +68,7 @@ function! spaceline#spaceline#Filesize()abort
   if &filetype ==? 'defx'
       return ''
   endif
-  if s:symbol == 1
-    return Fsize(@%)
-  endif
-    return "ﴬ ".Fsize(@%)
+  return Fsize(@%)
 endfunction
 
 function! Fsize(f) abort
