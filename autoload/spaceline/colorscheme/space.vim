@@ -24,6 +24,12 @@ function! spaceline#colorscheme#space#space()
         call spaceline#spaceline#SpaceHL('FileSizeRight',s:slc, 'purple','navy')
         call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'purple',  'navy')
         call spaceline#spaceline#SpaceHL('Gitright',s:slc,  'purple',  'navy')
+    elseif get(g:,'spaceline_seperate_style','arrow') == 'slant-cons'
+        call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'navy', 'yellow')
+        call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'purple','navy')
+        call spaceline#spaceline#SpaceHL('FileSizeRight',s:slc, 'navy','purple')
+        call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'purple',  'navy')
+        call spaceline#spaceline#SpaceHL('Gitright',s:slc,  'navy',  'purple')
     elseif get(g:,'spaceline_seperate_style','arrow') == 'slant-fade'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
         call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'purple','navy')
@@ -53,6 +59,8 @@ function! spaceline#colorscheme#space#space()
     call spaceline#spaceline#SpaceHL('LineInfoLeft',s:slc,  'purple',  'navy')
     if get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-fade'
         call spaceline#spaceline#SpaceHL('LineFormatRight',s:slc,  'navy',  'purple')
+    elseif get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-cons'
+        call spaceline#spaceline#SpaceHL('LineFormatRight',s:slc,  'purple',  'navy')
     else
         call spaceline#spaceline#SpaceHL('LineFormatRight',s:slc,  'purple',  'navy')
     endif
