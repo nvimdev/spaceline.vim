@@ -56,8 +56,6 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="\ "
         let s:statusline.="%#HeartSymbol#"
         let s:statusline.="%#CocError#"
-        " test here
-        let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#VimacsLineCocError()}"
         let s:statusline.="\ "
         let s:statusline.="%#CocWarn#"
@@ -68,7 +66,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%#VimMode#"
         "let s:statusline.="\["
         let s:statusline.="%{spaceline#spaceline#VimMode()}"
-        "let s:statusline.="\]"
+        let s:statusline.="\ "
         let s:statusline.="\ "
     endif
     if !empty(get(g:,'coc_git_status',''))
