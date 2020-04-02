@@ -306,9 +306,10 @@ function! spaceline#spaceline#VimMode()
   endif
 endfunction
 
-function! spaceline#spaceline#Setbgcoloronline(slc,midbgcolor)
+function! spaceline#spaceline#Setbgcoloronline(slc,colorname)
    let s:bgcolor = synIDattr(hlID("Normal"), "bg")
-   a.slc.midbgcolor=[s:bgcolor,'none']
+   let coname = a:colorname
+   a:slc.coname=[s:bgcolor,'none']
 endfunction
 
 

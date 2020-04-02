@@ -36,10 +36,11 @@ let g:spaceline_seperate_style= 'arrow'
   | ------------ | -------------------------------------------------------------------------------------- |
   | `none`       | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none-normal.png)       |
   | `arrow`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png)      |
-  | `arrow-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-fade-normal.png) |
+  | `arrow-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-fade-normal.png) |  
   | `curve`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png)      |
   | `slant`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png)      |
   | `slant-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-fade-normal.png) |
+  | `slant-cons` | ![image](https://raw.githubusercontent.com/taigacute/IMG/master/spaceline/slant-cons.png) |
 
 - syntaxcheck mode
 
