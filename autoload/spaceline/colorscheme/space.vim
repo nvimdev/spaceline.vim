@@ -7,7 +7,6 @@
 let s:slc={}
 let s:slc.yellow = ['fabd2f', 214]
 let s:slc.navy = ['242B38', 237]
-" let s:slc.darknavy = ['0F1419', 111]
 let s:slc.lightgray= ['d7d7d7', 188]
 let s:slc.purple = ['5d4d7a', 261]
 let s:slc.orange  = ['af5f00', 130]
@@ -17,15 +16,12 @@ let s:slc.lightblue = ['6272a4', 225]
 let s:slc.darkpurple = ['5f00af', 55]
 let s:slc.green = ['afd700', 148]
 let s:slc.gray = ['3c3836', 237]
+let s:slc.darknavy=[]
 
-function! s:getcurrentbgcolor()
-   let s:bgcolor = synIDattr(hlID("Normal"), "bg")
-   let s.slc.darknavy = [s:bgcolor,none]
-endfunction
+call spaceline#spaceline#Setmidcolor(s:slc.darknavy)
 
-call s:getcurrentbgcolor()
 
-function! spaceline#colorscheme#space#space()
+function! spaceline#colorscheme#spacev2#spacev2()
     call spaceline#spaceline#SpaceHL('HomeMode', s:slc, 'navy', 'yellow')
     if get(g:,'spaceline_seperate_style', 'arrow') == 'slant'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
