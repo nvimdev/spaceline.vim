@@ -306,6 +306,12 @@ function! spaceline#spaceline#VimMode()
   endif
 endfunction
 
+function! spaceline#spaceline#Setbgcoloronline(slc,midbgcolor)
+   let s:bgcolor = synIDattr(hlID("Normal"), "bg")
+   a.slc.midbgcolor=[s:bgcolor,'none']
+endfunction
+
+
 function! spaceline#spaceline#SpaceHL(group,slc,  fg, ...)
     " Arguments: group, guifg, guibg, gui, guisp
     let histring = 'hi ' . a:group . ' '
