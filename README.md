@@ -2,6 +2,8 @@
 
 Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute/ThinkVim)
 
+![](https://raw.githubusercontent.com/taigacute/IMG/master/spaceline/spaceline.png)
+
 # Feature
 
 - We have airline, lightline, eleline, why make this plugin? They are great plugins, but they are limited and you can't set more separators.
