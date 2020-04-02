@@ -252,10 +252,7 @@ function! spaceline#spaceline#FileEncoding()
     return ""
   endif
   let l:encod = (&fenc !=# "" ? &fenc : &enc)
-  if s:symbol == 1
-    return l:encod
-  endif
-  return '  ' . l:encod
+  return ' ' . l:encod
 endfunction
 
 function! spaceline#spaceline#VimacsLineFiletype()
@@ -288,7 +285,7 @@ endfunction
 function! spaceline#spaceline#VimMode()
   let l:mode=mode()
   if l:mode==#"n"
-    return "N"
+    return "🅝"
   elseif l:mode==?"v"
     return "V"
   elseif l:mode==#"i"
