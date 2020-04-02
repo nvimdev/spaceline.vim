@@ -308,7 +308,7 @@ endfunction
 
 function! spaceline#spaceline#Setmidcolor(midcolorname)
    let s:bgcolor = synIDattr(hlID("Normal"), "bg")
-   call add(a:midcolorname, s:bgcolor)
+   call add(a:midcolorname, join(split(s:bgcolor,'#'),""))
    call add(a:midcolorname, 'none')
  endfunction
 
