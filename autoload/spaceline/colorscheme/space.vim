@@ -21,7 +21,7 @@ let s:slc.darknavy=[]
 call spaceline#spaceline#Setmidcolor(s:slc.darknavy)
 
 
-function! spaceline#colorscheme#spacev2#spacev2()
+function! spaceline#colorscheme#space#space()
     call spaceline#spaceline#SpaceHL('HomeMode', s:slc, 'navy', 'yellow')
     if get(g:,'spaceline_seperate_style', 'arrow') == 'slant'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
