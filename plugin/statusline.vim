@@ -170,9 +170,9 @@ function! s:ActiveStatusLine()
     else
         let s:statusline.="%#VimMode#"
         let s:statusline.="\ "
-        let s:statusline.="\["
+        "let s:statusline.="\["
         let s:statusline.="%{spaceline#spaceline#VimMode()}"
-        let s:statusline.="\]"
+        "let s:statusline.="\]"
         let s:statusline.="\ "
     endif
     if !empty(get(g:,'coc_git_status',''))
