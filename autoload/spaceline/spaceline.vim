@@ -308,7 +308,7 @@ function! spaceline#spaceline#Setmidcolor(midcolorname)
    let s:bgcolor = synIDattr(hlID("Normal"), "bg")
    call add(a:midcolorname, join(split(s:bgcolor,'#'),""))
    call add(a:midcolorname, 'none')
- endfunction
+endfunction
 
 function! spaceline#spaceline#SpaceHL(group,slc,  fg, ...)
     " Arguments: group, guifg, guibg, gui, guisp

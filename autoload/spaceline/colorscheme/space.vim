@@ -40,7 +40,7 @@ function! spaceline#colorscheme#space#space()
         call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'purple','navy')
         call spaceline#spaceline#SpaceHL('FileSizeRight',s:slc, 'purple','navy')
         call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'navy',  'purple')
-        call spaceline#spaceline#SpaceHL('Gitright',s:slc,  'purple',  'darknavy')
+        call spaceline#spaceline#SpaceHL('Gitright',s:slc,  'darknavy',  'purple')
     elseif get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-fade'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
         call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'navy','purple')
