@@ -77,7 +77,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#VimacsLineGit()}"
         let s:statusline.="\ "
-        let s:statusline.="%#SpaceSpaceGitRight#"
+        let s:statusline.="%#SpaceGitRight#"
         let s:statusline.=s:sep.gitright
     endif
     if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer'
