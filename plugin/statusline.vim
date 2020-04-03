@@ -251,7 +251,7 @@ function! s:SetInActiveStatusLine()
         call s:Spaceline_Color(s:spaceline_colorscheme)
         return
     endif
-    if s:seperate_style == 'slant'
+    if s:seperate_style == 'slant' || s:seperate_style == 'slant-fade'
         let &l:statusline=s:SlantInActiveStatusLine()
         call s:Spaceline_Color(s:spaceline_colorscheme)
         return
