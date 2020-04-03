@@ -5,6 +5,7 @@
 " License: MIT License
 " =============================================================================
 let s:symbol = get(g:, 'spaceline_line_symbol', 0)
+
 function! spaceline#spaceline#VimacsLineGit()
     if &filetype ==? 'defx'
        return ""
@@ -54,8 +55,8 @@ function! spaceline#spaceline#VimacsLineinfo() abort
   \      &filetype ==? 'denite'           ? ' ' :
   \      &filetype ==? 'tagbar'           ? ' ' :
   \      &filetype ==? 'vista_kind'       ? ' ' :
-  \      &filetype ==? 'magit'            ? ' ' :
-  \      &filetype ==? 'vim-plug'            ? ' ' :
+  \      &filetype ==? 'magit'            ? ' ' :
+  \      &filetype ==? 'vim-plug'         ? ' ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
   \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
   \      printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
