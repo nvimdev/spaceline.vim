@@ -312,7 +312,6 @@ function! spaceline#spaceline#Setmidcolor(midcolorname)
      call add(a:midcolorname, join(split(s:bgcolor,'#'),""))
    endif
    call add(a:midcolorname, 'NONE')
-   echo a:midcolorname
 endfunction
 
 function! spaceline#spaceline#SpaceHL(group,slc,  fg, ...)
