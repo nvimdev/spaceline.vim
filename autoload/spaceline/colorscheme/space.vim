@@ -57,7 +57,7 @@ function! spaceline#colorscheme#space#space()
         call spaceline#spaceline#SpaceHL('FileNameRight',s:slc, 'navy','purple')
         call spaceline#spaceline#SpaceHL('FileSizeRight',s:slc, 'navy','purple')
         call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'navy',  'purple')
-        call spaceline#spaceline#SpaceHL('GitRight',s:slc,  'navy',  'purple')
+        call spaceline#spaceline#SpaceHL('GitRight',s:slc,  'darknavy',  'purple')
     endif
     call spaceline#spaceline#SpaceHL('FileName', s:slc, 'lightgray', 'navy')
     call spaceline#spaceline#SpaceHL('Filesize', s:slc, 'lightgray', 'purple')
