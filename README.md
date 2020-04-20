@@ -2,7 +2,7 @@
 
 Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute/ThinkVim)
 
-![](https://raw.githubusercontent.com/taigacute/IMG/master/spaceline/spaceline.png)
+![](https://user-images.githubusercontent.com/41671631/79724703-86ab8f00-831a-11ea-86a7-6a4439694617.png)
 
 # Feature
 
@@ -37,24 +37,15 @@ let g:spaceline_seperate_style= 'arrow'
 
   | group        | ScreenShot                                                                             |
   | ------------ | -------------------------------------------------------------------------------------- |
-  | `none`       | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none-normal.png)       |
-  | `arrow`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-normal.png)      |
-  | `arrow-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-fade-normal.png) |  
-  | `curve`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve-normal.png)      |
-  | `slant`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-normal.png)      |
-  | `slant-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-fade-normal.png) |
-  | `slant-cons` | ![image](https://raw.githubusercontent.com/taigacute/IMG/master/spaceline/slant-cons.png) |
+  | `none`       | ![none-normal](https://user-images.githubusercontent.com/41671631/79724664-7dbabd80-831a-11ea-917b-aa8ef47fa34f.png)      |
+  | `arrow`      | ![arrow](https://user-images.githubusercontent.com/41671631/79724650-7abfcd00-831a-11ea-9a32-1894db707cc7.png)    |
+  | `arrow-fade` | ![arrow-fade-normal](https://user-images.githubusercontent.com/41671631/79724643-78f60980-831a-11ea-86b9-51040acd93fe.png) |  
+  | `curve`      | ![curve](https://user-images.githubusercontent.com/41671631/79724657-7c899080-831a-11ea-97b9-7377777918a0.png)      |
+  | `slant`      | ![slant](https://user-images.githubusercontent.com/41671631/79724693-83180800-831a-11ea-8351-461e64ad352c.png)    |
+  | `slant-fade` | ![slant-fade-normal](https://user-images.githubusercontent.com/41671631/79724680-814e4480-831a-11ea-8141-ac17bf0bb4e2.png) |
+  | `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/79724670-7f848100-831a-11ea-9402-6f8aa272aa0c.png) |
 
-- syntaxcheck mode
 
-  | group        | ScreenShot                                                                            |
-  | ------------ | ------------------------------------------------------------------------------------- |
-  | `none`       | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/none.png)             |
-  | `arrow`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow.png)            |
-  | `arrow-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/arrow-fade-error.png) |
-  | `curve`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/curve.png)            |
-  | `slant`      | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant.png)            |
-  | `slant-fade` | ![image](https://github.com/taigacute/IMG/blob/master/spaceline/slant-fade-error.png) |
 
 - If you don't like too many symbols in the statusline, just set to `1` (default is `0`)
 
