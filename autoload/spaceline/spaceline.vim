@@ -10,6 +10,9 @@ function! spaceline#spaceline#VimacsLineGit()
     if &filetype ==? 'defx'
        return ""
     endif
+    if &filetype ==? 'dbui'
+       return ""
+    endif
     let gitbranch=get(g:, 'coc_git_status', '')
     let gitcount=get(b:, 'coc_git_status', '')
     let gitinfo = []
@@ -26,11 +29,11 @@ function! spaceline#spaceline#VimacsLineGit()
 endfunction
 
 function! s:vimacsline_is_lean() abort
-  return &filetype =~? '\v^defx|mundo(diff)?$'
+  return &filetype =~? '\v^defx|dbui|mundo(diff)?$'
 endfunction
 
 function! s:vimacsline_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|coc-explorer|vim-plug|nerdtree|vista_kind|vista|magit|tagbar$'
+  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|dbui|defx|coc-explorer|vim-plug|nerdtree|vista_kind|vista|magit|tagbar$'
 endfunction
 
 function! spaceline#spaceline#VimacsLineinfo() abort
@@ -43,6 +46,7 @@ function! spaceline#spaceline#VimacsLineinfo() abort
         \      &filetype ==? 'vim-plug'         ? ' ' :
         \      &filetype ==? 'vista'            ? ' ' :
         \      &filetype ==? 'vista_kind'       ? ' ' :
+        \      &filetype ==? 'dbui'             ? ' ' :
         \      &filetype ==? 'magit'            ? ' ' :
         \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
         \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
@@ -53,7 +57,7 @@ function! spaceline#spaceline#VimacsLineinfo() abort
   \      &filetype ==? 'coc-explorer'     ? ' ' :
   \      &filetype ==? 'nerdtree'         ? ' ' :
   \      &filetype ==? 'denite'           ? ' ' :
-  \      &filetype ==? 'tagbar'           ? ' ' :
+  \      &filetype ==? 'dbui'             ? ' ' :
   \      &filetype ==? 'vista_kind'       ? ' ' :
   \      &filetype ==? 'magit'            ? ' ' :
   \      &filetype ==? 'vim-plug'         ? ' ' :
@@ -67,7 +71,10 @@ function! spaceline#spaceline#Filesize()abort
     return ''
   endif
   if &filetype ==? 'defx'
-      return ''
+    return ''
+  endif
+  if &filetype ==? 'dbui'
+    return ''
   endif
   return " ".Fsize(@%)
 endfunction
@@ -147,6 +154,9 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
   if &filetype ==? 'defx'
       return ''
   endif
+  if &filetype ==? 'dbui'
+      return ''
+  endif
   if &filetype ==? 'magit'
       return ''
   endif
@@ -187,6 +197,9 @@ function! spaceline#spaceline#CocStatusBar() abort
         return ""
     endif
     if &filetype ==? 'defx'
+        return ""
+    endif
+    if &filetype ==? 'dbui'
         return ""
     endif
     if &filetype ==? 'magit'
@@ -249,6 +262,9 @@ function! spaceline#spaceline#FileEncoding()
   if &filetype ==? 'defx'
     return ""
   endif
+  if &filetype ==? 'dbui'
+    return ""
+  endif
   if &filetype ==? 'magit'
     return ""
   endif
@@ -258,6 +274,9 @@ endfunction
 
 function! spaceline#spaceline#VimacsLineFiletype()
     if &filetype==? 'defx'
+        return ""
+    endif
+    if &filetype==? 'dbui'
         return ""
     endif
     if &filetype==? 'magit'
@@ -271,6 +290,9 @@ endfunction
 
 function! spaceline#spaceline#VimacsLineFileformat()
     if &filetype==? 'defx'
+        return ""
+    endif
+    if &filetype==? 'dbui'
         return ""
     endif
     if &filetype==? 'magit'
