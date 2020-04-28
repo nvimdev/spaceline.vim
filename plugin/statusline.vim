@@ -147,7 +147,7 @@ function! s:ActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="\ "
-    if !empty(spaceline#spaceline#Filesize()) && squeeze_width > 50
+    if !empty(spaceline#spaceline#Filesize()) && squeeze_width > 40
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=s:sep.filenameright
         let s:statusline.="%#FileSize#"
@@ -175,7 +175,7 @@ function! s:ActiveStatusLine()
         "let s:statusline.="\]"
         let s:statusline.="\ "
     endif
-    if !empty(get(g:,'coc_git_status','')) && squeeze_width > 50
+    if !empty(get(g:,'coc_git_status','')) && squeeze_width > 40
         let s:statusline.="%#GitLeft#"
         let s:statusline.=s:sep.gitleft
         let s:statusline.="%#GitInfo#"
@@ -185,7 +185,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#GitRight#"
         let s:statusline.=s:sep.gitright
     endif
-    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui'
+    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui' && squeeze_width < 40
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=s:sep.emptySeperate1
     endif
@@ -197,7 +197,7 @@ function! s:ActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#CocStatusBar()}"
     let s:statusline.="%="
-    if squeeze_width > 50
+    if squeeze_width > 40
       let s:statusline.="%#LineInfoLeft#"
       let s:statusline.=s:sep.lineinfoleft
       let s:statusline.="%#StatusEncod#"
@@ -205,8 +205,8 @@ function! s:ActiveStatusLine()
       let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
       let s:statusline.="\ "
       let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
-      let s:statusline.="%#LineFormatRight#"
     endif
+    let s:statusline.="%#LineFormatRight#"
     let s:statusline.=s:sep.lineformatright
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
