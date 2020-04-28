@@ -143,13 +143,11 @@ function! s:ActiveStatusLine()
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
     let s:statusline.=s:sep.homemoderight
-    if squeeze_width > 50
-      let s:statusline.="%#FileName#"
-      let s:statusline.="\ "
-      let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
-      let s:statusline.="\ "
-    endif
-    if !empty(spaceline#spaceline#Filesize())
+    let s:statusline.="%#FileName#"
+    let s:statusline.="\ "
+    let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
+    let s:statusline.="\ "
+    if !empty(spaceline#spaceline#Filesize()) && squeeze_width > 50
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=s:sep.filenameright
         let s:statusline.="%#FileSize#"
@@ -177,7 +175,7 @@ function! s:ActiveStatusLine()
         "let s:statusline.="\]"
         let s:statusline.="\ "
     endif
-    if !empty(get(g:,'coc_git_status',''))
+    if !empty(get(g:,'coc_git_status','')) && squeeze_width > 50
         let s:statusline.="%#GitLeft#"
         let s:statusline.=s:sep.gitleft
         let s:statusline.="%#GitInfo#"
@@ -207,8 +205,8 @@ function! s:ActiveStatusLine()
       let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
       let s:statusline.="\ "
       let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
+      let s:statusline.="%#LineFormatRight#"
     endif
-    let s:statusline.="%#LineFormatRight#"
     let s:statusline.=s:sep.lineformatright
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
