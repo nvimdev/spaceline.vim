@@ -143,7 +143,7 @@ function! s:ActiveStatusLine()
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
     let s:statusline.=s:sep.homemoderight
-    if squeezeWidth > 50
+    if squeeze_width > 50
       let s:statusline.="%#FileName#"
       let s:statusline.="\ "
       let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
