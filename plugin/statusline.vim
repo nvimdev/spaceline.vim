@@ -273,7 +273,7 @@ endfunction
 
 augroup spaceline
   autocmd!
-  autocmd FileType,WinEnter,BufWinEnter,BufReadPost  * call s:SpacelineToggle()
+  autocmd FileType,WinEnter,BufWinEnter,BufReadPost,VimResized  * call s:SpacelineToggle()
   autocmd WinLeave * call s:SetInActiveStatusLine()
   autocmd BufNewFile,ShellCmdPost,BufWritePost * call s:SpacelineToggle()
   autocmd FileChangedShellPost,ColorScheme * call s:SpacelineToggle()
