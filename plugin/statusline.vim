@@ -197,9 +197,9 @@ function! s:ActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#CocStatusBar()}"
     let s:statusline.="%="
+    let s:statusline.="%#LineInfoLeft#"
+    let s:statusline.=s:sep.lineinfoleft
     if squeeze_width > 40
-      let s:statusline.="%#LineInfoLeft#"
-      let s:statusline.=s:sep.lineinfoleft
       let s:statusline.="%#StatusEncod#"
       let s:statusline.="\ "
       let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
