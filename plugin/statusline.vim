@@ -159,7 +159,7 @@ function! s:ActiveStatusLine()
         let s:statusline.=s:sep.filesizeright
     endif
 
-    if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn())
+    if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn()) && squeeze_width >40
         let s:statusline.="%#HeartSymbol#"
         let s:statusline.="%#CocError#"
         let s:statusline.="%{spaceline#spaceline#VimacsLineCocError()}"
@@ -175,7 +175,7 @@ function! s:ActiveStatusLine()
         "let s:statusline.="\]"
         let s:statusline.="\ "
     endif
-    if !empty(get(g:,'coc_git_status','')) && squeeze_width > 40
+    if !empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#GitLeft#"
         let s:statusline.=s:sep.gitleft
         let s:statusline.="%#GitInfo#"
@@ -185,7 +185,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#GitRight#"
         let s:statusline.=s:sep.gitright
     endif
-    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui'
+    if !empty(expand('%:t')) && squeeze_width && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui'
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=s:sep.emptySeperate1
     endif
