@@ -124,6 +124,7 @@ function! s:SlantInActiveStatusLine()
 endfunction
 
 function! s:ActiveStatusLine()
+    let squeeze_width = winwidth(0) / 2
     if &filetype ==? 'defx' || &filetype==?'vista' || &filetype==?'coc-explorer' || &filetype==?'dbui'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
@@ -142,10 +143,12 @@ function! s:ActiveStatusLine()
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
     let s:statusline.=s:sep.homemoderight
-    let s:statusline.="%#FileName#"
-    let s:statusline.="\ "
-    let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
-    let s:statusline.="\ "
+    if squeezeWidth > 50
+      let s:statusline.="%#FileName#"
+      let s:statusline.="\ "
+      let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
+      let s:statusline.="\ "
+    endif
     if !empty(spaceline#spaceline#Filesize())
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=s:sep.filenameright
@@ -196,13 +199,15 @@ function! s:ActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#CocStatusBar()}"
     let s:statusline.="%="
-    let s:statusline.="%#LineInfoLeft#"
-    let s:statusline.=s:sep.lineinfoleft
-    let s:statusline.="%#StatusEncod#"
-    let s:statusline.="\ "
-    let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
-    let s:statusline.="\ "
-    let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
+    if squeeze_width > 50
+      let s:statusline.="%#LineInfoLeft#"
+      let s:statusline.=s:sep.lineinfoleft
+      let s:statusline.="%#StatusEncod#"
+      let s:statusline.="\ "
+      let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
+      let s:statusline.="\ "
+      let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
+    endif
     let s:statusline.="%#LineFormatRight#"
     let s:statusline.=s:sep.lineformatright
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
