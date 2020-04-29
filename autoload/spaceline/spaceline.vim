@@ -166,6 +166,7 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
   let mo = s:vimacsline_modified()
   return empty(mo) ? VimacsLineFname() : VimacsLineFname() . ' ' . mo
   if empty(mo)
+    echo VimacsLineFname()
     return VimacsLineFname()
   else
     return VimacsLineFname() . ''.mo
