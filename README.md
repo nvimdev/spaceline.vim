@@ -16,7 +16,7 @@ Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute
 - Easy installed with a plugin manager like vim-plug
 
 ```
-Plug 'taigacute/spaceline.vim'
+Plug 'hardcoreplayers/spaceline.vim'
 ```
 
 # Required Plugins
