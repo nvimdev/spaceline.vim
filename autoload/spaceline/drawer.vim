@@ -1,4 +1,5 @@
 function! s:SlantActiveStatusLine()
+    let squeeze_width = winwidth(0) / 2
     if &filetype ==? 'defx' ||&filetype==?'vista' || &filetype ==? 'coc-explorer' || &filetype ==? 'dbui'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
@@ -19,7 +20,7 @@ function! s:SlantActiveStatusLine()
     let s:statusline.="%#FileName#"
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="\ "
-    if !empty(spaceline#spaceline#Filesize())
+    if !empty(spaceline#spaceline#Filesize()) && squeeze_width > 40
         let s:statusline.="%#FileNameRight#"
         let s:statusline.=g:sep.filenameright
         "let s:statusline.="\ "
@@ -30,7 +31,8 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%#FileSizeRight#"
         let s:statusline.=g:sep.filesizeright
     endif
-    if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn())
+
+    if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn()) && squeeze_width >40
         let s:statusline.="\ "
         let s:statusline.="%#HeartSymbol#"
         let s:statusline.="%#CocError#"
@@ -58,7 +60,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%#GitRight#"
         let s:statusline.=g:sep.gitright
     endif
-    if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype==? 'dbui'
+    if !empty(expand('%:t')) && squeeze_width < 40 && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui'
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=g:sep.emptySeperate1
     endif
@@ -72,10 +74,12 @@ function! s:SlantActiveStatusLine()
     let s:statusline.="%="
     let s:statusline.="%#LineInfoLeft#"
     let s:statusline.=g:sep.lineinfoleft
-    let s:statusline.="%#StatusEncod#"
-    let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
-    let s:statusline.="\ "
-    let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
+    if squeeze_width > 40
+      let s:statusline.="%#StatusEncod#"
+      let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
+      let s:statusline.="\ "
+      let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
+    endif
     let s:statusline.="%#LineFormatRight#"
     let s:statusline.=g:sep.lineformatright
     let s:statusline.="\ "
