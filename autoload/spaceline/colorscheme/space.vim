@@ -7,7 +7,7 @@
 let s:slc={}
 let s:slc.yellow = ['fabd2f', 214]
 let s:slc.navy = ['242B38', 237]
-let s:slc.lightgray= ['d7d7d7', 188]
+let s:slc.lightgray= ['c0c0c0', 188]
 let s:slc.purple = ['5d4d7a', 261]
 let s:slc.orange  = ['FF8800', 208]
 let s:slc.red = ['cc241d', 124]
@@ -20,7 +20,7 @@ let s:slc.darknavy=[]
 
 call spaceline#spaceline#Setmidcolor(s:slc.darknavy)
 
-function! spaceline#colorscheme#space#space()
+function! spaceline#colorscheme#spacev2#spacev2()
     call spaceline#spaceline#SpaceHL('HomeMode', s:slc, 'navy', 'yellow')
     if get(g:,'spaceline_seperate_style', 'arrow') == 'slant'
         call spaceline#spaceline#SpaceHL('HomeModeRight',s:slc,  'yellow', 'navy')
