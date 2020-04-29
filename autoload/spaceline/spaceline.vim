@@ -165,6 +165,11 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
   endif
   let mo = s:vimacsline_modified()
   return empty(mo) ? VimacsLineFname() : VimacsLineFname() . ' ' . mo
+  if empty(mo)
+    return VimacsLineFname()
+  else
+    return VimacsLineFname() . ''.mo
+  endif
 endfunction
 
 function! s:vimacsline_modified() abort
@@ -252,7 +257,6 @@ function! VimacsLineFname()
   if filename == ''
     return ''
   endif
-  echo icon
   return icon ? join([icon, filename], ' ') : filename
 endfunction
 
