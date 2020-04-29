@@ -3,32 +3,32 @@ function! s:SlantActiveStatusLine()
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
-        let s:statusline.=s:sep.homemoderight
+        let s:statusline.=g:sep.homemoderight
         let s:statusline.="\ "
         let s:statusline.="%="
         let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
         let s:statusline.="%#EndSeperate#"
-        let s:statusline.=s:sep.EndSeperate
+        let s:statusline.=g:sep.EndSeperate
         return s:statusline
     endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
-    let s:statusline.=s:sep.homemoderight
+    let s:statusline.=g:sep.homemoderight
     let s:statusline.="\ "
     let s:statusline.="%#FileName#"
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="\ "
     if !empty(spaceline#spaceline#Filesize())
         let s:statusline.="%#FileNameRight#"
-        let s:statusline.=s:sep.filenameright
+        let s:statusline.=g:sep.filenameright
         "let s:statusline.="\ "
         let s:statusline.="%#FileSize#"
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#Filesize()}"
         let s:statusline.="\ "
         let s:statusline.="%#FileSizeRight#"
-        let s:statusline.=s:sep.filesizeright
+        let s:statusline.=g:sep.filesizeright
     endif
     if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn())
         let s:statusline.="\ "
@@ -49,39 +49,39 @@ function! s:SlantActiveStatusLine()
     if !empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#GitLeft#"
         "let s:statusline.="\ "
-        let s:statusline.=s:sep.gitleft
+        let s:statusline.=g:sep.gitleft
         "let s:statusline.="\ "
         let s:statusline.="%#GitInfo#"
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#VimacsLineGit()}"
         let s:statusline.="\ "
         let s:statusline.="%#GitRight#"
-        let s:statusline.=s:sep.gitright
+        let s:statusline.=g:sep.gitright
     endif
     if !empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype==? 'dbui'
         let s:statusline.="%#emptySeperate1#"
-        let s:statusline.=s:sep.emptySeperate1
+        let s:statusline.=g:sep.emptySeperate1
     endif
     if empty(spaceline#spaceline#Filesize()) && empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#emptySeperate1#"
-        let s:statusline.=s:sep.emptySeperate1
+        let s:statusline.=g:sep.emptySeperate1
     endif
     let s:statusline.="%#CocBar#"
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#CocStatusBar()}"
     let s:statusline.="%="
     let s:statusline.="%#LineInfoLeft#"
-    let s:statusline.=s:sep.lineinfoleft
+    let s:statusline.=g:sep.lineinfoleft
     let s:statusline.="%#StatusEncod#"
     let s:statusline.="%{spaceline#spaceline#FileEncoding()}"
     let s:statusline.="\ "
     let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
     let s:statusline.="%#LineFormatRight#"
-    let s:statusline.=s:sep.lineformatright
+    let s:statusline.=g:sep.lineformatright
     let s:statusline.="\ "
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.=s:sep.EndSeperate
+    let s:statusline.=g:sep.EndSeperate
     return s:statusline
 endfunction
 
@@ -89,7 +89,7 @@ function! s:SlantInActiveStatusLine()
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
-    let s:statusline.=s:sep.homemoderight
+    let s:statusline.=g:sep.homemoderight
     let s:statusline.="\ "
     let s:statusline.="%#FileName#"
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
@@ -97,7 +97,7 @@ function! s:SlantInActiveStatusLine()
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.=s:sep.EndSeperate
+    let s:statusline.=g:sep.EndSeperate
     return s:statusline
 endfunction
 
@@ -107,34 +107,34 @@ function! s:ActiveStatusLine()
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
-        let s:statusline.=s:sep.homemoderight
+        let s:statusline.=g:sep.homemoderight
         let s:statusline.="%#FileName#"
         let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
         let s:statusline.="\ "
         let s:statusline.="%="
         let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
         let s:statusline.="%#EndSeperate#"
-        let s:statusline.=s:sep.EndSeperate
+        let s:statusline.=g:sep.EndSeperate
         return s:statusline
     endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
-    let s:statusline.=s:sep.homemoderight
+    let s:statusline.=g:sep.homemoderight
     let s:statusline.="%#FileName#"
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="\ "
     if !empty(spaceline#spaceline#Filesize()) && squeeze_width > 40
         let s:statusline.="%#FileNameRight#"
-        let s:statusline.=s:sep.filenameright
+        let s:statusline.=g:sep.filenameright
         let s:statusline.="%#FileSize#"
         "let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#Filesize()}"
         let s:statusline.="\ "
         let s:statusline.="%#FileSizeRight#"
         "let s:statusline.=\ "
-        let s:statusline.=s:sep.filesizeright
+        let s:statusline.=g:sep.filesizeright
     endif
 
     if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn()) && squeeze_width >40
@@ -155,28 +155,28 @@ function! s:ActiveStatusLine()
     endif
     if !empty(get(g:,'coc_git_status',''))
         let s:statusline.="%#GitLeft#"
-        let s:statusline.=s:sep.gitleft
+        let s:statusline.=g:sep.gitleft
         let s:statusline.="%#GitInfo#"
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#VimacsLineGit()}"
         let s:statusline.="\ "
         let s:statusline.="%#GitRight#"
-        let s:statusline.=s:sep.gitright
+        let s:statusline.=g:sep.gitright
     endif
     if !empty(expand('%:t')) && squeeze_width && empty(get(g:,'coc_git_status','')) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui'
         let s:statusline.="%#emptySeperate1#"
-        let s:statusline.=s:sep.emptySeperate1
+        let s:statusline.=g:sep.emptySeperate1
     endif
     if empty(spaceline#spaceline#Filesize()) && empty(get(g:,'coc_git_status','')) && squeeze_width < 40
         let s:statusline.="%#emptySeperate1#"
-        let s:statusline.=s:sep.emptySeperate1
+        let s:statusline.=g:sep.emptySeperate1
     endif
     let s:statusline.="%#CocBar#"
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#CocStatusBar()}"
     let s:statusline.="%="
     let s:statusline.="%#LineInfoLeft#"
-    let s:statusline.=s:sep.lineinfoleft
+    let s:statusline.=g:sep.lineinfoleft
     if squeeze_width > 40
       let s:statusline.="%#StatusEncod#"
       let s:statusline.="\ "
@@ -185,24 +185,24 @@ function! s:ActiveStatusLine()
       let s:statusline.="%#StatusFileFormat#%{spaceline#spaceline#VimacsLineFileformat()}"
     endif
     let s:statusline.="%#LineFormatRight#"
-    let s:statusline.=s:sep.lineformatright
+    let s:statusline.=g:sep.lineformatright
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.=s:sep.EndSeperate
+    let s:statusline.=g:sep.EndSeperate
     return s:statusline
 endfunction
 function! s:InActiveStatusLine()
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
-    let s:statusline.=s:sep.homemoderight
+    let s:statusline.=g:sep.homemoderight
     let s:statusline.="%#FileName#"
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="\ "
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.=s:sep.EndSeperate
+    let s:statusline.=g:sep.EndSeperate
     return s:statusline
 endfunction
 
@@ -212,33 +212,33 @@ function! s:Spaceline_Color(theme)
 endfunction
 
 function! s:SetStatusline()
-    if s:seperate_mode ==1
+    if g:seperate_mode ==1
         let &l:statusline=s:ActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
+        call s:Spaceline_Color(g:spaceline_colorscheme)
         return
     endif
-    if s:seperate_style == 'slant' || s:seperate_style == 'slant-fade'
+    if g:seperate_style == 'slant' || g:seperate_style == 'slant-fade'
         let &l:statusline=s:SlantActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
+        call s:Spaceline_Color(g:spaceline_colorscheme)
         return
     endif
     let &l:statusline=s:ActiveStatusLine()
-    call s:Spaceline_Color(s:spaceline_colorscheme)
+    call s:Spaceline_Color(g:spaceline_colorscheme)
 endfunction
 
 function! spaceline#drawer#setInActiveStatusLine()
-    if s:seperate_mode ==1
+    if g:seperate_mode ==1
         let &l:statusline=s:ActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
+        call s:Spaceline_Color(g:spaceline_colorscheme)
         return
     endif
-    if s:seperate_style == 'slant' || s:seperate_style == 'slant-fade'
+    if g:seperate_style == 'slant' || g:seperate_style == 'slant-fade'
         let &l:statusline=s:SlantInActiveStatusLine()
-        call s:Spaceline_Color(s:spaceline_colorscheme)
+        call s:Spaceline_Color(g:spaceline_colorscheme)
         return
     endif
     let &l:statusline=s:InActiveStatusLine()
-    call s:Spaceline_Color(s:spaceline_colorscheme)
+    call s:Spaceline_Color(g:spaceline_colorscheme)
 endfunction
 
 function! spaceline#drawer#spacelinetoggle()
