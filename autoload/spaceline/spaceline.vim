@@ -252,12 +252,15 @@ function! VimacsLineFname()
   if filename == ''
     return ''
   endif
+  echo icon
   return icon ? join([icon, filename], ' ') : filename
 endfunction
+
 function! VimacsLineFilename()
   return ('' != VimacsLineReadonly() ? VimacsLineReadonly() . ' ' : '') .
         \ ('' != expand('%:t') ? expand('%:t') : '')
 endfunction
+
 function! spaceline#spaceline#FileEncoding()
   if &filetype ==? 'defx'
     return ""
