@@ -164,13 +164,25 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
     return '[No Name]'
   endif
   let mo = s:vimacsline_modified()
-  let fname = VimacsLineFname()
-  echo fname
-  if empty(mo)
-    return fname
-  else
-    return fname. ''.mo
+  let fname = VimacsLineFilename()
+  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft')
+  if s:symbol == 1
+    if empty(mo)
+      return fname
+    else
+      return fname. ''.mo
+    endif
   endif
+  if empty(mo)
+    return icon .''.fname
+  else
+    return icon .''.fname. ''.mo
+  endif
+endfunction
+
+function! VimacsLineFilename()
+  return ('' != VimacsLineReadonly() ? VimacsLineReadonly() . ' ' : '') .
+        \ ('' != expand('%:t') ? expand('%:t') : '')
 endfunction
 
 function! s:vimacsline_modified() abort
@@ -248,23 +260,6 @@ function! VimacslineCocFixes() abort
   return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
 endfunction
 
-function! VimacsLineFname()
-  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft')
-  if s:symbol == 1
-    let icon = ''
-  endif
-  let filename = VimacsLineFilename()
-  let ret = [filename, icon]
-  if filename == ''
-    return ''
-  endif
-  return icon ? join([icon, filename], ' ') : filename
-endfunction
-
-function! VimacsLineFilename()
-  return ('' != VimacsLineReadonly() ? VimacsLineReadonly() . ' ' : '') .
-        \ ('' != expand('%:t') ? expand('%:t') : '')
-endfunction
 
 function! spaceline#spaceline#FileEncoding()
   if &filetype ==? 'defx'
@@ -297,18 +292,18 @@ function! spaceline#spaceline#VimacsLineFiletype()
 endfunction
 
 function! spaceline#spaceline#VimacsLineFileformat()
-    if &filetype==? 'defx'
-        return ""
-    endif
-    if &filetype==? 'dbui'
-        return ""
-    endif
-    if &filetype==? 'magit'
-        return ''
-    endif
-    if s:symbol == 1
-  return winwidth(0) > 70 ? (' '.&fileformat . ' ' ) : ''
-    endif
+  if &filetype==? 'defx'
+      return ""
+  endif
+  if &filetype==? 'dbui'
+      return ""
+  endif
+  if &filetype==? 'magit'
+      return ''
+  endif
+  if s:symbol == 1
+    return winwidth(0) > 70 ? (' '.&fileformat . ' ' ) : ''
+  endif
   return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol().' '.&fileformat . ' ' ) : ''
 endfunction
 
