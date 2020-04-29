@@ -165,7 +165,7 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
   endif
   let mo = s:vimacsline_modified()
   let fname = VimacsLineFilename()
-  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft')
+  let icon = winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
   if s:symbol == 1
     if empty(mo)
       return fname
@@ -174,9 +174,9 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
     endif
   endif
   if empty(mo)
-    return icon .''.fname
+    return icon .' '.fname
   else
-    return icon .''.fname. ''.mo
+    return icon .' '.fname. ''.mo
   endif
 endfunction
 
@@ -275,22 +275,6 @@ function! spaceline#spaceline#FileEncoding()
   return ' ' . l:encod
 endfunction
 
-function! spaceline#spaceline#VimacsLineFiletype()
-    if &filetype==? 'defx'
-        return ""
-    endif
-    if &filetype==? 'dbui'
-        return ""
-    endif
-    if &filetype==? 'magit'
-        return ""
-    endif
-    if s:symbol == 1
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' : 'no ft') : ''
-    endif
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
 function! spaceline#spaceline#VimacsLineFileformat()
   if &filetype==? 'defx'
       return ""
@@ -301,10 +285,7 @@ function! spaceline#spaceline#VimacsLineFileformat()
   if &filetype==? 'magit'
       return ''
   endif
-  if s:symbol == 1
-    return winwidth(0) > 70 ? (' '.&fileformat . ' ' ) : ''
-  endif
-  return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol().' '.&fileformat . ' ' ) : ''
+  return winwidth(0) > 70 ? ('| '.&fileformat . ' ' ) : ''
 endfunction
 
 
