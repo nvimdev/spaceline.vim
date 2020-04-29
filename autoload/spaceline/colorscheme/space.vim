@@ -59,7 +59,7 @@ function! spaceline#colorscheme#space#space()
         call spaceline#spaceline#SpaceHL('GitLeft',s:slc,  'navy',  'purple')
         call spaceline#spaceline#SpaceHL('GitRight',s:slc,  'navy',  'purple')
     endif
-    call spaceline#spaceline#SpaceHL('FileName', s:slc, 'lightgray', 'navy')
+    call spaceline#spaceline#SpaceHL('FileName', s:slc, 'orange', 'navy')
     call spaceline#spaceline#SpaceHL('Filesize', s:slc, 'lightgray', 'purple')
     call spaceline#spaceline#SpaceHL('HeartSymbol', s:slc, 'orange',  'navy')
     call spaceline#spaceline#SpaceHL('CocError',s:slc,  'red',  'navy')
