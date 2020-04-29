@@ -167,7 +167,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=g:sep.emptySeperate1
     endif
-    if empty(spaceline#spaceline#Filesize()) && empty(get(g:,'coc_git_status','')) && squeeze_width < 40
+    if empty(expand('%:t')) && empty(get(g:,'coc_git_status','')) && squeeze_width < 40
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=g:sep.emptySeperate1
     endif
