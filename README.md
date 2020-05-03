@@ -35,19 +35,17 @@ let g:spaceline_seperate_style= 'arrow'
 
 - normal mode
 
-  | group        | ScreenShot                                                                             |
-  | ------------ | -------------------------------------------------------------------------------------- |
-  | `none`       | ![none-normal](https://user-images.githubusercontent.com/41671631/79724664-7dbabd80-831a-11ea-917b-aa8ef47fa34f.png)      |
-  | `arrow`      | ![arrow](https://user-images.githubusercontent.com/41671631/79724650-7abfcd00-831a-11ea-9a32-1894db707cc7.png)    |
-  | `arrow-fade` | ![arrow-fade-normal](https://user-images.githubusercontent.com/41671631/79724643-78f60980-831a-11ea-86b9-51040acd93fe.png) |  
-  | `curve`      | ![curve](https://user-images.githubusercontent.com/41671631/79724657-7c899080-831a-11ea-97b9-7377777918a0.png)      |
-  | `slant`      | ![slant](https://user-images.githubusercontent.com/41671631/79724693-83180800-831a-11ea-8351-461e64ad352c.png)    |
+  | group        | ScreenShot                                                                                                                 |
+  | ------------ | -------------------------------------------------------------------------------------------------------------------------- |
+  | `none`       | ![none-normal](https://user-images.githubusercontent.com/41671631/79724664-7dbabd80-831a-11ea-917b-aa8ef47fa34f.png)       |
+  | `arrow`      | ![arrow](https://user-images.githubusercontent.com/41671631/79724650-7abfcd00-831a-11ea-9a32-1894db707cc7.png)             |
+  | `arrow-fade` | ![arrow-fade-normal](https://user-images.githubusercontent.com/41671631/79724643-78f60980-831a-11ea-86b9-51040acd93fe.png) |
+  | `curve`      | ![curve](https://user-images.githubusercontent.com/41671631/79724657-7c899080-831a-11ea-97b9-7377777918a0.png)             |
+  | `slant`      | ![slant](https://user-images.githubusercontent.com/41671631/79724693-83180800-831a-11ea-8351-461e64ad352c.png)             |
   | `slant-fade` | ![slant-fade-normal](https://user-images.githubusercontent.com/41671631/79724680-814e4480-831a-11ea-8141-ac17bf0bb4e2.png) |
-  | `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/79724670-7f848100-831a-11ea-9402-6f8aa272aa0c.png) |
+  | `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/79724670-7f848100-831a-11ea-9402-6f8aa272aa0c.png)        |
 
-
-
-- If you don't like too many symbols in the statusline, just set to `1` (default is `0`)
+* If you don't like too many symbols in the statusline, just set to `1` (default is `0`)
 
 ```viml
 let g:spaceline_line_symbol = 0
@@ -67,6 +65,7 @@ let g:spaceline_colorscheme = 'space'
   ![image](https://github.com/taigacute/IMG/blob/master/spaceline/solarized_dark.png)
 
 # Goyo Support
+
 - check the thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
 
 # Custom
