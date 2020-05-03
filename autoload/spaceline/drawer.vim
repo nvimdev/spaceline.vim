@@ -189,7 +189,7 @@ function! s:ActiveStatusLine()
             let s:statusline.="%#GitRemove#"
             let s:statusline.= "%{spaceline#spaceline#GitDiffRemove()}"
           endif
-          if matchend(diff_data, '~') > 0
+          if matchend(diff_data, '\~') > 0
             let s:statusline.="%#GitModified#"
             let s:statusline.= "%{spaceline#spaceline#GitDiffModified()}"
           endif
