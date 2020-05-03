@@ -25,11 +25,11 @@ function! s:add_diff_icon(type) abort
   let difficon = get(['','',''],a:type,'')
   let diffdata = split(get(b:, 'coc_git_status', ''),' ')
   let diff_flags = ''
-  if a:type == 1
+  if a:type == 0
     let diff_flags = '+'
-  elseif a:type == 2
+  elseif a:type == 1
     let diff_flags = '-'
-  else
+  elseif a:type == 2
     let diff_flags = '~'
   endif
   for item in diffdata
@@ -44,15 +44,15 @@ function! s:add_diff_icon(type) abort
 endfunction
 
 function! spaceline#spaceline#GitDiffAdd() abort
-  return s:add_diff_icon(1)
+  return s:add_diff_icon(0)
 endfunction
 
 function! spaceline#spaceline#GitDiffRemove() abort
-  return s:add_diff_icon(2)
+  return s:add_diff_icon(1)
 endfunction
 
 function! spaceline#spaceline#GitDiffModified() abort
-  return s:add_diff_icon(3)
+  return s:add_diff_icon(2)
 endfunction
 
 function! s:vimacsline_is_lean() abort
