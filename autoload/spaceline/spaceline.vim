@@ -6,7 +6,7 @@
 " =============================================================================
 let s:symbol = get(g:, 'spaceline_line_symbol', 0)
 
-function! spaceline#spaceline#VimacsLineGit()
+function! spaceline#spaceline#VimacsLineGitBranch()
     if &filetype ==? 'defx'
        return ""
     endif
@@ -14,18 +14,45 @@ function! spaceline#spaceline#VimacsLineGit()
        return ""
     endif
     let gitbranch=get(g:, 'coc_git_status', '')
-    let gitcount=get(b:, 'coc_git_status', '')
-    let gitinfo = []
     if empty(gitbranch)
 	    let gitbranch=""
         return ""
     endif
-    if empty(gitcount)
-	    let gitcount=""
+    return gitbranch
+endfunction
+
+function! s:add_diff_icon(type) abort
+  let difficon = get(['','',''],a:type,'')
+  let diffdata = split(get(b:, 'coc_git_status', ''),' ')
+  let diff_flags = ''
+  if a:type == 1
+    let diff_flags = '+'
+  elseif a:type == 2
+    let diff_flags = '-'
+  else
+    let diff_flags = '~'
+  endif
+  for [k,v] in diffdata
+    if matchend(v,diff_flags) > 0
+        if s:symbol == 1
+          return difflist[k]
+        else
+          return substitute(difflist[k], '+', diffaddicon, '')
+        endif
     endif
-    call add(gitinfo,gitbranch)
-    call add(gitinfo,gitcount)
-    return trim(join(gitinfo,''))
+  endfor
+endfunction
+
+function! spaceline#spaceline#GitDiffAdd() abort
+  return s:add_diff_icon(1)
+endfunction
+
+function! spaceline#spaceline#GitDiffRemove() abort
+  return s:add_diff_icon(2)
+endfunction
+
+function! spaceline#spaceline#GitDiffModified() abort
+  return s:add_diff_icon(3)
 endfunction
 
 function! s:vimacsline_is_lean() abort
