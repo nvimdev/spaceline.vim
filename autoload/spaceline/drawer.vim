@@ -60,15 +60,15 @@ function! s:SlantActiveStatusLine()
           let diff_data = get(b:,'coc_git_status','')
           if matchend(diff_dta, '+') > 0
             let s:statusline.="%#GitAdd#"
-            let s:statusline = "%{spaceline#spaceline#GitDiffAdd()}"
+            let s:statusline.= "%{spaceline#spaceline#GitDiffAdd()}"
           endif
           if matchend(diff_data, '-') > 0
             let s:statusline.="%#GitRemove#"
-            let s:statusline = "%{spaceline#spaceline#GitDiffRemove()}"
+            let s:statusline.= "%{spaceline#spaceline#GitDiffRemove()}"
           endif
           if matchend(diff_data, '~') > 0
             let s:statusline.="%#GitModified#"
-            let s:statusline = "%{spaceline#spaceline#GitDiffModified()}"
+            let s:statusline.= "%{spaceline#spaceline#GitDiffModified()}"
           endif
         endif
         let s:statusline.="\ "
@@ -183,15 +183,15 @@ function! s:ActiveStatusLine()
           let diff_data = get(b:,'coc_git_status', '')
           if matchend(diff_data, '+') > 0
             let s:statusline.="%#GitAdd#"
-            let s:statusline = "%{spaceline#spaceline#GitDiffAdd()}"
+            let s:statusline.= "%{spaceline#spaceline#GitDiffAdd()}"
           endif
           if matchend(diff_data, '-') > 0
             let s:statusline.="%#GitRemove#"
-            let s:statusline = "%{spaceline#spaceline#GitDiffRemove()}"
+            let s:statusline.= "%{spaceline#spaceline#GitDiffRemove()}"
           endif
           if matchend(diff_data, '~') > 0
             let s:statusline.="%#GitModified#"
-            let s:statusline = "%{spaceline#spaceline#GitDiffModified()}"
+            let s:statusline.= "%{spaceline#spaceline#GitDiffModified()}"
           endif
         endif
         let s:statusline.="%#GitRight#"
