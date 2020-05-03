@@ -35,9 +35,9 @@ function! s:add_diff_icon(type) abort
   for [k,v] in diffdata
     if matchend(v,diff_flags) > 0
         if s:symbol == 1
-          return difflist[k]
+          return diffdata[k]
         else
-          return substitute(difflist[k], '+', diffaddicon, '')
+          return substitute(diffdata[k], diff_flags, difficon, '')
         endif
     endif
   endfor
