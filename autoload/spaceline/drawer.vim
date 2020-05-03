@@ -57,15 +57,16 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#spaceline#VimacsLineGitBranch()}"
         if !empty(get(b:,'coc_git_status',''))
-          if matchend(get(b:.'coc_git_status',''), '+') > 0
+          let diff_data = get(b:,'coc_git_status','')
+          if matchend(diff_dta, '+') > 0
             let s:statusline.="%#GitAdd#"
             let s:statusline = "%{spaceline#spaceline#GitDiffAdd}"
           endif
-          if matchend(get(b:.'coc_git_status',''), '-') > 0
+          if matchend(diff_data, '-') > 0
             let s:statusline.="%#GitRemove#"
             let s:statusline = "%{spaceline#spaceline#GitDiffRemove}"
           endif
-          if matchend(get(b:.'coc_git_status',''), '~') > 0
+          if matchend(diff_data, '~') > 0
             let s:statusline.="%#GitModified#"
             let s:statusline = "%{spaceline#spaceline#GitDiffModified}"
           endif
