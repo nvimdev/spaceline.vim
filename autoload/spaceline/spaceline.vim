@@ -32,7 +32,7 @@ function! s:add_diff_icon(type) abort
   else
     let diff_flags = '~'
   endif
-  for [k,v] in diffdata
+  for [k,v] in items(diffdata)
     if matchend(v,diff_flags) > 0
         if s:symbol == 1
           return diffdata[k]
