@@ -67,7 +67,7 @@ function! spaceline#colorscheme#space#space()
     call spaceline#spaceline#SpaceHL('GitInfo',s:slc,  'lightgray',  'purple')
     call spaceline#spaceline#SpaceHL('GitAdd',s:slc,  'green',  'purple')
     call spaceline#spaceline#SpaceHL('GitRemove',s:slc,  'red',  'purple')
-    call spaceline#spaceline#SpaceHL('GitModified',s:slc,  'lightblue',  'purple')
+    call spaceline#spaceline#SpaceHL('GitModified',s:slc,  'orange',  'purple')
     call spaceline#spaceline#SpaceHL('CocBar',s:slc,  'lightblue',  'darknavy')
     call spaceline#spaceline#SpaceHL('LineInfoLeft',s:slc,  'purple',  'darknavy')
     if get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-fade' || get(g:,'spaceline_seperate_style','arrow') == 'slant-cons'
