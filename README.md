@@ -4,6 +4,8 @@ Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute
 
 ![](https://user-images.githubusercontent.com/41671631/80914738-24be4100-8d80-11ea-962b-500c619464fd.png)
 
+The colorscheme of this image is [oceanic_material](https://github.com/hardcoreplayers/oceanic-material)
+
 # Feature
 
 - We have airline, lightline, eleline, why make this plugin? They are great plugins, but they are limited and you can't set more separators.
