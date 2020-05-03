@@ -37,7 +37,7 @@ function! s:add_diff_icon(type) abort
         if s:symbol == 1
           return item
         else
-          return substitute(item, diff_flags, difficon, '')
+          return substitute(item, diff_flags, difficon, '').' '
         endif
     endif
   endfor
