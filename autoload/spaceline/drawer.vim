@@ -176,7 +176,7 @@ function! s:ActiveStatusLine()
         let s:statusline.=g:sep.gitleft
         let s:statusline.="%#GitInfo#"
         let s:statusline.="\ "
-        let s:statusline.="%{spaceline#spaceline#VimacsLineGit()}"
+        let s:statusline.="%{spaceline#spaceline#VimacsLineGitBranch()}"
         let s:statusline.="\ "
         if !empty(get(b:,'coc_git_status',''))
           if matchend(get(b:.'coc_git_status',''), '+') > 0
