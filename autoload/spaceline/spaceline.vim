@@ -128,21 +128,12 @@ function! spaceline#spaceline#VimacslineMode() abort
 endfunction
 
 function! Vimacslinemode()
-  let nr = s:get_buffer_number()
-  let nmap = [ '⓿ ',  '❶ ',  '➋ ',  '❸ ', '❹ ','❺ ',  '❻ ',  '❼ ',  '❽ ',  '❾ ','➓ ','⓫ ','⓬ ','⓭ ','⓮ ','⓯ ','⓰ ','⓱ ','⓲ ','⓳ ','⓴ ']
-  if nr == 0
+  let bfnumber = s:get_buffer_number()
+  let numberlist = [ '⓿ ',  '❶ ',  '➋ ',  '❸ ', '❹ ','❺ ',  '❻ ',  '❼ ',  '❽ ',  '❾ ','➓ ','⓫ ','⓬ ','⓭ ','⓮ ','⓯ ','⓰ ','⓱ ','⓲ ','⓳ ','⓴ ']
+  if bfnumber == 0
     return ''
   endif
-  let l:number = nr
-  let l:result = ''
-  for i in range(1, strlen(l:number))
-    let l:result = get(nmap, l:number % 10, l:number % 10) . l:result
-    let l:number = l:number / 10
-  endfor
-  if s:symbol == 1
-    return l:result
-  endif
-  return join([' ',l:result])
+  return join([' ',numberlist[bfnumber]])
 endfunction
 
 function! s:get_buffer_number()
