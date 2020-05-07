@@ -9,7 +9,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%="
         let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
         let s:statusline.="%#EndSeperate#"
-        let s:statusline.=g:sep.EndSeperate
+        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
         return s:statusline
     endif
     let s:statusline=""
@@ -29,7 +29,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%{spaceline#spaceline#Filesize()}"
         let s:statusline.="\ "
         let s:statusline.="%#FileSizeRight#"
-        let s:statusline.=g:sep.filesizeright
+        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     endif
 
     if !empty(spaceline#spaceline#VimacsLineCocError())|| !empty(spaceline#spaceline#VimacsLineCocWarn()) && squeeze_width >40
@@ -100,7 +100,7 @@ function! s:SlantActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.=g:sep.EndSeperate
+    let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     return s:statusline
 endfunction
 
@@ -116,7 +116,7 @@ function! s:SlantInActiveStatusLine()
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.=g:sep.EndSeperate
+    let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     return s:statusline
 endfunction
 
@@ -222,7 +222,7 @@ function! s:ActiveStatusLine()
     let s:statusline.=g:sep.lineformatright
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.="%{spaceline#spaceline#LineNoIndicator()}"
+    let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     return s:statusline
 endfunction
 function! s:InActiveStatusLine()
@@ -236,7 +236,7 @@ function! s:InActiveStatusLine()
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.=g:sep.EndSeperate
+    let s:statusline.="%{spaceline#spaceline#LineNoIndicator()}"
     return s:statusline
 endfunction
 
