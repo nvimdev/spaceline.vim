@@ -13,9 +13,9 @@ let g:loaded_spaceline = 1
 let g:seperate_mode = get(g:, 'spaceline_seperate_mode', 0)
 let g:seperate_style = get(g:, 'spaceline_seperate_style', 'arrow')
 let g:spaceline_colorscheme = get(g:, 'spaceline_colorscheme', 'space')
-let g:spaceline_scroll_bar_chars = [
+let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
   \  '▁', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'
-  \  ]
+  \  ])
 
 let g:sep= {}
 if g:seperate_style ==1
