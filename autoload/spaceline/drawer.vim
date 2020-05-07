@@ -236,7 +236,7 @@ function! s:InActiveStatusLine()
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     let s:statusline.="%#EndSeperate#"
-    let s:statusline.="%{spaceline#spaceline#LineNoIndicator()}"
+    let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     return s:statusline
 endfunction
 
