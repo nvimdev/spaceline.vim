@@ -12,7 +12,8 @@ The colorscheme of this image is [oceanic_material](https://github.com/hardcorep
 - More separator combinations make the status bar look better, and spaceline handles combinations in different situations, very well. The combination of each area is very good in different situations.
 - spaceline is faster than lightline and airline
 - middle color of spaceline will match your colorscheme background color (now only default colorscheme space support)
-
+- support scroll bar
+![](https://user-images.githubusercontent.com/41671631/81278046-c0ed8e00-9087-11ea-8d62-e6587ac843e8.gif)
 # Install
 
 - Easy installed with a plugin manager like vim-plug
