@@ -327,6 +327,7 @@ function! spaceline#spaceline#VimMode()
     return "SE"
   endif
 endfunction
+
 let g:line_no_indicator_chars = [
   \ '   ', '▏  ', '▎  ', '▍  ', '▌  ',
   \ '▋  ', '▊  ', '▉  ', '█  ', '█▏ ',
