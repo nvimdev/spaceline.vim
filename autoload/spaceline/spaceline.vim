@@ -328,9 +328,6 @@ function! spaceline#spaceline#VimMode()
   endif
 endfunction
 
-let g:line_no_indicator_chars = [
-  \  ' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'
-  \  ]
 
 function! spaceline#spaceline#LineNoIndicator() abort
   " Zero index line number so 1/3 = 0, 2/3 = 0.5, and 3/3 = 1
