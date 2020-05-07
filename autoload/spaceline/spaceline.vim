@@ -329,38 +329,24 @@ function! spaceline#spaceline#VimMode()
 endfunction
 
 let g:line_no_indicator_chars = [
-  \ '   ', '▏  ', '▎  ', '▍  ', '▌  ',
-  \ '▋  ', '▊  ', '▉  ', '█  ', '█▏ ',
-  \ '█▎ ', '█▍ ', '█▌ ', '█▋ ', '█▊ ',
-  \ '█▉ ', '██ ', '██▏', '██▎', '██▍',
-  \ '██▌', '██▋', '██▊', '██▉', '███'
-  \ ]
+  \  ' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'
+  \  ]
+
 function! spaceline#spaceline#LineNoIndicator() abort
-    " Zero index line number so 1/3 = 0, 2/3 = 0.5, and 3/3 = 1
+  " Zero index line number so 1/3 = 0, 2/3 = 0.5, and 3/3 = 1
   let l:current_line = line('.') - 1
   let l:total_lines = line('$') - 1
-  let l:indicator_full_cycle_steps = len(g:line_no_indicator_chars) - 1
 
-  " Result Line No Indicator string accumulator
-  let l:result = ''
+  if l:current_line == 0
+    let l:index = 0
+  elseif l:current_line == l:total_lines
+    let l:index = -1
+  else
+    let l:line_no_fraction = floor(l:current_line) / floor(l:total_lines)
+    let l:index = float2nr(l:line_no_fraction * len(g:line_no_indicator_chars))
+  endif
 
-  " Iterating over repeats starting from 0 (zero)
-  for l:i in range(g:line_no_indicator_bar_repeats)
-    let l:line_no_fraction =
-      \ ( floor(l:current_line)
-      \ / floor(l:total_lines)
-      \ * g:line_no_indicator_bar_repeats
-      \ ) - l:i
-
-    let l:index =
-      \ min([l:indicator_full_cycle_steps,
-      \ max([0,
-      \ float2nr(l:line_no_fraction * l:indicator_full_cycle_steps)
-      \ ])])
-
-    let l:result = l:result . g:line_no_indicator_chars[l:index]
-  endfor
-  return l:result
+  return g:line_no_indicator_chars[l:index]
 endfunction
 
 function! spaceline#spaceline#Setmidcolor(midcolorname)
