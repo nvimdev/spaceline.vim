@@ -92,17 +92,8 @@ let g:spaceline_seperate_mode = 0
         let g:spaceline_seperate_endseperate = ''
         let g:spaceline_seperate_emptyseperate = ''
 ```
-
-# Thanks
-
-<a href="https://github.com/appelgriebsch" target="_blank" title="appelgriebsch">
-  <img src="https://github.com/appelgriebsch.png?size=64" width="64" height="64" alt="appelgriebsch">
-</a>
-
-<a href="https://github.com/rafi" target="_blank" title="rafi">
-  <img src="https://github.com/rafi.png?size=64" width="64" height="64" alt="rafi">
-</a>
-
+# TODO
+- Rewrite this plugin. The code now looks the same as shit.
 # Donate
 
 <img src="https://github.com/taigacute/IMG/blob/master/wechat/mm_reward_qrcode_1556454268864.png" width="50%"  height="50%">
