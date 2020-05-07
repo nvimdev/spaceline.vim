@@ -90,7 +90,7 @@ function! spaceline#spaceline#VimacsLineinfo() abort
   \      &filetype ==? 'vim-plug'         ? ' ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
   \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
-  \      printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
+  \      printf(' %d:%d | %d%% ', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
 function! spaceline#spaceline#Filesize()abort
