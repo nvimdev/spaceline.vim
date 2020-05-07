@@ -340,10 +340,10 @@ function! spaceline#spaceline#LineNoIndicator() abort
     let l:index = -1
   else
     let l:line_no_fraction = floor(l:current_line) / floor(l:total_lines)
-    let l:index = float2nr(l:line_no_fraction * len(g:line_no_indicator_chars))
+    let l:index = float2nr(l:line_no_fraction * len(g:spaceline_no_indicator_chars))
   endif
 
-  return g:line_no_indicator_chars[l:index]
+  return g:spaceline_no_indicator_chars[l:index]
 endfunction
 
 function! spaceline#spaceline#Setmidcolor(midcolorname)
