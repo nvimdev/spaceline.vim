@@ -78,7 +78,7 @@ function! spaceline#colorscheme#space#space()
     call spaceline#spaceline#SpaceHL('StatusEncod',s:slc,  'lightgray',  'purple')
     call spaceline#spaceline#SpaceHL('StatusFileFormat',s:slc,  'lightgray',  'purple')
     call spaceline#spaceline#SpaceHL('StatusLineinfo',s:slc,  'lightblue',  'navy')
-    call spaceline#spaceline#SpaceHL('EndSeperate',s:slc,  'darkpurple',  'yellow')
+    call spaceline#spaceline#SpaceHL('EndSeperate',s:slc,  'yellow',  'purple')
     call spaceline#spaceline#SpaceHL('VimMode',s:slc,  'green',  'navy')
     call spaceline#spaceline#SpaceHL('emptySeperate1',s:slc,  'navy',  'darknavy')
 endfunction
