@@ -328,7 +328,6 @@ function! spaceline#spaceline#VimMode()
   endif
 endfunction
 
-
 function! spaceline#spaceline#ScrollBar() abort
   " Zero index line number so 1/3 = 0, 2/3 = 0.5, and 3/3 = 1
   let l:current_line = line('.') - 1
@@ -340,10 +339,10 @@ function! spaceline#spaceline#ScrollBar() abort
     let l:index = -1
   else
     let l:line_no_fraction = floor(l:current_line) / floor(l:total_lines)
-    let l:index = float2nr(l:line_no_fraction * len(g:spaceline_scroll_bar))
+    let l:index = float2nr(l:line_no_fraction * len(g:spaceline_scroll_bar_chars))
   endif
 
-  return g:spaceline_scroll_bar[l:index]
+  return g:spaceline_scroll_bar_chars[l:index]
 endfunction
 
 function! spaceline#spaceline#Setmidcolor(midcolorname)
