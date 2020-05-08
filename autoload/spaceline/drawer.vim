@@ -1,6 +1,6 @@
 function! s:SlantActiveStatusLine()
     let squeeze_width = winwidth(0) / 2
-    if &filetype ==? 'defx' ||&filetype==?'vista' || &filetype ==? 'coc-explorer' || &filetype ==? 'dbui'
+    if &filetype ==? 'defx' || &filetype ==? 'coc-explorer' || &filetype ==? 'dbui'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
@@ -11,6 +11,14 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%#EndSeperate#"
         let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
         return s:statusline
+    endif
+    if &filetype ==? 'vista'
+        let s:statusline=""
+        let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
+        let s:statusline.="%#HomeModeRight#"
+        let s:statusline.="%="
+        let s:statusline.="%#EndSeperate#"
+        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
@@ -122,7 +130,7 @@ endfunction
 
 function! s:ActiveStatusLine()
     let squeeze_width = winwidth(0) / 2
-    if &filetype ==? 'defx' || &filetype==?'vista' || &filetype==?'coc-explorer' || &filetype==?'dbui'
+    if &filetype ==? 'defx' ||  &filetype==?'coc-explorer' || &filetype==?'dbui'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
@@ -133,8 +141,16 @@ function! s:ActiveStatusLine()
         let s:statusline.="%="
         let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
         let s:statusline.="%#EndSeperate#"
-        let s:statusline.=g:sep.EndSeperate
+        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
         return s:statusline
+    endif
+    if &filetype ==? 'vista'
+        let s:statusline=""
+        let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
+        let s:statusline.="%#HomeModeRight#"
+        let s:statusline.="%="
+        let s:statusline.="%#EndSeperate#"
+        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
