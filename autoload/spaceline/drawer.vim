@@ -15,6 +15,7 @@ function! s:SlantActiveStatusLine()
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
+        let s:statusline.=g:sep.homemoderight
         let s:statusline.="%="
         return s:statusline
     endif
@@ -145,6 +146,7 @@ function! s:ActiveStatusLine()
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
+        let s:statusline.=g:sep.homemoderight
         let s:statusline.="%="
         return s:statusline
     endif
