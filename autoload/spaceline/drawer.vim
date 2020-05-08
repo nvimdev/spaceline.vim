@@ -12,13 +12,12 @@ function! s:SlantActiveStatusLine()
         let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
         return s:statusline
     endif
-    if &filetype ==? 'vista'
+    if &filetype == 'vista'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
         let s:statusline.="%="
-        let s:statusline.="%#EndSeperate#"
-        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
+        return s:statusline
     endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
@@ -144,13 +143,12 @@ function! s:ActiveStatusLine()
         let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
         return s:statusline
     endif
-    if &filetype ==? 'vista'
+    if &filetype == 'vista'
         let s:statusline=""
         let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
         let s:statusline.="%#HomeModeRight#"
         let s:statusline.="%="
-        let s:statusline.="%#EndSeperate#"
-        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
+        return s:statusline
     endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
@@ -241,6 +239,7 @@ function! s:ActiveStatusLine()
     let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     return s:statusline
 endfunction
+
 function! s:InActiveStatusLine()
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
@@ -251,8 +250,6 @@ function! s:InActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
-    let s:statusline.="%#EndSeperate#"
-    let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
     return s:statusline
 endfunction
 
