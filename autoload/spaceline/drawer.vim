@@ -139,7 +139,6 @@ function! s:ActiveStatusLine()
         let s:statusline.="%="
         let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
         let s:statusline.="%#EndSeperate#"
-        let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
         return s:statusline
     endif
     if &filetype == 'vista'
