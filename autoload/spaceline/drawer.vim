@@ -1,24 +1,19 @@
+let s:short_statusline_filetype = ['defx','coc-explorer','dbui','vista']
+
+function! s:short_statusline() abort
+    let s:statusline=""
+    let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
+    let s:statusline.="%#HomeModeRight#"
+    let s:statusline.=g:sep.homemoderight
+    let s:statusline.="\ "
+    let s:statusline.="%="
+    let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
+    let s:statusline.="%#EndSeperate#"
+    return s:statusline
+endfunction
+
 function! s:SlantActiveStatusLine()
     let squeeze_width = winwidth(0) / 2
-    if &filetype ==? 'defx' || &filetype ==? 'coc-explorer' || &filetype ==? 'dbui'
-        let s:statusline=""
-        let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
-        let s:statusline.="%#HomeModeRight#"
-        let s:statusline.=g:sep.homemoderight
-        let s:statusline.="\ "
-        let s:statusline.="%="
-        let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
-        let s:statusline.="%#EndSeperate#"
-        return s:statusline
-    endif
-    if &filetype == 'vista'
-        let s:statusline=""
-        let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
-        let s:statusline.="%#HomeModeRight#"
-        let s:statusline.=g:sep.homemoderight
-        let s:statusline.="%="
-        return s:statusline
-    endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
@@ -111,45 +106,8 @@ function! s:SlantActiveStatusLine()
     return s:statusline
 endfunction
 
-function! s:SlantInActiveStatusLine()
-    let s:statusline=""
-    let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
-    let s:statusline.="%#HomeModeRight#"
-    let s:statusline.=g:sep.homemoderight
-    let s:statusline.="\ "
-    let s:statusline.="%#FileName#"
-    let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
-    let s:statusline.="\ "
-    let s:statusline.="%="
-    let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
-    let s:statusline.="%#EndSeperate#"
-    let s:statusline.="%{spaceline#spaceline#ScrollBar()}"
-    return s:statusline
-endfunction
-
 function! s:ActiveStatusLine()
     let squeeze_width = winwidth(0) / 2
-    if &filetype ==? 'defx' ||  &filetype==?'coc-explorer' || &filetype==?'dbui'
-        let s:statusline=""
-        let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
-        let s:statusline.="%#HomeModeRight#"
-        let s:statusline.=g:sep.homemoderight
-        let s:statusline.="%#FileName#"
-        let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
-        let s:statusline.="\ "
-        let s:statusline.="%="
-        let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
-        let s:statusline.="%#EndSeperate#"
-        return s:statusline
-    endif
-    if &filetype == 'vista'
-        let s:statusline=""
-        let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
-        let s:statusline.="%#HomeModeRight#"
-        let s:statusline.=g:sep.homemoderight
-        let s:statusline.="%="
-        return s:statusline
-    endif
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
@@ -259,31 +217,21 @@ function! s:Spaceline_Color(theme)
 endfunction
 
 function! s:SetStatusline()
-    if g:seperate_mode ==1
-        let &l:statusline=s:ActiveStatusLine()
-        call s:Spaceline_Color(g:spaceline_colorscheme)
-        return
+    if index(s:short_statusline_filetype, &filetype)
+      let &l:statusline=s:short_statusline()
+      call s:Spaceline_Color(g:spaceline_colorscheme)
+      return
     endif
     if g:seperate_style == 'slant' || g:seperate_style == 'slant-fade'
-        let &l:statusline=s:SlantActiveStatusLine()
-        call s:Spaceline_Color(g:spaceline_colorscheme)
-        return
+      let &l:statusline=s:SlantActiveStatusLine()
+      call s:Spaceline_Color(g:spaceline_colorscheme)
+      return
     endif
     let &l:statusline=s:ActiveStatusLine()
     call s:Spaceline_Color(g:spaceline_colorscheme)
 endfunction
 
 function! spaceline#drawer#setInActiveStatusLine()
-    if g:seperate_mode ==1
-        let &l:statusline=s:ActiveStatusLine()
-        call s:Spaceline_Color(g:spaceline_colorscheme)
-        return
-    endif
-    if g:seperate_style == 'slant' || g:seperate_style == 'slant-fade'
-        let &l:statusline=s:SlantInActiveStatusLine()
-        call s:Spaceline_Color(g:spaceline_colorscheme)
-        return
-    endif
     let &l:statusline=s:InActiveStatusLine()
     call s:Spaceline_Color(g:spaceline_colorscheme)
 endfunction
