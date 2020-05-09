@@ -1,4 +1,4 @@
-let s:short_statusline_filetype = ['defx','coc-explorer','dbui','vista']
+let s:short_statusline_filetype = ['defx','coc-explorer','dbui','vista','vista_markdown']
 
 function! s:short_statusline() abort
     let s:statusline=""
