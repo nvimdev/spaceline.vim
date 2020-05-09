@@ -7,8 +7,8 @@ function! s:short_statusline() abort
     let s:statusline.=g:sep.homemoderight
     let s:statusline.="\ "
     let s:statusline.="%="
-    let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
-    let s:statusline.="%#EndSeperate#"
+    " let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
+    " let s:statusline.="%#EndSeperate#"
     return s:statusline
 endfunction
 
