@@ -4,19 +4,6 @@
 " URL: https://github.com/taigacute/spaceline.vim
 " License: MIT License
 " =============================================================================
-function! spaceline#seperator#spacelineCustomSeperate()
-        let s:seperator={}
-        let s:seperator.homemoderight = get(g:, 'spaceline_homemode_right','')
-        let s:seperator.filenameright = get(g:, 'spaceline_filename_left','')
-        let s:seperator.filesizeright = get(g:, 'spaceline_filesize_right','')
-        let s:seperator.gitleft = get(g:, 'spaceline_gitinfo_left','')
-        let s:seperator.gitright = get(g:, 'spaceline_gitinfo_right','')
-        let s:seperator.lineinfoleft = get(g:, 'spaceline_cocexts_right','')
-        let s:seperator.lineformatright = get(g:, 'spaceline_lineformat_right', '')
-        let s:seperator.EndSeperate = get(g:, 'spaceline_seperate_endseperate',' ')
-        let s:seperator.emptySeperate1 = get(g:, 'spaceline_seperate_emptyseperate','')
-        return s:seperator
-endfunction
 
 function! spaceline#seperator#spacelineStyle(style)
     let s:seperator={}
