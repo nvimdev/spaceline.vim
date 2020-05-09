@@ -7,12 +7,6 @@
 let s:symbol = get(g:, 'spaceline_line_symbol', 0)
 
 function! spaceline#spaceline#VimacsLineGitBranch()
-    if &filetype ==? 'defx'
-       return ""
-    endif
-    if &filetype ==? 'dbui'
-       return ""
-    endif
     let gitbranch=get(g:, 'coc_git_status', '')
     if empty(gitbranch)
 	    let gitbranch=""
@@ -148,36 +142,6 @@ function! s:get_buffer_number()
 endfunction
 
 function! spaceline#spaceline#VimacsFilenameActive() abort
-  if s:vimacsline_is_lean()
-    return ''
-  endif
-  if &buftype ==? 'terminal'
-    return has('nvim') ? b:term_title . ' (' . b:terminal_job_pid . ')' : ''
-  endif
-  if &filetype ==? 'tagbar'
-    return ''
-  endif
-  if &filetype ==? 'vista'
-    return ''
-  endif
-  if &filetype ==? 'coc-explorer'
-      return ''
-  endif
-  if &filetype ==? 'vim-plug'
-      return ''
-  endif
-  if &filetype ==? 'nerdtree'
-      return ''
-  endif
-  if &filetype ==? 'defx'
-      return ''
-  endif
-  if &filetype ==? 'dbui'
-      return ''
-  endif
-  if &filetype ==? 'magit'
-      return ''
-  endif
   if empty(expand('%:t'))
     return '[No Name]'
   endif
