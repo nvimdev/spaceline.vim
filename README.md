@@ -13,7 +13,8 @@ The colorscheme of this image is [oceanic_material](https://github.com/hardcorep
 - spaceline is faster than lightline and airline
 - middle color of spaceline will match your colorscheme background color (now only default colorscheme space support)
 - support scroll bar
-![](https://user-images.githubusercontent.com/41671631/81278046-c0ed8e00-9087-11ea-8d62-e6587ac843e8.gif)
+  ![](https://user-images.githubusercontent.com/41671631/81278046-c0ed8e00-9087-11ea-8d62-e6587ac843e8.gif)
+
 # Install
 
 - Easy installed with a plugin manager like vim-plug
@@ -62,38 +63,14 @@ let g:spaceline_line_symbol = 0
 let g:spaceline_colorscheme = 'space'
 ```
 
-- base16_dark
-
-- solarized_dark made by [appelgriebsch](https://github.com/appelgriebsch)
-  ![image](https://github.com/taigacute/IMG/blob/master/spaceline/solarized_dark.png)
-
 # Goyo Support
 
 - check the thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
 
-# Custom
-
-- You can customize every symbol in spaceline. There are some very useful settings, first, you should set the `g:seperate_mode` to `1`
-
-```viml
-let g:spaceline_seperate_mode = 0
-```
-
-- Then set seperators by these settings:
-
-```viml
-        let g:spaceline_homemode_right = ''
-        let g:spaceline_filename_left  = ''
-        let g:spaceline_filesize_right = ''
-        let g:spaceline_gitinfo_left   = ''
-        let g:spaceline_gitinfo_right  = ''
-        let g:spaceline_cocexts_right  = ''
-        let g:spaceline_lineformat_right = ''
-        let g:spaceline_seperate_endseperate = ''
-        let g:spaceline_seperate_emptyseperate = ''
-```
 # TODO
+
 - Rewrite this plugin. The code now looks the same as shit.
+
 # Donate
 
 <img src="https://github.com/taigacute/IMG/blob/master/wechat/mm_reward_qrcode_1556454268864.png" width="50%"  height="50%">
