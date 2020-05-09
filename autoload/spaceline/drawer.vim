@@ -217,7 +217,7 @@ function! s:Spaceline_Color(theme)
 endfunction
 
 function! s:SetStatusline()
-    if index(s:short_statusline_filetype, &filetype)
+    if index(s:short_statusline_filetype, &filetype) >= 0
       let &l:statusline=s:short_statusline()
       call s:Spaceline_Color(g:spaceline_colorscheme)
       return
