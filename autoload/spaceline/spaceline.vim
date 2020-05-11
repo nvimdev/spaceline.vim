@@ -58,33 +58,19 @@ function! s:vimacsline_is_plain() abort
 endfunction
 
 function! spaceline#spaceline#VimacsLineinfo() abort
-    if s:symbol ==1
-        return &filetype ==? 'help'             ? ''  :
-        \      &filetype ==? 'defx'             ? ' ' :
-        \      &filetype ==? 'nerdtree'         ? ' ' :
-        \      &filetype ==? 'denite'           ? ' ' :
-        \      &filetype ==? 'tagbar'           ? ' ' :
-        \      &filetype ==? 'vim-plug'         ? ' ' :
-        \      &filetype ==? 'vista'            ? ' ' :
-        \      &filetype ==? 'vista_kind'       ? ' ' :
-        \      &filetype ==? 'dbui'             ? ' ' :
-        \      &filetype ==? 'magit'            ? ' ' :
-        \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
-        \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
-        \      printf(' %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
-    endif
-    return &filetype ==? 'help'           ? ''  :
-  \      &filetype ==? 'defx'             ? ' ' :
-  \      &filetype ==? 'coc-explorer'     ? ' ' :
-  \      &filetype ==? 'nerdtree'         ? ' ' :
-  \      &filetype ==? 'denite'           ? ' ' :
-  \      &filetype ==? 'dbui'             ? ' ' :
-  \      &filetype ==? 'vista_kind'       ? ' ' :
-  \      &filetype ==? 'magit'            ? ' ' :
-  \      &filetype ==? 'vim-plug'         ? ' ' :
-  \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
+  return &filetype ==? 'help'             ? '  '  :
+  \      &filetype ==? 'defx'             ? '  ' :
+  \      &filetype ==? 'nerdtree'         ? '  ' :
+  \      &filetype ==? 'denite'           ? '  ' :
+  \      &filetype ==? 'tagbar'           ? '  ' :
+  \      &filetype ==? 'vim-plug'         ? '  ' :
+  \      &filetype ==? 'vista'            ? '  ' :
+  \      &filetype ==? 'vista_kind'       ? '  ' :
+  \      &filetype ==? 'dbui'             ? '  ' :
+  \      &filetype ==? 'magit'            ? '  ' :
+  \      &filetype =~? '\v^mundo(diff)?$' ? '  ' :
   \      s:vimacsline_is_lean() || s:vimacsline_is_plain() ? ' '  :
-  \      printf(' %d:%d | %d%% ', line('.'), col('.'), 100*line('.')/line('$'))
+  \      printf(' %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
 function! spaceline#spaceline#Filesize()abort
