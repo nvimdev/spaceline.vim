@@ -199,8 +199,7 @@ endfunction
 function! s:InActiveStatusLine()
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
-    let s:statusline.=g:sep.homemoderight
-    " let s:statusline.="\ "
+    let s:statusline.="\ "
     let s:statusline.="%#FileName#"
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
     let s:statusline.="%="
