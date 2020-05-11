@@ -131,6 +131,9 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
   if empty(expand('%:t'))
     return '[No Name]'
   endif
+  if index(g:spaceline_shortline_filetype, &filetype)
+    return ''
+  endif
   let mo = s:vimacsline_modified()
   let fname = VimacsLineFilename()
   let icon = winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
