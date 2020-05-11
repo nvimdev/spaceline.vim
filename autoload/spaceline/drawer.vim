@@ -1,4 +1,3 @@
-let s:short_statusline_filetype = ['defx','coc-explorer','dbui','vista','vista_markdown']
 
 function! s:short_statusline() abort
     let s:statusline=""
@@ -200,12 +199,8 @@ endfunction
 function! s:InActiveStatusLine()
     let s:statusline=""
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
-    let s:statusline.="%#HomeModeRight#"
-    let s:statusline.=g:sep.homemoderight
-    let s:statusline.="\ "
     let s:statusline.="%#FileName#"
     let s:statusline.="%{spaceline#spaceline#VimacsFilenameActive()}"
-    let s:statusline.="\ "
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     return s:statusline
@@ -217,7 +212,7 @@ function! s:Spaceline_Color(theme)
 endfunction
 
 function! s:SetStatusline()
-    if index(s:short_statusline_filetype, &filetype) >= 0
+    if index(g:spaceline_shortline_filetype, &filetype) >= 0
       let &l:statusline=s:short_statusline()
       call s:Spaceline_Color(g:spaceline_colorscheme)
       return

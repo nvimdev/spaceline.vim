@@ -12,6 +12,7 @@ let g:loaded_spaceline = 1
 
 let g:seperate_style = get(g:, 'spaceline_seperate_style', 'arrow')
 let g:spaceline_colorscheme = get(g:, 'spaceline_colorscheme', 'space')
+let g:spaceline_shortline_filetype = ['defx','coc-explorer','dbui','vista','vista_markdown']
 let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
   \  '▁', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'
   \  ])
