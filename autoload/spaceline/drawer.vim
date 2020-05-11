@@ -5,8 +5,9 @@ function! s:short_statusline() abort
     let s:statusline.="%#HomeMode#%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
     let s:statusline.=g:sep.homemoderight
-    " let s:statusline.="\ "
-    " let s:statusline.="%="
+    let s:statusline.="\ "
+    let s:statusline.="%="
+    let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     return s:statusline
 endfunction
 
