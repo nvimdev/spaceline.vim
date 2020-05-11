@@ -131,7 +131,7 @@ function! spaceline#spaceline#VimacsFilenameActive() abort
   if empty(expand('%:t'))
     return '[No Name]'
   endif
-  if index(g:spaceline_shortline_filetype, &filetype)
+  if index(g:spaceline_shortline_filetype, &filetype) >= 0
     return ''
   endif
   let mo = s:vimacsline_modified()
