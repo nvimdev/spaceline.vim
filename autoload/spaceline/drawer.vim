@@ -5,10 +5,10 @@ function! s:short_statusline() abort
     let s:statusline.="%{spaceline#spaceline#VimacslineMode()}"
     let s:statusline.="%#HomeModeRight#"
     let s:statusline.=g:sep.homemoderight
-    let s:statusline.="\ "
-    let s:statusline.="%#emptySeperate1#"
-    let s:statusline.=g:sep.emptySeperate1
-    let s:statusline.="\ "
+    " let s:statusline.="\ "
+    " let s:statusline.="%#emptySeperate1#"
+    " let s:statusline.=g:sep.emptySeperate1
+    " let s:statusline.="\ "
     let s:statusline.="%="
     let s:statusline.="%#StatusLineinfo#%{spaceline#spaceline#VimacsLineinfo()}"
     return s:statusline
