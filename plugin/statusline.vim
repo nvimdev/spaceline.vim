@@ -23,7 +23,7 @@ let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)
 
 augroup spaceline
   autocmd!
-  autocmd FileType,WinEnter,BufWinEnter,BufReadPost * call spaceline#drawer#spacelinetoggle()
+  autocmd FileType,WinEnter,BufWinEnter,BufReadPost,WinClosed * call spaceline#drawer#spacelinetoggle()
   autocmd VimResized * call spaceline#drawer#spacelinetoggle()
   autocmd WinLeave * call spaceline#drawer#setInActiveStatusLine()
   autocmd BufNewFile,ShellCmdPost,BufWritePost * call spaceline#drawer#spacelinetoggle()
