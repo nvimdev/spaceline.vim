@@ -29,6 +29,6 @@ augroup spaceline
   autocmd BufNewFile,ShellCmdPost,BufWritePost * call spaceline#drawer#spacelinetoggle()
   autocmd FileChangedShellPost,ColorScheme * call spaceline#drawer#spacelinetoggle()
   autocmd FileReadPre,ShellCmdPost,FileWritePost * call spaceline#drawer#spacelinetoggle()
-  autocmd User CocStatusChange,CocGitStatusChange call spaceline#drawer#spacelinetoggle()
+  autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit call spaceline#drawer#spacelinetoggle()
   autocmd User CocDiagnosticChange call spaceline#drawer#spacelinetoggle()
 augroup END "}}}
