@@ -77,12 +77,6 @@ function! spaceline#spaceline#Filesize()abort
   if empty(expand('%:t'))
     return ''
   endif
-  if &filetype ==? 'defx'
-    return ''
-  endif
-  if &filetype ==? 'dbui'
-    return ''
-  endif
   return " ".Fsize(@%)
 endfunction
 
@@ -92,7 +86,7 @@ function! Fsize(f) abort
     return ''
   endif
   if l:size < 1024
-    let size = l:size.' bytes'
+    let size = l:size.'b'
   elseif l:size < 1024*1024
     let size = printf('%.1f', l:size/1024.0).'k'
   elseif l:size < 1024*1024*1024
@@ -113,7 +107,10 @@ function! Vimacslinemode()
   if bfnumber == 0
     return ''
   endif
-  return join([' ',numberlist[bfnumber]])
+  if s:symbol == 1
+    return join([' ',numberlist[bfnumber]])
+  endif
+  return join(['',numberlist[bfnumber]])
 endfunction
 
 function! s:get_buffer_number()
