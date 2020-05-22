@@ -107,10 +107,7 @@ function! Vimacslinemode()
   if bfnumber == 0
     return ''
   endif
-  if s:symbol == 1
-    return join([' ',numberlist[bfnumber]])
-  endif
-  return join(['',numberlist[bfnumber]])
+  return join([' ',numberlist[bfnumber]])
 endfunction
 
 function! s:get_buffer_number()
