@@ -77,7 +77,7 @@ function! spaceline#spaceline#Filesize()abort
   if empty(expand('%:t'))
     return ''
   endif
-  return " ".Fsize(@%)
+  return ' '.Fsize(@%)
 endfunction
 
 function! Fsize(f) abort
