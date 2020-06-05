@@ -4,10 +4,12 @@
 " URL: https://github.com/taigacute/spaceline.vim
 " License: MIT License
 " =============================================================================
+
 scriptencoding utf-8
 if exists('g:loaded_spaceline') || v:version < 700
   finish
 endif
+
 let g:loaded_spaceline = 1
 
 let g:seperate_style = get(g:, 'spaceline_seperate_style', 'arrow')
