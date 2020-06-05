@@ -77,12 +77,6 @@ function! s:ActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#spaceline#CocStatusBar()}"
     let s:statusline.="%="
-    if  squeeze_width > 40
-      let s:statusline.="%#NearestMethodOrFunction#"
-      let s:statusline.="%{spaceline#spaceline#NearestMethodOrFunction()}"
-      let s:statusline.="\ "
-    endif
-
     let s:statusline.="%#LineInfoLeft#"
     let s:statusline.=g:sep.lineinfoleft
     if squeeze_width > 40

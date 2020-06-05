@@ -6,10 +6,6 @@
 " =============================================================================
 let s:symbol = get(g:, 'spaceline_line_symbol', 0)
 
-function! spaceline#spaceline#NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-
 function! spaceline#spaceline#VimacsLineGitBranch()
     let gitbranch=get(g:, 'coc_git_status', '')
     if empty(gitbranch)
