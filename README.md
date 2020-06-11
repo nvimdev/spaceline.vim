@@ -67,13 +67,10 @@ let g:spaceline_colorscheme = 'space'
 
 - check the thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
 
-# TODO
-
-- Rewrite this plugin. The code now looks the same as shit.
 
 # Donate
 
-<img src="https://github.com/taigacute/IMG/blob/master/wechat/mm_reward_qrcode_1556454268864.png" width="50%"  height="50%">
+<img src="https://github.com/glepnir/IMG/blob/master/wechat/mm_reward_qrcode_1556454268864.png" width="50%"  height="50%">
 
 # License
 
