@@ -1,4 +1,10 @@
-
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
+"
 function! s:short_statusline() abort
     let s:statusline=""
     let s:statusline.="%#HomeMode#"
@@ -27,13 +33,13 @@ function! s:ActiveStatusLine()
     let s:statusline.="%#FileNameRight#"
     let s:statusline.=g:sep.filenameright
 
-    if !empty(spaceline#diagnostic#coc_error())|| !empty(spaceline#diagnostic#coc_warn()) && squeeze_width >40
+    if !empty(spaceline#diagnostic#diagnostic_error())|| !empty(spaceline#diagnostic#diagnostic_warn()) && squeeze_width >40
         let s:statusline.="%#CocError#"
         let s:statusline.="\ "
-        let s:statusline.="%{spaceline#diagnostic#coc_error()}"
+        let s:statusline.="%{spaceline#diagnostic#diagnostic_error()}"
         let s:statusline.="\ "
         let s:statusline.="%#CocWarn#"
-        let s:statusline.="%{spaceline#diagnostic#coc_warn()}"
+        let s:statusline.="%{spaceline#diagnostic#diagnostic_warn()}"
         let s:statusline.="\ "
     elseif !empty(spaceline#file#file_size()) && squeeze_width > 40
         let s:statusline.="%#Filesize#"

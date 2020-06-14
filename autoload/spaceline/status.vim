@@ -1,3 +1,9 @@
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
 
 function! spaceline#status#coc_status() abort
     let status=get(g:, 'coc_status', '')
