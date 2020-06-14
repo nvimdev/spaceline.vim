@@ -1,3 +1,9 @@
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
 
 function! spaceline#vcs#git_branch()
     let gitbranch=get(g:, 'coc_git_status', '')

@@ -1,5 +1,26 @@
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
 
-function! spaceline#diagnostic#coc_error()
+
+if exists('g:coc_diagnostic_info')
+  let s:diagnostic_tool = 'coc'
+endif
+
+function! spaceline#diagnostic#diagnostic_error()
+  let l:error_message = s:diagnostic_{s:diagnostic_tool}_error()
+  return l:error_message
+endfunction
+
+function! spaceline#diagnostic#diagnostic_warn()
+  let l:warn_message = s:diagnostic_{s:diagnostic_tool}_warn()
+  return l:warn_message
+endfunction
+
+function! s:diagnostic_coc_error()
   let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info)
@@ -12,7 +33,7 @@ function! spaceline#diagnostic#coc_error()
   return join(errmsgs, ' ')
 endfunction
 
-function! spaceline#diagnostic#coc_warn() abort
+function! s:diagnostic#coc_warn() abort
   let warning_sign = get(g:, 'coc_status_warning_sign')
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info)

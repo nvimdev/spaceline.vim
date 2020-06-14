@@ -1,3 +1,9 @@
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
 
 function! spaceline#buffer#buffer() abort
     return s:line_is_lean() || s:line_is_plain() ? toupper(&filetype) : s:buffer_number()
