@@ -6,7 +6,7 @@
 " =============================================================================
 
 
-if exists('g:coc_diagnostic_info')
+if exists('g:coc_status_error_sign')
   let s:diagnostic_tool = 'coc'
 endif
 
@@ -33,7 +33,7 @@ function! s:diagnostic_coc_error()
   return join(errmsgs, ' ')
 endfunction
 
-function! s:diagnostic#coc_warn() abort
+function! s:diagnostic_coc_warn() abort
   let warning_sign = get(g:, 'coc_status_warning_sign')
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info)
