@@ -5,9 +5,11 @@
 " License: MIT License
 " =============================================================================
 
-
+" Determine whether the current lsp is coc or nvim-lsp
 if exists('g:coc_status_error_sign')
   let s:diagnostic_tool = 'coc'
+else
+  let s:diagnostic_tool = 'nvim_lsp'
 endif
 
 function! spaceline#diagnostic#diagnostic_error()
@@ -49,5 +51,15 @@ endfunction
 function! s:coc_quickfixes() abort
   let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
   return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
+endfunction
+
+" TODO this function will return a string that used for
+" when nvim-lsp return error
+function! s:nvim_lsp_error()
+endfunction
+
+" TODO this function will return a string that used for
+" when nvim-lsp return warn
+function! s:nvim_lsp_warn()
 endfunction
 
