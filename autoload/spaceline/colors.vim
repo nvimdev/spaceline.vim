@@ -1,3 +1,9 @@
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
 
 function! spaceline#colors#match_background_color(midcolorname)
    let s:bgcolor = synIDattr(hlID("Normal"), "bg")

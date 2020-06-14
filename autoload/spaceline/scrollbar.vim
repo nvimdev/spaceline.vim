@@ -1,3 +1,9 @@
+" =============================================================================
+" Filename: spaceline.vim
+" Author: taigacute
+" URL: https://github.com/taigacute/spaceline.vim
+" License: MIT License
+" =============================================================================
 
 function! spaceline#scrollbar#scrollbar_instance() abort
   " Zero index line number so 1/3 = 0, 2/3 = 0.5, and 3/3 = 1
