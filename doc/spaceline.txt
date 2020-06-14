@@ -1,0 +1,115 @@
+*spaceline.vim.txt*  The fancy start screen.
+*spaceline.vim*
+==============================================================================
+CONTENTS                                                     *spaceline.vim-contents*
+
+    INTRO .......................................... |spaceline.vim-intro|
+    COMMANDS ....................................... |spaceline.vim-commands|
+    OPTIONS ........................................ |spaceline.vim-options|
+    COLORS ......................................... |spaceline.vim-colors|
+
+==============================================================================
+INTRO                                                           *spaceline.vim-intro*
+
+spaceline is a vim statusline plugin. depends on coc.nvim coc-git extension
+vim-devicons
+
+==============================================================================
+OPTIONS                                                       *spaceline.vim-options*
+
+Put these variables into your vimrc. The shown assignments are also the
+default values.
+
+    Most used options:~
+    |g:spaceline_seperate_style|
+    |g:spaceline_line_symbol|
+    |g:spaceline_colorscheme|
+
+------------------------------------------------------------------------------
+                                                      *g:spaceline_seperate_style*
+>
+    let g:spaceline_seperate_style = 'arrow'
+<
+The separator style of statusline,default value is 'arrow'
+
+Options value: arrow arrow-fade curve slant slant-fade slant-cons none
+
+------------------------------------------------------------------------------
+                                                      *g:spaceline_line_symbol*
+>
+    let g:spaceline_line_symbol = 0
+<
+Default is 0 , Set to 1 to disable all icons in statusline.
+
+------------------------------------------------------------------------------
+                                                      *g:spaceline_colorscheme*
+>
+    let g:spaceline_colorscheme = 'space'
+<
+change the spaceline colorscheme.
+
+Options value : space
+==============================================================================
+FAQ
+
+>
+    How to support Goyo?
+<
+
+Example:
+>
+    " Goyo
+    " ----
+
+    " s:goyo_enter() "{{{
+    " Disable visual candy in Goyo mode
+    function! s:goyo_enter()
+      if has('gui_running')
+        " Gui fullscreen
+        set fullscreen
+        set background=light
+        set linespace=7
+      elseif exists('$TMUX')
+        " Hide tmux status
+        silent !tmux set status off
+      endif
+
+      " Activate Limelight
+      let g:loaded_spaceline=0
+      Limelight
+    endfunction
+
+    " }}}
+    " s:goyo_leave() "{{{
+    " Enable visuals when leaving Goyo mode
+    function! s:goyo_leave()
+      if has('gui_running')
+        " Gui exit fullscreen
+        set nofullscreen
+        set background=dark
+        set linespace=0
+      elseif exists('$TMUX')
+        " Show tmux status
+        silent !tmux set status on
+      endif
+
+      " De-activate Limelight
+      let g:loaded_spaceline =1
+      Limelight!
+    endfunction
+    " }}}
+
+    " Goyo Commands {{{
+    augroup user_plugin_goyo
+      autocmd!
+      autocmd! User GoyoEnter
+      autocmd! User GoyoLeave
+      autocmd  User GoyoEnter nested call <SID>goyo_enter()
+      autocmd  User GoyoLeave nested call <SID>goyo_leave()
+    augroup END
+    " }}}
+<
+
+
+==============================================================================
+vim:tw=78:sw=4:ts=8:ft=help:norl:noet:

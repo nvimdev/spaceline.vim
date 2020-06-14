@@ -12,6 +12,7 @@ endif
 
 let g:loaded_spaceline = 1
 
+let g:symbol = get(g:, 'spaceline_line_symbol', 0)
 let g:seperate_style = get(g:, 'spaceline_seperate_style', 'arrow')
 let g:spaceline_colorscheme = get(g:, 'spaceline_colorscheme', 'space')
 let g:spaceline_shortline_filetype = ['defx','coc-explorer','dbui','vista','vista_markdown','Mundo','MundoDiff']
@@ -25,12 +26,12 @@ let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)
 
 augroup spaceline
   autocmd!
-  autocmd FileType,WinEnter,BufWinEnter,BufReadPost * call spaceline#drawer#spacelinetoggle()
-  autocmd VimResized * call spaceline#drawer#spacelinetoggle()
-  autocmd WinLeave * call spaceline#drawer#setInActiveStatusLine()
-  autocmd BufNewFile,ShellCmdPost,BufWritePost * call spaceline#drawer#spacelinetoggle()
-  autocmd FileChangedShellPost,ColorScheme * call spaceline#drawer#spacelinetoggle()
-  autocmd FileReadPre,ShellCmdPost,FileWritePost * call spaceline#drawer#spacelinetoggle()
-  autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit call spaceline#drawer#spacelinetoggle()
-  autocmd User CocDiagnosticChange call spaceline#drawer#spacelinetoggle()
+  autocmd FileType,WinEnter,BufWinEnter,BufReadPost * call spaceline#spacelinetoggle()
+  autocmd VimResized * call spaceline#spacelinetoggle()
+  autocmd WinLeave * call spaceline#setInActiveStatusLine()
+  autocmd BufNewFile,ShellCmdPost,BufWritePost * call spaceline#spacelinetoggle()
+  autocmd FileChangedShellPost,ColorScheme * call spaceline#spacelinetoggle()
+  autocmd FileReadPre,ShellCmdPost,FileWritePost * call spaceline#spacelinetoggle()
+  autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit call spaceline#spacelinetoggle()
+  autocmd User CocDiagnosticChange call spaceline#spacelinetoggle()
 augroup END "}}}
