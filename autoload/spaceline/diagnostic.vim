@@ -53,6 +53,7 @@ function! s:coc_quickfixes() abort
   return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
 endfunction
 
+" TODO test
 function! s:nvim_lsp_error()
   let l:error_sign= '●'
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
@@ -62,6 +63,7 @@ function! s:nvim_lsp_error()
   endif
 endfunction
 
+" TODO test
 function! s:nvim_lsp_warn()
   let l:error_sign= '●'
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
