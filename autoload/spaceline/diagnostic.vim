@@ -53,13 +53,21 @@ function! s:coc_quickfixes() abort
   return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
 endfunction
 
-" TODO this function will return a string that used for
-" when nvim-lsp return error
 function! s:nvim_lsp_error()
+  let l:error_sign= '●'
+  if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
+    return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
+  else
+    return ''
+  endif
 endfunction
 
-" TODO this function will return a string that used for
-" when nvim-lsp return warn
 function! s:nvim_lsp_warn()
+  let l:error_sign= '●'
+  if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
+    return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
+  else
+    return ''
+  endif
 endfunction
 
