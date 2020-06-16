@@ -54,7 +54,7 @@ function! s:coc_quickfixes() abort
 endfunction
 
 " TODO test
-function! s:nvim_lsp_error()
+function! s:diagnostic_nvim_lsp_error()
   let l:error_sign= '●'
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
     return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
@@ -64,7 +64,7 @@ function! s:nvim_lsp_error()
 endfunction
 
 " TODO test
-function! s:nvim_lsp_warn()
+function! s:diagnostic_nvim_lsp_warn()
   let l:error_sign= '●'
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
     return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
