@@ -55,7 +55,7 @@ endfunction
 
 " TODO test
 function! s:diagnostic_nvim_lsp_error()
-  let l:error_sign= '●'
+  let l:error_sign= exists('g:spaceline_nvim_lsp_errorsign')? g:spaceline_nvim_lsp_errorsign : '●'
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
     return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
   else
@@ -65,9 +65,9 @@ endfunction
 
 " TODO test
 function! s:diagnostic_nvim_lsp_warn()
-  let l:error_sign= '●'
+  let l:warn_sign= exists('g:spaceline_nvim_lsp_warnsign')? g:spaceline_nvim_lsp_warnsign : '●'
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
-    return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
+    return l:warn_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
   else
     return ''
   endif
