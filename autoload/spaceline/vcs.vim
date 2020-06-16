@@ -6,12 +6,19 @@
 " =============================================================================
 
 function! spaceline#vcs#git_branch()
-    let gitbranch=get(g:, 'coc_git_status', '')
-    if empty(gitbranch)
-	    let gitbranch=""
-        return ""
-    endif
-    return gitbranch
+  if exists('g:coc_git_status')
+    let l:gitbranch = get(g:, 'coc_git_status', '')
+  else
+    let l:git_branch_icon = exists('g:spaceline_git_branch_icon') ? g:spaceline_git_branch_icon : ''
+    let l:gitbranch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  endif
+  if empty(l:gitbranch)
+    return ""
+  endif
+  if exists('l:git_branch_icon')
+    return l:git_branch_icon . l:gitbranch
+  endif
+  return l:gitbranch
 endfunction
 
 function! s:add_diff_icon(type) abort
