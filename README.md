@@ -63,6 +63,14 @@ let g:spaceline_line_symbol = 0
 let g:spaceline_colorscheme = 'space'
 ```
 
+# Options
+
+- `g:spaceline_lsp_executive` set your lsp plugin. default is `coc`,other value
+  is `nvim_lsp`
+
+- `g:spaceline_nvim_lsp_errorsign` set the error sign for `nvim-lsp`
+- `g:spaceline_nvim_lsp_warnsign` set the warn sign for `nvim-lsp`
+
 # Goyo Support
 
 - check the thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)

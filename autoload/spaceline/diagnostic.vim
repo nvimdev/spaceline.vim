@@ -6,14 +6,8 @@
 " =============================================================================
 
 " Determine whether the current lsp is coc or nvim-lsp
-if exists('g:coc_status_error_sign')
-  let s:diagnostic_tool = 'coc'
-else
-  let s:diagnostic_tool = 'nvim_lsp'
-endif
-
 function! spaceline#diagnostic#diagnostic_error()
-  let l:error_message = s:diagnostic_{s:diagnostic_tool}_error()
+  let l:error_message = s:diagnostic_{g:spaceline_lsp}_error()
   return l:error_message
 endfunction
 
