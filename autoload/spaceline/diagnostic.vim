@@ -12,7 +12,7 @@ function! spaceline#diagnostic#diagnostic_error()
 endfunction
 
 function! spaceline#diagnostic#diagnostic_warn()
-  let l:warn_message = s:diagnostic_{s:diagnostic_tool}_warn()
+  let l:warn_message = s:diagnostic_{g:spaceline_lsp}_warn()
   return l:warn_message
 endfunction
 
