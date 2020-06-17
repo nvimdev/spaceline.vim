@@ -19,6 +19,7 @@ let g:spaceline_shortline_filetype = ['defx','coc-explorer','dbui','vista','vist
 let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
   \  '▁', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'
   \  ])
+let g:spaceline_lsp = get(g:,'spaceline_lsp_executive','coc')
 
 let g:sep= {}
 let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)

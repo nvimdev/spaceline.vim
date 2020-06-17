@@ -24,6 +24,9 @@ default values.
     |g:spaceline_seperate_style|
     |g:spaceline_line_symbol|
     |g:spaceline_colorscheme|
+    |g:spaceline_lsp_executive|
+    |g:spaceline_nvim_lsp_warnsign|
+    |g:spaceline_nvim_lsp_errorsign|
 
 ------------------------------------------------------------------------------
                                                       *g:spaceline_seperate_style*
@@ -49,6 +52,26 @@ Default is 0 , Set to 1 to disable all icons in statusline.
 change the spaceline colorscheme.
 
 Options value : space
+------------------------------------------------------------------------------
+                                                      *g:spaceline_lsp_executive*
+>
+    let g:spaceline_lsp_executive = 'coc'
+<
+change the  diagnostic lsp tool,default value is coc
+
+Options value : nvim_lsp
+------------------------------------------------------------------------------
+                                                      *g:spaceline_nvim_lsp_errorsign*
+>
+    let g:spaceline_nvim_lsp_errorsign = '●'
+<
+The  diagnostic error sign for nvim-lsp
+------------------------------------------------------------------------------
+                                                      *g:spaceline_nvim_lsp_warnsign*
+>
+    let g:spaceline_nvim_lsp_warnsign = '●'
+<
+The  diagnostic warn sign for nvim-lsp
 ==============================================================================
 FAQ
 
