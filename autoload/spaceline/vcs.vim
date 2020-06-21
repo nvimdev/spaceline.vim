@@ -21,7 +21,7 @@ function! spaceline#vcs#git_branch()
   if empty(l:gitbranch)
     return ""
   endif
-  if !empty('l:git_branch_icon')
+  if exists('l:git_branch_icon')
     return l:git_branch_icon . l:gitbranch
   endif
   return l:gitbranch
