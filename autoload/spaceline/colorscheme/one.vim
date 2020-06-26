@@ -1,6 +1,6 @@
 " =============================================================================
 " Filename: spaceline.vim
-" Author: taigacute
+" Author: Th3Whit3Wolf
 " URL: https://github.com/taigacute/spaceline.vim
 " License: MIT License
 " =============================================================================
@@ -19,14 +19,14 @@ let s:slc.cyan = ['56B6C2', 138]
 let s:slc.darkred = ['BE5046', 196]
 
 if &background ==# 'dark'
-  let s:slc.gray = ['3e4452', 237] 
+  let s:slc.gray = ['3e4452', 237]
   let s:slc.lightgray = ['282c34', 240]
   let s:slc.darknavy=['2c323d', 59]
   let s:slc.darkgray=['abb2bf', 145]
 else
-  let s:slc.gray = ['d0d0d0', 237] 
+  let s:slc.gray = ['d0d0d0', 237]
   let s:slc.lightgray = ['fafafa', 240]
-  let s:slc.darknavy=['f0f0f0', 59] 
+  let s:slc.darknavy=['f0f0f0', 59]
   let s:slc.darkgray=['494b53', 238]
 endif
 
@@ -102,7 +102,7 @@ function! spaceline#colorscheme#one#one()
   call spaceline#colors#spaceline_hl('HeartSymbol', s:slc, 'orange',  'gray')
   call spaceline#colors#spaceline_hl('CocError',s:slc,  'red',  'gray')
   call spaceline#colors#spaceline_hl('CocWarn',s:slc,  'yellow',  'gray')
-  call spaceline#colors#spaceline_hl('GitInfo',s:slc,  'lightgray',  'green') 
+  call spaceline#colors#spaceline_hl('GitInfo',s:slc,  'lightgray',  'green')
   call spaceline#colors#spaceline_hl('GitAdd',s:slc,  'purple',  'green') " purple ok
   call spaceline#colors#spaceline_hl('GitRemove',s:slc,  'red',  'green')
   call spaceline#colors#spaceline_hl('GitModified',s:slc,  'orange',  'green')
