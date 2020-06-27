@@ -14,7 +14,7 @@ let g:loaded_spaceline = 1
 
 let g:symbol = get(g:, 'spaceline_line_symbol', 0)
 let g:seperate_style = get(g:, 'spaceline_seperate_style', 'arrow')
-let g:spaceline_colorscheme = get(g:, 'spaceline_colorscheme', 'space')
+let g:spaceline_colorscheme = get(g:, 'spaceline_colorscheme', 'one')
 let g:spaceline_shortline_filetype = ['defx','coc-explorer','dbui','vista','vista_markdown','Mundo','MundoDiff']
 let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
   \  '▁', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'
@@ -30,6 +30,7 @@ augroup spaceline
   autocmd!
   autocmd FileType,WinEnter,BufWinEnter,BufReadPost * call spaceline#spacelinetoggle()
   autocmd VimResized * call spaceline#spacelinetoggle()
+  autocmd Colorscheme * call spaceline#colorscheme_init()
   autocmd WinLeave * call spaceline#setInActiveStatusLine()
   autocmd BufNewFile,ShellCmdPost,BufWritePost * call spaceline#spacelinetoggle()
   autocmd FileChangedShellPost,ColorScheme * call spaceline#spacelinetoggle()

@@ -114,24 +114,25 @@ function! s:InActiveStatusLine()
     return s:statusline
 endfunction
 
-function! s:Spaceline_Color(theme)
-    let colorstring ='call'.' '.'spaceline#colorscheme#'.a:theme.'#'.a:theme.'()'
-    execute colorstring
+function! spaceline#colorscheme_init()
+  let l:theme = g:spaceline_colorscheme
+  let colorstring ='call'.' '.'spaceline#colorscheme#'.l:theme.'#'.l:theme.'()'
+  execute colorstring
 endfunction
 
 function! s:SetStatusline()
     if index(g:spaceline_shortline_filetype, &filetype) >= 0
       let &l:statusline=s:short_statusline()
-      call s:Spaceline_Color(g:spaceline_colorscheme)
+      call spaceline#colorscheme_init()
       return
     endif
     let &l:statusline=s:ActiveStatusLine()
-    call s:Spaceline_Color(g:spaceline_colorscheme)
+    call spaceline#colorscheme_init()
 endfunction
 
 function! spaceline#setInActiveStatusLine()
     let &l:statusline=s:InActiveStatusLine()
-    call s:Spaceline_Color(g:spaceline_colorscheme)
+    call spaceline#colorscheme_init()
 endfunction
 
 function! spaceline#spacelinetoggle()
