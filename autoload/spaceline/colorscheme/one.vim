@@ -31,10 +31,6 @@ function! spaceline#colorscheme#one#one()
     let s:slc.darkgray=['494b53', 238]
   endif
 
-  if g:spaceline_match_background_color < 1
-    let s:slc.pink = s:slc.white
-  endif
-  
   call spaceline#colors#match_background_color(s:slc.pink)
 
   let l:mode=mode()
