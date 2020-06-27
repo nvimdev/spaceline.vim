@@ -28,13 +28,10 @@ let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)
 
 augroup spaceline
   autocmd!
-  autocmd FileType,WinEnter,BufWinEnter,BufReadPost * call spaceline#spacelinetoggle()
-  autocmd VimResized * call spaceline#spacelinetoggle()
+  autocmd FileType,WinEnter,BufWinEnter,BufReadPost,BufWritePost * call spaceline#spacelinetoggle()
   autocmd Colorscheme * call spaceline#colorscheme_init()
+  autocmd VimResized * call spaceline#spacelinetoggle()
   autocmd WinLeave * call spaceline#setInActiveStatusLine()
-  autocmd BufNewFile,ShellCmdPost,BufWritePost * call spaceline#spacelinetoggle()
-  autocmd FileChangedShellPost,ColorScheme * call spaceline#spacelinetoggle()
-  autocmd FileReadPre,ShellCmdPost,FileWritePost * call spaceline#spacelinetoggle()
   autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit call spaceline#spacelinetoggle()
   autocmd User CocDiagnosticChange call spaceline#spacelinetoggle()
 augroup END "}}}
