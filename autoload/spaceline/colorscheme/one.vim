@@ -18,7 +18,7 @@ function! spaceline#colorscheme#one#one()
   let s:slc.green = ['98C379', 114] " One Dark Green
   let s:slc.cyan = ['56B6C2', 138]
   let s:slc.darkred = ['BE5046', 196]
-
+  let s:slc.pink = []
   if &background ==# 'dark'
     let s:slc.gray = ['3e4452', 237]
     let s:slc.lightgray = ['282c34', 240]
@@ -31,21 +31,25 @@ function! spaceline#colorscheme#one#one()
     let s:slc.darkgray=['494b53', 238]
   endif
 
-  call spaceline#colors#match_background_color(s:slc.darknavy)
+  if g:spaceline_match_background_color < 1
+    let s:slc.pink = s:slc.white
+  endif
+  
+  call spaceline#colors#match_background_color(s:slc.pink)
 
   let l:mode=mode()
-  if get(g:,'spaceline_seperate_style', 'arrow') == 'slant'
-      call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'blue', 'gray')
+    if g:seperate_style  == 'slant'
+      call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
       call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
       call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'gray','green')
       call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'green','gray')
       call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'green',  'gray')
-      call spaceline#colors#spaceline_hl('GitRight',s:slc,  'green',  'darknavy')
+      call spaceline#colors#spaceline_hl('GitRight',s:slc,  'darknavy',  'green')
       call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'blue', 'gray')
       call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'blue', 'gray')
-  elseif get(g:,'spaceline_seperate_style','arrow') == 'slant-cons'
+  elseif g:seperate_style  == 'slant-cons'
     if l:mode==#"n"
-      call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'blue', 'gray')
+      call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
       call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
     elseif l:mode==#"i"
       call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'green')
@@ -55,11 +59,11 @@ function! spaceline#colorscheme#one#one()
     call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'green','gray')
     call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'green','gray')
     call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'gray',  'green')
-    call spaceline#colors#spaceline_hl('GitRight',s:slc,  'green',  'darknavy')
+    call spaceline#colors#spaceline_hl('GitRight',s:slc,  'darknavy',  'green')
     call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'blue', 'gray')
     call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'blue', 'gray')
-  elseif get(g:,'spaceline_seperate_style','arrow') == 'slant-fade'
-    call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'blue', 'gray')
+  elseif g:seperate_style  == 'slant-fade'
+    call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
     call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
     call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'gray','green')
     call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'green','gray')
@@ -67,22 +71,22 @@ function! spaceline#colorscheme#one#one()
     call spaceline#colors#spaceline_hl('GitRight',s:slc,  'green','darknavy')
     call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'blue', 'gray')
     call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'blue', 'gray')
-  elseif get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-fade'
-    call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'blue', 'gray')
+  elseif g:seperate_style  == 'arrow-fade'
+    call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
     call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
     call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'green','gray')
     call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'green','gray')
     call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'gray',  'green')
-    call spaceline#colors#spaceline_hl('GitRight',s:slc,  'green',  'darknavy')
+    call spaceline#colors#spaceline_hl('GitRight',s:slc,  'darknavy',  'green')
     call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'blue', 'gray')
     call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'blue', 'gray')
-  elseif get(g:,'spaceline_seperate_style', 'arrow') == 'curve'
-    call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'blue', 'gray')
+  elseif g:seperate_style  == 'curve'
+    call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
     call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'green', 'blue')
     call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'green','gray')
     call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'gray','green')
     call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'gray',  'green')
-    call spaceline#colors#spaceline_hl('GitRight',s:slc,  'green',  'darknavy')
+    call spaceline#colors#spaceline_hl('GitRight',s:slc,  'darknavy',  'green')
     call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'gray', 'blue')
     call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'gray', 'blue')
   else
@@ -108,10 +112,10 @@ function! spaceline#colorscheme#one#one()
   call spaceline#colors#spaceline_hl('GitModified',s:slc,  'orange',  'green')
   call spaceline#colors#spaceline_hl('CocBar',s:slc,  'teal',  'darknavy')
   call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'green',  'darknavy')
-  if get(g:,'spaceline_seperate_style', 'arrow') == 'arrow-fade' || get(g:,'spaceline_seperate_style','arrow') == 'slant-cons'
-      call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'gray',  'green')
-  else
+  if g:seperate_style  ==? 'slant' || g:seperate_style ==? 'arrow' || g:seperate_style ==? 'curve'
       call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'green',  'gray')
+  else
+      call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'gray',  'green')
   endif
   call spaceline#colors#spaceline_hl('StatusEncod',s:slc,  'lightgray',  'green')
   call spaceline#colors#spaceline_hl('StatusFileFormat',s:slc,  'lightgray',  'green')
