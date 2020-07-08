@@ -6,15 +6,7 @@
 " =============================================================================
 
 function! spaceline#buffer#buffer() abort
-    return s:line_is_lean() || s:line_is_plain() ? toupper(&filetype) : s:buffer_number()
-endfunction
-
-function! s:line_is_lean() abort
-  return &filetype =~? '\v^defx|dbui|mundo(diff)?$'
-endfunction
-
-function! s:line_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|dbui|defx|coc-explorer|vim-plug|nerdtree|vista_kind|vista|magit|tagbar$'
+    return spaceline#utils#line_is_lean() || spaceline#utils#line_is_plain() ? toupper(&filetype) : s:buffer_number()
 endfunction
 
 function! s:buffer_number()

@@ -17,7 +17,7 @@ function! spaceline#file#file_type() abort
   \      &filetype ==? 'dbui'             ? '  ' :
   \      &filetype ==? 'magit'            ? '  ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? '  ' :
-  \      s:line_is_lean() || s:line_is_plain() ? ' '  :
+  \      spaceline#utils#line_is_lean() || spaceline#utils#line_is_plain() ? ' '  :
   \      printf(' %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
@@ -67,7 +67,7 @@ function! s:current_file_name()
 endfunction
 
 function! s:file_is_modified() abort
-  return s:line_is_lean() || s:line_is_plain() ?  ''  :
+  return spaceline#utils#line_is_lean() || spaceline#utils#line_is_plain() ?  ''  :
   \      &modified                                       ?  '' :
   \      &modifiable                                     ?  ''  : '-'
 endfunction
@@ -81,15 +81,6 @@ function! s:file_readonly()
     return ""
   endif
 endfunction
-
-function! s:line_is_lean() abort
-  return &filetype =~? '\v^defx|dbui|mundo(diff)?$'
-endfunction
-
-function! s:line_is_plain() abort
-  return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|dbui|defx|coc-explorer|vim-plug|nerdtree|vista_kind|vista|magit|tagbar$'
-endfunction
-
 
 function! s:size(f) abort
     let l:size = getfsize(expand(a:f))
