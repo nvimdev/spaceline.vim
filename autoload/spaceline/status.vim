@@ -15,7 +15,7 @@ function! spaceline#status#coc_status() abort
     endif
 
     let l:js_ts = ['typescript','javascript','typescriptreact','javascriptreact']
-    if index(l:js_ts,&filetype)
+    if index(l:js_ts,&filetype) >= 0
       let l:tsserver_status=substitute(l:status,"TSC","Ⓣ ","")
       let l:statusbar= split(l:tsserver_status)
     endif
