@@ -11,8 +11,7 @@ function! spaceline#vcs#git_branch()
     let l:gitbranch = get(g:, 'coc_git_status', '')
   elseif g:spaceline_git ==? 'default'
     let l:gitbranch = system(join([ 'git rev-parse --abbrev-ref HEAD 2> /dev/null',
-                          \ 'sed ','tr "\n" " "']
-                    \ , '|'))
+                          \ 'sed ','tr "\n" " "'], '|'))
   endif
   if empty(l:gitbranch)
     return ""
