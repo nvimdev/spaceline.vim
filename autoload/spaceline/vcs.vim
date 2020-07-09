@@ -6,11 +6,18 @@
 " =============================================================================
 "
 function! spaceline#vcs#git_branch()
-  let l:gitbranch = get(g:, 'coc_git_status', '')
+  let l:gitbranch = ''
+  if g:spaceline_git ==? 'coc'
+    let l:gitbranch = get(g:, 'coc_git_status', '')
+  elseif g:spaceline_git ==? 'default'
+    let l:gitbranch = system(join([ 'git rev-parse --abbrev-ref HEAD 2> /dev/null',
+                          \ 'sed ','tr "\n" " "']
+                    \ , '|'))
+  endif
   if empty(l:gitbranch)
     return ""
   endif
-  if exists('l:git_branch_icon')
+  if exists('g:spaceline_git_branch_icon')
     return l:git_branch_icon . l:gitbranch
   endif
   return l:gitbranch
