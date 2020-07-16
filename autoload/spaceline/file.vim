@@ -68,8 +68,8 @@ endfunction
 
 function! s:file_is_modified() abort
   return spaceline#utils#line_is_lean() || spaceline#utils#line_is_plain() ?  ''  :
-  \      &modified                                       ?  '' :
-  \      &modifiable                                     ?  ''  : '-'
+  \      &modified                                       ?  ' ' :
+  \      &modifiable                                     ?  ''  : ' -'
 endfunction
 
 function! s:file_readonly()
