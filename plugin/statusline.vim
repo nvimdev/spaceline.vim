@@ -22,6 +22,9 @@ let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
 let g:spaceline_lsp = get(g:,'spaceline_lsp_executive','coc')
 let g:spaceline_git = get(g:,'spaceline_git_tool','coc')
 
+let g:spaceline_diagnostic_warnsign = '●'
+let g:spaceline_diagnostic_errorsign = '●'
+
 let g:sep= {}
 let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)
 

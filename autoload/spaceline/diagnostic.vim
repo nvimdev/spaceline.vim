@@ -17,35 +17,27 @@ function! spaceline#diagnostic#diagnostic_warn()
 endfunction
 
 function! s:diagnostic_coc_error()
-  let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
+  let error_sign = get(g:, 'spaceline_diagnostic_errorsign', '')
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info)
     return ''
   endif
   let errmsgs = []
   if get(info, 'error', 0)
-    if exists('g:spaceline_diagnostic_errorsign')
-      call add(errmsgs, g:spaceline_diagnostic_errorsign . info['error'])
-    else
-      call add(errmsgs, error_sign . info['error'])
-    endif
+    call add(errmsgs, error_sign . info['error'])
   endif
   return join(errmsgs, ' ')
 endfunction
 
 function! s:diagnostic_coc_warn() abort
-  let warning_sign = get(g:, 'coc_status_warning_sign')
+  let warning_sign = get(g:, 'spaceline_diagnostic_warnsign','')
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info)
     return ''
   endif
   let warnmsgs = []
   if get(info, 'warning', 0)
-    if exists('g:spaceline_diagnostic_warnsign')
-      call add(warnmsgs, g:spaceline_diagnostic_warnsign . info['warning'])
-    else
-      call add(warnmsgs, warning_sign . info['warning'])
-    endif
+    call add(warnmsgs, warning_sign . info['warning'])
   endif
  return join(warnmsgs, ' ')
 endfunction
@@ -57,7 +49,7 @@ endfunction
 
 " TODO test
 function! s:diagnostic_nvim_lsp_error()
-  let l:error_sign= exists('g:spaceline_diagnostic_errorsign')? g:spaceline_diagnostic_errorsign : '●'
+  let l:error_sign = get(g:, 'spaceline_diagnostic_errorsign', '')
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
     return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
   else
@@ -67,7 +59,7 @@ endfunction
 
 " TODO test
 function! s:diagnostic_nvim_lsp_warn()
-  let l:warn_sign= exists('g:spaceline_diagnostic_warnsign')? g:spaceline_diagnostic_warnsign : '●'
+  let l:warning_sign = get(g:, 'spaceline_diagnostic_warnsign','')
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
     return l:warn_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
   else
