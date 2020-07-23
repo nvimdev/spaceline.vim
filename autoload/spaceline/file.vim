@@ -18,7 +18,13 @@ function! spaceline#file#file_type() abort
   \      &filetype ==? 'magit'            ? '  ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? '  ' :
   \      spaceline#utils#line_is_lean() || spaceline#utils#line_is_plain() ? ' '  :
-  \      printf(' %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
+  \      printf(' %d:%d | ', line('.'), col('.')) . s:line_percent()
+endfunction
+
+function! s:line_percent()
+  let byte = line2byte( line( "." ) ) + col( "." ) - 1
+  let size = (line2byte( line( "$" ) + 1 ) - 1)
+  return (byte * 100) / size .'% '
 endfunction
 
 function! spaceline#file#file_size()abort
