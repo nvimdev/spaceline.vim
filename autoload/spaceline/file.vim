@@ -18,7 +18,13 @@ function! spaceline#file#file_type() abort
   \      &filetype ==? 'magit'            ? '  ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? '  ' :
   \      spaceline#utils#line_is_lean() || spaceline#utils#line_is_plain() ? ' '  :
-  \      printf(' %d:%d | ', line('.'), col('.')) . s:line_percent()
+  \      s:line_column() . s:line_percent()
+endfunction
+
+function! s:line_column()
+  let l:line = line('.')
+  let l:column = col('.')
+  return ' '.l:line.':'.l:column.' | '
 endfunction
 
 function! s:line_percent()
