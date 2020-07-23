@@ -17,14 +17,13 @@ function! spaceline#diagnostic#diagnostic_warn()
 endfunction
 
 function! s:diagnostic_coc_error()
-  let error_sign = get(g:, 'spaceline_diagnostic_errorsign', '')
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info)
     return ''
   endif
   let errmsgs = []
   if get(info, 'error', 0)
-    call add(errmsgs, error_sign . info['error'])
+    call add(errmsgs, g:spaceline_errorsign . info['error'])
   endif
   return join(errmsgs, ' ')
 endfunction
@@ -37,7 +36,7 @@ function! s:diagnostic_coc_warn() abort
   endif
   let warnmsgs = []
   if get(info, 'warning', 0)
-    call add(warnmsgs, warning_sign . info['warning'])
+    call add(warnmsgs, g:spaceline_warnsign . info['warning'])
   endif
  return join(warnmsgs, ' ')
 endfunction
@@ -49,9 +48,8 @@ endfunction
 
 " TODO test
 function! s:diagnostic_nvim_lsp_error()
-  let l:error_sign = get(g:, 'spaceline_diagnostic_errorsign', '')
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
-    return l:error_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
+    return g:spaceline_errorsign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
   else
     return ''
   endif
@@ -59,9 +57,8 @@ endfunction
 
 " TODO test
 function! s:diagnostic_nvim_lsp_warn()
-  let l:warning_sign = get(g:, 'spaceline_diagnostic_warnsign','')
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
-    return l:warn_sign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
+    return g:spaceline_warnsign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
   else
     return ''
   endif
