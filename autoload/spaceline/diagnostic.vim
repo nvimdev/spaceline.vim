@@ -63,3 +63,17 @@ function! s:diagnostic_nvim_lsp_warn()
     return ''
   endif
 endfunction
+
+function! s:diagnostic_nvim_ale_warn() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : g:spaceline_warnsign . l:all_non_errors
+endfunction
+
+function! s:diagnostic_nvim_ale_error() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : g:spaceline_errorsign . l:all_errors
+endfunction
