@@ -24,6 +24,7 @@ let g:spaceline_git = get(g:,'spaceline_git_tool','coc')
 
 let g:spaceline_errorsign = get(g:,'spaceline_diagnostic_errorsign', '●')
 let g:spaceline_warnsign = get(g:,'spaceline_diagnostic_warnsign', '●')
+let g:spaceline_oksign = get(g:,'spaceline_diagnostic_oksign', '')
 
 let g:sep= {}
 let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)

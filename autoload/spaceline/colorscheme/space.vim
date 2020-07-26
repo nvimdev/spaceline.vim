@@ -86,7 +86,7 @@ function! spaceline#colorscheme#space#space()
 
   call spaceline#colors#spaceline_hl('InActiveFilename', s:slc, 'lightgray', 'navy')
   call spaceline#colors#spaceline_hl('FileName', s:slc, 'lightgray', 'purple')
-  call spaceline#colors#spaceline_hl('Filesize', s:slc, 'lightblue', 'navy')
+  call spaceline#colors#spaceline_hl('Filesize', s:slc, 'green', 'navy')
   call spaceline#colors#spaceline_hl('HeartSymbol', s:slc, 'orange',  'navy')
   call spaceline#colors#spaceline_hl('CocError',s:slc,  'red',  'navy')
   call spaceline#colors#spaceline_hl('CocWarn',s:slc,  'blue',  'navy')
