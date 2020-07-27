@@ -28,7 +28,13 @@ function! spaceline#vcs#git_branch()
 endfunction
 
 function! s:add_diff_icon(type) abort
-  let difficon = get([' ',' ',' '],a:type,'')
+  let diff_nerdfonts_icon = []
+  if exists('g:spaceline_custom_diff_icon')
+    let diff_nerdfonts_icon = get(g:,'spaceline_custom_diff_icon',[])
+  else
+    let diff_nerdfonts_icon = ['','','']
+  endif
+  let difficon = get(diff_nerdfonts_icon,a:type,'')
   let diffdata = split(get(b:, 'coc_git_status', ''),' ')
   let diff_flags = ''
   if a:type == 0
