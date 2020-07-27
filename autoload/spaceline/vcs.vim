@@ -5,7 +5,7 @@
 " License: MIT License
 " =============================================================================
 "
-function! spaceline#vcs#git_branch()
+function! spaceline#vcs#vcs_status()
   if g:spaceline_git == 'coc'
     let l:gitbranch = get(g:, 'coc_git_status', '')
   else
