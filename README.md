@@ -60,7 +60,7 @@ let g:spaceline_colorscheme = 'space'
 - `g:spaceline_custom_vim_status` custom vim status display.default is
 
 ```vim
- {'n': "🅝 ",'V':"🅥 ",'v':"🅥 ",'\<C-V>':"🅥 ",'i':"🅘 ",'R':"🅡 ",'s':"🅢 ",'t':"🅣 ",'c':"🅒 ","!":"SE"}
+ {"n": "🅝 ","V":"🅥 ","v":"🅥 ","\<C-v>": "🅥 ","i":"🅘 ","R":"🅡 ","s":"🅢 ","t":"🅣 ","c":"🅒 ","!":"SE"}
 ```
 
 - `g:spaceline_custom_buffer_number` custom buffer number display value is list
