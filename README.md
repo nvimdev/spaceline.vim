@@ -63,6 +63,8 @@ let g:spaceline_colorscheme = 'space'
 {'n': "🅝 ",'v':"🅥 ",'i':"🅘 ",'R':"🅡 ",'s':"🅢 ",'t':"🅣 ",'c':"🅒 ","!":"SE"}
 ```
 
+- `g:spaceline_custom_buffer_number` custom buffer number display value is list
+
 - `g:spaceline_lsp_executive` set your lsp plugin. default is `coc`,other value
   `nvim_lsp`, `ale`
 
