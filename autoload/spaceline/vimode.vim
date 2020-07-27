@@ -6,11 +6,6 @@
 " =============================================================================
 
 function! spaceline#vimode#vim_mode()
-  let status={}
-  if exists('g:spaceline_custom_vim_status')
-    let status = get(g:,'spaceline_custom_vim_status')
-  else
-    let status = {'n': "🅝 ",'v':"🅥 ",'i':"🅘 ",'R':"🅡 ",'s':"🅢 ",'t':"🅣 ",'c':"🅒 ","!":"SE"}
-  endif
+  let status= exists('g:spaceline_custom_vim_status') ? get(g:,'spaceline_custom_vim_status') : {'n': "🅝 ",'V':"🅥 ",'i':"🅘 ",'R':"🅡 ",'s':"🅢 ",'t':"🅣 ",'c':"🅒 ","!":"SE"}
   return status[mode()]
 endfunction
