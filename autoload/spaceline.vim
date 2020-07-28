@@ -83,6 +83,8 @@ function! s:ActiveStatusLine()
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#status#coc_status()}"
     let s:statusline.="%="
+    let s:statusline.="%#VistaNearest#%"
+    let s:statusline.="%{spaceline#vista#visa_nearest()}"
     let s:statusline.="%#LineInfoLeft#"
     let s:statusline.=g:sep.lineinfoleft
     if squeeze_width > 40

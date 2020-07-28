@@ -95,6 +95,7 @@ function! spaceline#colorscheme#space#space()
   call spaceline#colors#spaceline_hl('GitRemove',s:slc,  'red',  'purple')
   call spaceline#colors#spaceline_hl('GitModified',s:slc,  'orange',  'purple')
   call spaceline#colors#spaceline_hl('CocBar',s:slc,  'teal',  'darknavy')
+  call spaceline#colors#spaceline_hl('VistaNearest',s:slc,  'teal',  'darknavy')
   call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'purple',  'darknavy')
   if g:seperate_style  ==? 'slant' || g:seperate_style ==? 'arrow' || g:seperate_style ==? 'curve'
     call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'purple',  'navy')
