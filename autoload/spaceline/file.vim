@@ -10,9 +10,8 @@ function! spaceline#file#file_type() abort
   \      &filetype ==? 'defx'             ? '  ' :
   \      &filetype ==? 'nerdtree'         ? '  ' :
   \      &filetype ==? 'denite'           ? '  ' :
-  \      &filetype ==? 'tagbar'           ? '  ' :
   \      &filetype ==? 'vim-plug'         ? '  ' :
-  \      &filetype ==? 'vista'            ? '  ' :
+  \      &filetype ==? 'vista'            ? ' 識' :
   \      &filetype ==? 'vista_kind'       ? '  ' :
   \      &filetype ==? 'dbui'             ? '  ' :
   \      &filetype ==? 'magit'            ? '  ' :
