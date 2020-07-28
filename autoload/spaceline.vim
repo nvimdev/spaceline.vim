@@ -46,14 +46,14 @@ function! s:ActiveStatusLine()
         let s:statusline.="%{spaceline#file#file_size()}"
         let s:statusline.="\ "
     endif
-    if !empty(spaceline#vcs#vcs_status())
+    if !empty(spaceline#vcs#git_branch())
         let s:statusline.="%#GitLeft#"
         let s:statusline.=g:sep.gitleft
         let s:statusline.="%#GitInfo#"
         let s:statusline.="\ "
-        let s:statusline.="%{spaceline#vcs#vcs_status()}"
+        let s:statusline.="%{spaceline#vcs#git_branch()}"
         let s:statusline.="\ "
-        if !empty(get(b:,'coc_git_status',''))
+        if !empty(get(b:,'coc_git_status'))
           let diff_data = get(b:,'coc_git_status', '')
           if matchend(diff_data, '+') > 0
             let s:statusline.="%#GitAdd#"
@@ -71,7 +71,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#GitRight#"
         let s:statusline.=g:sep.gitright
     endif
-    if !empty(expand('%:t')) && empty(spaceline#vcs#vcs_status()) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui'
+    if !empty(expand('%:t')) && empty(spaceline#vcs#git_branch()) && &filetype != 'defx' && &filetype != 'coc-explorer' && &filetype != 'debui'
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=g:sep.emptySeperate1
     endif

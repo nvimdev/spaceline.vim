@@ -32,6 +32,8 @@ let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)
 
 augroup spaceline
   autocmd!
+  autocmd BufNewFile,BufReadPost * call spaceline#vcs#gitbranch_detect(expand('<amatch>:p:h'))
+  autocmd BufEnter * call spaceline#vcs#gitbranch_detect(expand('%:p:h'))
   autocmd FileType,BufWinEnter,BufReadPost,BufWritePost * call spaceline#spacelinetoggle()
   autocmd BufEnter,WinEnter,BufEnter,FileChangedShellPost  * call spaceline#spacelinetoggle()
   autocmd Colorscheme * call spaceline#colorscheme_init()
@@ -40,3 +42,4 @@ augroup spaceline
   autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit call spaceline#spacelinetoggle()
   autocmd User CocDiagnosticChange call spaceline#spacelinetoggle()
 augroup END "}}}
+
