@@ -79,6 +79,8 @@ let g:spaceline_colorscheme = 'space'
  ['','','']
 ```
 
+- `g:spaceline_function_icon` set the function icon
+
 - `g:spaceline_scroll_bar_chars` set the scroll bar chars. Some alternatives:
 
 ```vimscript
