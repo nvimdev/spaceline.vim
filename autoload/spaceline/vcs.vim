@@ -5,7 +5,6 @@
 " License: MIT License
 " =============================================================================
 
-let g:spaceline_git_branch_icon = ''
 " reference https://github.com/itchyny/vim-gitbranch/blob/master/plugin/gitbranch.vim
 function! spaceline#vcs#git_branch() abort
   let git_branch_icon = exists('g:spaceline_git_branch_icon') ? get(g:,'spaceline_git_branch_icon') : ''
