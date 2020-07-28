@@ -75,7 +75,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=g:sep.emptySeperate1
     endif
-    if empty(expand('%:t')) && empty(get(g:,'coc_git_status',''))
+    if empty(expand('%:t')) && empty(spaceline#vcs#git_branch())
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=g:sep.emptySeperate1
     endif
