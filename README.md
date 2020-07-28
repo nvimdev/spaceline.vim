@@ -72,6 +72,7 @@ let g:spaceline_colorscheme = 'space'
 - `g:spaceline_diagnostic_warnsign` set the warn sign.
 - `g:spaceline_diagnostic_oksign` set the ok sign.
 
+- `g:spaceline_git_branch_icon` set the git branch icon default is empty
 - `g:spaceline_custom_diff_icon` custom diff icon. default is
 
 ```vim

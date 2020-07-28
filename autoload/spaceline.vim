@@ -53,8 +53,8 @@ function! s:ActiveStatusLine()
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#vcs#git_branch()}"
         let s:statusline.="\ "
-        if !empty(spaceline#vcs#diff_calculate(bufnr('%')))
-          let diff_data =spaceline#vcs#diff_calculate(bufnr('%'))
+        if !empty(get(b:,'coc_git_status'))
+          let diff_data = get(b:,'coc_git_status', '')
           if matchend(diff_data, '+') > 0
             let s:statusline.="%#GitAdd#"
             let s:statusline.= "%{spaceline#vcs#diff_add()}"
