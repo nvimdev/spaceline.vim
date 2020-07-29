@@ -53,21 +53,7 @@ function! s:ActiveStatusLine()
         let s:statusline.="\ "
         let s:statusline.="%{spaceline#vcs#git_branch()}"
         let s:statusline.="\ "
-        if !empty(get(b:,'coc_git_status'))
-          let diff_data = get(b:,'coc_git_status', '')
-          if matchend(diff_data, '+') > 0
-            let s:statusline.="%#GitAdd#"
-            let s:statusline.= "%{spaceline#vcs#diff_add()}"
-          endif
-          if matchend(diff_data, '-') > 0
-            let s:statusline.="%#GitRemove#"
-            let s:statusline.= "%{spaceline#vcs#diff_remove()}"
-          endif
-          if matchend(diff_data, '\~') > 0
-            let s:statusline.="%#GitModified#"
-            let s:statusline.= "%{spaceline#vcs#diff_modified()}"
-          endif
-        endif
+        let s:statusline.=s:spaceline_git()
         let s:statusline.="%#GitRight#"
         let s:statusline.=g:sep.gitright
     endif
@@ -104,6 +90,26 @@ function! s:ActiveStatusLine()
     return s:statusline
 endfunction
 
+function! s:spaceline_git()
+  let l:statusline = ""
+    if !empty(spaceline#vcs#diff_add())
+    let l:statusline.="%#GitAdd#"
+    let l:statusline.= "%{spaceline#vcs#diff_add()}"
+    let l:statusline.="\ "
+  endif
+  if !empty(spaceline#vcs#diff_delete())
+    let l:statusline.="%#GitRemove#"
+    let l:statusline.= "%{spaceline#vcs#diff_delete()}"
+    let l:statusline.="\ "
+  endif
+  if !empty(spaceline#vcs#diff_modified())
+    let l:statusline.="%#GitModified#"
+    let l:statusline.= "%{spaceline#vcs#diff_modified()}"
+  endif
+  return l:statusline
+endfunction
+
+
 function! s:InActiveStatusLine()
     let s:statusline=""
     let s:statusline.="%#HomeMode#"
@@ -130,6 +136,7 @@ function! s:SetStatusline()
       call spaceline#colorscheme_init()
       return
     endif
+    call spaceline#vcs#query_git()
     let &l:statusline=s:ActiveStatusLine()
     call spaceline#colorscheme_init()
 endfunction

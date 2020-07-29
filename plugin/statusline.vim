@@ -41,5 +41,5 @@ augroup spaceline
   autocmd WinLeave * call spaceline#setInActiveStatusLine()
   autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit call spaceline#spacelinetoggle()
   autocmd User CocDiagnosticChange call spaceline#spacelinetoggle()
+  autocmd CursorHold,CursorHoldI * call spaceline#spacelinetoggle()
 augroup END "}}}
-

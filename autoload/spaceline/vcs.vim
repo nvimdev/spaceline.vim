@@ -6,8 +6,9 @@
 " =============================================================================
 
 let s:diff_nerdfonts_icon = exists('g:spaceline_custom_diff_icon') ? get(g:,'spaceline_custom_diff_icon'): ['','','']
-let s:git_diff_cmd = add(has('win32') ? ['cmd', '/c'] : ['bash', '-c'], 'git diff --stat --word-diff=porcelain --no-color --no-ext-diff -U0 -- ')
-let s:spaceline_diff_status = []
+let s:git_diff_cmd = 'git diff --stat --word-diff=porcelain --no-color --no-ext-diff -U0 -- '
+let s:spaceline_diff_cache = {}
+let s:spaceline_diff_status = [0,0,0]
 
 " reference https://github.com/itchyny/vim-gitbranch/blob/master/plugin/gitbranch.vim
 function! spaceline#vcs#git_branch() abort
@@ -56,58 +57,52 @@ function! spaceline#vcs#gitbranch_detect(path) abort
       let b:gitbranch_path = path
     endif
   endif
-  call s:query_git()
-  echo s:spaceline_diff_status
 endfunction
 
-function! s:add_diff_icon(type) abort
-  let diff_nerdfonts_icon = exists('g:spaceline_custom_diff_icon') ? get(g:,'spaceline_custom_diff_icon'): ['','','']
-  let difficon = get(diff_nerdfonts_icon,a:type,'')
-  let diffdata = split(get(b:, 'coc_git_status', ''),' ')
-  let diff_flags = ''
-  if a:type == 0
-    let diff_flags = '+'
-  elseif a:type == 1
-    let diff_flags = '-'
-  elseif a:type == 2
-    let diff_flags = '\~'
-  endif
-  for item in diffdata
-    if matchend(item,diff_flags) > 0
-        if g:symbol == 1
-          return item
-        else
-          return substitute(item, diff_flags, difficon, '').' '
-        endif
-    endif
-  endfor
+function! s:job_stdout(job_id, data, event) dict
+  let l:self.stdout = l:self.stdout + a:data
 endfunction
 
-function! spaceline#vcs#diff_add() abort
-  return s:add_diff_icon(0)
+function! s:job_stderr(job_id, data, event) dict
+  let l:self.stderr = l:self.stderr + a:data
 endfunction
 
-function! spaceline#vcs#diff_remove() abort
-  return s:add_diff_icon(1)
+function! s:job_exit(job_id, data, event) dict
+  call s:update_status(l:self)
 endfunction
 
-function! spaceline#vcs#diff_modified() abort
-  return s:add_diff_icon(2)
-endfunction
-
-function! s:query_git()
+function! spaceline#vcs#query_git()
   let l:filename = expand('%:f')
-  let l:cmd = add(s:git_diff_cmd , l:filename)
+  let l:cmd = s:git_diff_cmd . l:filename
   if l:filename !=# ''
     if has('nvim')
       let l:callbacks = {
-      \   'on_stdout': function('s:JobHandler'),
-      \   'on_stderr': function('s:JobHandler'),
-      \   'on_exit': function('s:JobHandler')
+      \   'on_stdout': function('s:job_stdout'),
+      \   'on_stderr': function('s:job_stderr'),
+      \   'on_exit': function('s:job_exit')
       \ }
-      let l:job_id = jobstart(l:cmd, extend({'stdout': [], 'stderr': []},l:callbacks))
+     let l:job_id = jobstart(l:cmd, extend({'stdout': [], 'stderr': []},
+      \                                     l:callbacks))
     endif
   endif
+endfunction
+
+function! s:update_status(git_raw_output)
+   let l:modified = s:modified_count(a:git_raw_output.stdout)
+   let l:change_summary = a:git_raw_output.stdout[1]
+   let l:regex = '\v[^,]+, ((\d+) [a-z]+\(\+\)[, ]*)?((\d+) [a-z]+\(-\))?'
+   let l:matched =  matchlist(l:change_summary, l:regex)
+   let l:insertions = s:str2nr(l:matched[2])
+   let l:deletions = s:str2nr(l:matched[4])
+   let l:added = l:insertions - l:modified
+   let l:deleted = l:deletions - l:modified
+   if l:added <# 0 || l:deleted <# 0
+    let l:negativity = min([l:added, l:deleted])
+    let l:added = l:added - l:negativity
+    let l:deleted = l:deleted - l:negativity
+    let l:modified = l:modified + l:negativity
+  endif
+  let s:spaceline_diff_status = [s:diff_nerdfonts_icon[0].l:added,s:diff_nerdfonts_icon[1].l:deleted,s:diff_nerdfonts_icon[2].l:modified]
 endfunction
 
 function! s:modified_count(stdout)
@@ -151,28 +146,14 @@ function! s:str2nr(str)
   return empty(str2nr(a:str)) ? 0 : str2nr(a:str)
 endfunction
 
-function! s:JobHandler(job_id,data,event) dict
-  if a:event == 'stdout'
-    let self.stdout = self.stdout + a:data
-  elseif a:event == 'stderr'
-    let self.stderr = self.stderr + a:data
-  endif
+function! spaceline#vcs#diff_add()
+  return s:spaceline_diff_status[0]
+endfunction
 
-  let l:modified = s:modified_count(self.stdout)
-  let l:change_summary = self.stdout[1]
-  let l:regex = '\v[^,]+, ((\d+) [a-z]+\(\+\)[, ]*)?((\d+) [a-z]+\(-\))?'
-  let l:matched =  matchlist(l:change_summary, l:regex)
-  let l:insertions = s:str2nr(l:matched[2])
-  let l:deletions = s:str2nr(l:matched[4])
-  let l:added = l:insertions - l:modified
-  let l:deleted = l:deletions - l:modified
+function! spaceline#vcs#diff_delete()
+  return s:spaceline_diff_status[1]
+endfunction
 
-  if l:added <# 0 || l:deleted <# 0
-    let l:negativity = min([l:added, l:deleted])
-    let l:added = l:added - l:negativity
-    let l:deleted = l:deleted - l:negativity
-    let l:modified = l:modified + l:negativity
-  endif
-
-  let s:spaceline_diff_status=[s:diff_nerdfonts_icon[0].l:added,s:diff_nerdfonts_icon[1].l:deleted,s:diff_nerdfonts_icon[2].l:modified]
+function! spaceline#vcs#diff_modified()
+  return s:spaceline_diff_status[2]
 endfunction
