@@ -5,6 +5,10 @@
 " License: MIT License
 " =============================================================================
 
+let s:diff_nerdfonts_icon = exists('g:spaceline_custom_diff_icon') ? get(g:,'spaceline_custom_diff_icon'): ['','','']
+let s:git_diff_cmd = add(has('win32') ? ['cmd', '/c'] : ['bash', '-c'], 'git diff --stat --word-diff=porcelain --no-color --no-ext-diff -U0 -- ')
+let s:spaceline_diff_status = []
+
 " reference https://github.com/itchyny/vim-gitbranch/blob/master/plugin/gitbranch.vim
 function! spaceline#vcs#git_branch() abort
   let git_branch_icon = exists('g:spaceline_git_branch_icon') ? get(g:,'spaceline_git_branch_icon') : ''
@@ -52,6 +56,8 @@ function! spaceline#vcs#gitbranch_detect(path) abort
       let b:gitbranch_path = path
     endif
   endif
+  call s:query_git()
+  echo s:spaceline_diff_status
 endfunction
 
 function! s:add_diff_icon(type) abort
@@ -87,4 +93,86 @@ endfunction
 
 function! spaceline#vcs#diff_modified() abort
   return s:add_diff_icon(2)
+endfunction
+
+function! s:query_git()
+  let l:filename = expand('%:f')
+  let l:cmd = add(s:git_diff_cmd , l:filename)
+  if l:filename !=# ''
+    if has('nvim')
+      let l:callbacks = {
+      \   'on_stdout': function('s:JobHandler'),
+      \   'on_stderr': function('s:JobHandler'),
+      \   'on_exit': function('s:JobHandler')
+      \ }
+      let l:job_id = jobstart(l:cmd, extend({'stdout': [], 'stderr': []},l:callbacks))
+    endif
+  endif
+endfunction
+
+function! s:modified_count(stdout)
+  let l:modified = 0
+  let l:plus = 0
+  let l:minus = 0
+  let l:blank = 0
+  let l:counting = 0  " true/false (are we supposed to count the current line?)
+
+  for l:output_line in a:stdout
+    let l:firstchar = l:output_line[0]
+
+    " start counting after the first '@' mark
+    if l:firstchar ==# '@' && l:counting ==# 0
+      let l:counting = 1
+    elseif l:firstchar ==# '+' && l:counting ==# 1
+      let l:plus = l:plus + 1
+    elseif l:firstchar ==# '-' && l:counting ==# 1
+      let l:minus = l:minus + 1
+    elseif l:firstchar ==# ' ' && l:counting ==# 1
+      let l:blank = l:blank + 1
+    " determine if a line was added/deleted/modified at the end of a line
+    elseif l:firstchar ==# '~' && l:counting ==# 1
+      if l:blank !=# 0
+        let l:modified = l:modified + 1
+      elseif l:plus !=# 0 && l:minus !=# 0
+        let l:modified = l:modified + 1
+      endif
+
+      " reset counters at the end of each line
+      let l:plus = 0
+      let l:minus = 0
+      let l:blank = 0
+    endif
+  endfor
+
+  return l:modified
+endfunction
+
+function! s:str2nr(str)
+  return empty(str2nr(a:str)) ? 0 : str2nr(a:str)
+endfunction
+
+function! s:JobHandler(job_id,data,event) dict
+  if a:event == 'stdout'
+    let self.stdout = self.stdout + a:data
+  elseif a:event == 'stderr'
+    let self.stderr = self.stderr + a:data
+  endif
+
+  let l:modified = s:modified_count(self.stdout)
+  let l:change_summary = self.stdout[1]
+  let l:regex = '\v[^,]+, ((\d+) [a-z]+\(\+\)[, ]*)?((\d+) [a-z]+\(-\))?'
+  let l:matched =  matchlist(l:change_summary, l:regex)
+  let l:insertions = s:str2nr(l:matched[2])
+  let l:deletions = s:str2nr(l:matched[4])
+  let l:added = l:insertions - l:modified
+  let l:deleted = l:deletions - l:modified
+
+  if l:added <# 0 || l:deleted <# 0
+    let l:negativity = min([l:added, l:deleted])
+    let l:added = l:added - l:negativity
+    let l:deleted = l:deleted - l:negativity
+    let l:modified = l:modified + l:negativity
+  endif
+
+  let s:spaceline_diff_status=[s:diff_nerdfonts_icon[0].l:added,s:diff_nerdfonts_icon[1].l:deleted,s:diff_nerdfonts_icon[2].l:modified]
 endfunction
