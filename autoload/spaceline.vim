@@ -136,7 +136,6 @@ function! s:SetStatusline()
       call spaceline#colorscheme_init()
       return
     endif
-    call spaceline#vcs#query_git()
     let &l:statusline=s:ActiveStatusLine()
     call spaceline#colorscheme_init()
 endfunction

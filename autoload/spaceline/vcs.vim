@@ -4,10 +4,9 @@
 " URL: https://github.com/taigacute/spaceline.vim
 " License: MIT License
 " =============================================================================
-
 let s:diff_nerdfonts_icon = exists('g:spaceline_custom_diff_icon') ? get(g:,'spaceline_custom_diff_icon'): ['','','']
-let s:git_diff_cmd = 'git diff --stat --word-diff=porcelain --no-color --no-ext-diff -U0 -- '
-let s:spaceline_diff_cache = {}
+let s:cmd = 'git diff --stat --word-diff=porcelain --no-color --no-ext-diff -U0 -- '
+let s:spaceline_diff_cache = [0,0,0]
 let s:spaceline_diff_status = [0,0,0]
 
 " reference https://github.com/itchyny/vim-gitbranch/blob/master/plugin/gitbranch.vim
@@ -69,40 +68,69 @@ endfunction
 
 function! s:job_exit(job_id, data, event) dict
   call s:update_status(l:self)
+  call jobstop(a:job_id)
+endfunction
+
+function! s:build_command(cmd)
+  if has('unix')
+    return ['sh', '-c', a:cmd]
+  endif
+
+  if has('win32')
+    return has('nvim') ? ['cmd.exe', '/c', a:cmd] : 'cmd.exe /c '.a:cmd
+  endif
+
+  throw 'unknown os'
 endfunction
 
 function! spaceline#vcs#query_git()
   let l:filename = expand('%:f')
-  let l:cmd = s:git_diff_cmd . l:filename
+  let l:git_cmd = s:cmd . l:filename
+  let l:command = s:build_command(l:git_cmd)
   if l:filename !=# ''
     if has('nvim')
       let l:callbacks = {
-      \   'on_stdout': function('s:job_stdout'),
-      \   'on_stderr': function('s:job_stderr'),
-      \   'on_exit': function('s:job_exit')
-      \ }
-     let l:job_id = jobstart(l:cmd, extend({'stdout': [], 'stderr': []},
-      \                                     l:callbacks))
+            \   'on_stdout': function('s:job_stdout'),
+            \   'on_stderr': function('s:job_stderr'),
+            \   'on_exit': function('s:job_exit')
+            \ }
+     let l:job_id = jobstart(l:command, extend({'stdout': [], 'stderr': []},l:callbacks))
     endif
   endif
 endfunction
 
 function! s:update_status(git_raw_output)
-   let l:modified = s:modified_count(a:git_raw_output.stdout)
-   let l:change_summary = a:git_raw_output.stdout[1]
-   let l:regex = '\v[^,]+, ((\d+) [a-z]+\(\+\)[, ]*)?((\d+) [a-z]+\(-\))?'
-   let l:matched =  matchlist(l:change_summary, l:regex)
-   let l:insertions = s:str2nr(l:matched[2])
-   let l:deletions = s:str2nr(l:matched[4])
-   let l:added = l:insertions - l:modified
-   let l:deleted = l:deletions - l:modified
-   if l:added <# 0 || l:deleted <# 0
-    let l:negativity = min([l:added, l:deleted])
-    let l:added = l:added - l:negativity
-    let l:deleted = l:deleted - l:negativity
-    let l:modified = l:modified + l:negativity
-  endif
-  let s:spaceline_diff_status = [s:diff_nerdfonts_icon[0].l:added,s:diff_nerdfonts_icon[1].l:deleted,s:diff_nerdfonts_icon[2].l:modified]
+  try
+    let l:modified = s:modified_count(a:git_raw_output.stdout)
+    let l:change_summary = a:git_raw_output.stdout[1]
+    let l:regex = '\v[^,]+, ((\d+) [a-z]+\(\+\)[, ]*)?((\d+) [a-z]+\(-\))?'
+    let l:matched =  matchlist(l:change_summary, l:regex)
+    let l:insertions = s:str2nr(l:matched[2])
+    let l:deletions = s:str2nr(l:matched[4])
+    let l:added = l:insertions - l:modified
+    let l:deleted = l:deletions - l:modified
+    echom l:insertions l:added l:deleted l:modified
+    if l:added <# 0 || l:deleted <# 0
+      let l:negativity = min([l:added, l:deleted])
+      let l:added = l:added - l:negativity
+      let l:deleted = l:deleted - l:negativity
+      let l:modified = l:modified + l:negativity
+    endif
+    echom l:negativity l:added l:deleted
+    if l:added != 0
+      let s:spaceline_diff_status[0] = s:diff_nerdfonts_icon[0].l:added
+    endif
+    if l:deleted != 0
+      let s:spaceline_diff_status[1] = s:diff_nerdfonts_icon[1].l:deleted
+    endif
+    if l:modified != 0
+      let s:spaceline_diff_status[2] = s:diff_nerdfonts_icon[2].l:modified
+    endif
+  catch
+    let s:spaceline_diff_status = ['','','']
+  finally
+    call spaceline#spacelinetoggle()
+  endtry
 endfunction
 
 function! s:modified_count(stdout)
