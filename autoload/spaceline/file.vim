@@ -13,7 +13,7 @@ function! spaceline#file#file_type() abort
   \      &filetype ==? 'vim-plug'         ? '  ' :
   \      &filetype ==? 'vista'            ? ' 識' :
   \      &filetype ==? 'vista_kind'       ? '  ' :
-  \      &filetype ==? 'dbui'             ? '  ' :
+  \      &filetype ==? 'dbui'             ? '  ' :
   \      &filetype ==? 'magit'            ? '  ' :
   \      &filetype =~? '\v^mundo(diff)?$' ? '  ' :
   \      spaceline#utils#line_is_lean() || spaceline#utils#line_is_plain() ? ' '  :
