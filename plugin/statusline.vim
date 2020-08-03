@@ -19,12 +19,14 @@ let g:spaceline_shortline_filetype = ['defx','coc-explorer','dbui','vista','vist
 let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
   \  '▁', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'
   \  ])
-let g:spaceline_lsp = get(g:,'spaceline_lsp_executive','coc')
-let g:spaceline_git = get(g:,'spaceline_git_tool','coc')
+
+let g:spaceline_dianostic = get(g:,'spaceline_diagnostic_tool','coc')
 
 let g:spaceline_errorsign = get(g:,'spaceline_diagnostic_errorsign', '●')
 let g:spaceline_warnsign = get(g:,'spaceline_diagnostic_warnsign', '●')
 let g:spaceline_oksign = get(g:,'spaceline_diagnostic_oksign', '')
+
+let g:spaceline_diff = get(g:,'spaceline_diff_tool','coc-git')
 
 let g:sep= {}
 let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)
@@ -39,7 +41,7 @@ augroup spaceline
   autocmd Colorscheme * call spaceline#colorscheme_init()
   autocmd VimResized * call spaceline#spacelinetoggle()
   autocmd WinLeave * call spaceline#setInActiveStatusLine()
-  autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit call spaceline#spacelinetoggle()
+  autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit,GitGutter call spaceline#spacelinetoggle()
   autocmd User CocDiagnosticChange call spaceline#spacelinetoggle()
 augroup END "}}}
 

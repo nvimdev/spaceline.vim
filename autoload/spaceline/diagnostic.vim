@@ -7,17 +7,17 @@
 
 " Determine whether the current lsp is coc or nvim-lsp
 function! spaceline#diagnostic#diagnostic_error()
-  let l:error_message = s:diagnostic_{g:spaceline_lsp}_error()
+  let l:error_message = s:diagnostic_{g:spaceline_diagnostic}_error()
   return l:error_message
 endfunction
 
 function! spaceline#diagnostic#diagnostic_warn()
-  let l:warn_message = s:diagnostic_{g:spaceline_lsp}_warn()
+  let l:warn_message = s:diagnostic_{g:spaceline_dianostic}_warn()
   return l:warn_message
 endfunction
 
 function! spaceline#diagnostic#diagnostic_ok()
-  let l:ok_message = s:diagnostic_{g:spaceline_lsp}_ok()
+  let l:ok_message = s:diagnostic_{g:spaceline_dianostic}_ok()
   return l:ok_message
 endfunction
 

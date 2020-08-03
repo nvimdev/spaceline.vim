@@ -57,7 +57,12 @@ endfunction
 function! s:add_diff_icon(type) abort
   let diff_nerdfonts_icon = exists('g:spaceline_custom_diff_icon') ? get(g:,'spaceline_custom_diff_icon'): ['','','']
   let difficon = get(diff_nerdfonts_icon,a:type,'')
-  let diffdata = split(get(b:, 'coc_git_status', ''),' ')
+  let diff_data = []
+  if g:spaceline_diff == 'git-gutter'
+    let diffdata = s:get_hunks_gitgutter()
+  else
+    let diffdata = split(get(b:, 'coc_git_status', ''),' ')
+  endif
   let diff_flags = ''
   if a:type == 0
     let diff_flags = '+'
@@ -87,4 +92,9 @@ endfunction
 
 function! spaceline#vcs#diff_modified() abort
   return s:add_diff_icon(2)
+endfunction
+
+function! s:get_hunks_gitgutter()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return ['+'.a,'~'.m,'-'.r]
 endfunction

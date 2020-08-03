@@ -18,13 +18,9 @@ Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute
 
 ```
 Plug 'hardcoreplayers/spaceline.vim'
+" Use the icon plugin for better behavior
+Plug 'ryanoasis/vim-devicons'
 ```
-
-# Required Plugins
-
-- [coc](https://github.com/neoclide/coc.nvim)
-- Depends on coc extensions `coc-git`
-- [vim-devicons](https://github.com/ryanoasis/vim-devicons)
 
 # Options
 
@@ -65,7 +61,7 @@ let g:spaceline_colorscheme = 'space'
 
 - `g:spaceline_custom_buffer_number` custom buffer number display value is list
 
-- `g:spaceline_lsp_executive` set your lsp plugin. default is `coc`,other value
+- `g:spaceline_diagnostic_tool` set your diagnostic plugin. default is `coc`,other value
   `nvim_lsp`, `ale`
 
 - `g:spaceline_diagnostic_errorsign` set the error sign.
@@ -78,6 +74,8 @@ let g:spaceline_colorscheme = 'space'
 ```vim
  ['','','']
 ```
+
+- `g:spaceline_diff_tool` set the git diff tool default is `coc`, other value is `git-gutter` need vim-gitgutter plugin
 
 - `g:spaceline_function_icon` set the function icon
 
