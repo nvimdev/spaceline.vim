@@ -12,12 +12,12 @@ function! spaceline#diagnostic#diagnostic_error()
 endfunction
 
 function! spaceline#diagnostic#diagnostic_warn()
-  let l:warn_message = s:diagnostic_{g:spaceline_dianostic}_warn()
+  let l:warn_message = s:diagnostic_{g:spaceline_diagnostic}_warn()
   return l:warn_message
 endfunction
 
 function! spaceline#diagnostic#diagnostic_ok()
-  let l:ok_message = s:diagnostic_{g:spaceline_dianostic}_ok()
+  let l:ok_message = s:diagnostic_{g:spaceline_diagnostic}_ok()
   return l:ok_message
 endfunction
 
