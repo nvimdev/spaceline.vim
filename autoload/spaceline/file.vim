@@ -8,6 +8,7 @@
 function! spaceline#file#file_type() abort
   return &filetype ==? 'help'             ? '  '  :
   \      &filetype ==? 'defx'             ? '  ' :
+  \      &filetype ==? 'chadtree'         ? '  ' :
   \      &filetype ==? 'nerdtree'         ? '  ' :
   \      &filetype ==? 'denite'           ? '  ' :
   \      &filetype ==? 'vim-plug'         ? '  ' :
