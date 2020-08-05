@@ -42,10 +42,7 @@ function! spaceline#file#file_size()abort
 endfunction
 
 function! spaceline#file#file_name() abort
-  if empty(expand('%:t'))
-    return '[No Name]'
-  endif
-  if index(g:spaceline_shortline_filetype, &filetype) >= 0
+  if empty(expand('%:t')) || index(g:spaceline_shortline_filetype, &filetype) >= 0
     return ''
   endif
   let mo = s:file_is_modified()
