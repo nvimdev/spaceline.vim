@@ -109,6 +109,20 @@ let g:spaceline_scroll_chars = ['⎺', '⎻', '⎼', '⎽', '⎯'] " on Linux
 
 - check the thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
 
+# FAQ
+
+- Why the symbols look weird in my vim ?
+
+Make sure you have installed nerdfont font from https://www.nerdfonts.com/, Different fonts may be inconsistent in the performance of symbols.
+The solution, If you use Mac with iterm2, you can set a different font for the symbol.
+
+<center>
+  <img src="https://user-images.githubusercontent.com/41671631/88161810-0c551880-cc43-11ea-9699-17150cd7813a.png" height="300", weight="300"/>
+</center>
+
+Another way I recommend you to use [kitty terminal](https://github.com/kovidgoyal/kitty), it has built-in symbol font support.Kitty support
+Mac and Linux.
+
 # Donate
 
 Do you like spaceline.vim? buy me a coffee 😘!
