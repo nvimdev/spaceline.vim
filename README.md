@@ -30,15 +30,15 @@ Plug 'ryanoasis/vim-devicons'
 let g:spaceline_seperate_style= 'arrow'
 ```
 
-| group        | ScreenShot                                                                                                                 |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| `none`       | ![none-normal](https://user-images.githubusercontent.com/41671631/79724664-7dbabd80-831a-11ea-917b-aa8ef47fa34f.png)       |
-| `arrow`      | ![arrow](https://user-images.githubusercontent.com/41671631/79724650-7abfcd00-831a-11ea-9a32-1894db707cc7.png)             |
-| `arrow-fade` | ![arrow-fade-normal](https://user-images.githubusercontent.com/41671631/79724643-78f60980-831a-11ea-86b9-51040acd93fe.png) |
-| `curve`      | ![curve](https://user-images.githubusercontent.com/41671631/79724657-7c899080-831a-11ea-97b9-7377777918a0.png)             |
-| `slant`      | ![slant](https://user-images.githubusercontent.com/41671631/79724693-83180800-831a-11ea-8351-461e64ad352c.png)             |
-| `slant-fade` | ![slant-fade-normal](https://user-images.githubusercontent.com/41671631/79724680-814e4480-831a-11ea-8141-ac17bf0bb4e2.png) |
-| `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/79724670-7f848100-831a-11ea-9402-6f8aa272aa0c.png)        |
+| group        | ScreenShot                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| `none`       | ![none](https://user-images.githubusercontent.com/41671631/89510132-c54e5200-d802-11ea-90f5-2346d7e049ca.png)       |
+| `arrow`      | ![arrow](https://user-images.githubusercontent.com/41671631/89510121-c2ebf800-d802-11ea-85d3-028ea21ab62d.png)      |
+| `arrow-fade` | ![arrow-fade](https://user-images.githubusercontent.com/41671631/89510114-c0899e00-d802-11ea-8a95-a6f3f4857697.png) |
+| `curve`      | ![curve](https://user-images.githubusercontent.com/41671631/89510127-c41d2500-d802-11ea-867e-d37fbb4fb182.png)      |
+| `slant`      | ![slant](https://user-images.githubusercontent.com/41671631/89510140-c7181580-d802-11ea-8770-567d0dcccc07.png)      |
+| `slant-fade` | ![slant-fade](https://user-images.githubusercontent.com/41671631/89510136-c5e6e880-d802-11ea-8892-3677e90d7086.png) |
+| `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/89510589-5a514b00-d803-11ea-8228-dc8d8778f346.png) |
 
 - `g:spaceline_disable_file_icon` set 1 to disable filetype icon,default is 0.if
   you don't like use the `ryanoasis/vim-devicons` plugin,you need set this
@@ -62,9 +62,9 @@ let g:spaceline_colorscheme = 'space'
 - `g:spaceline_diagnostic_tool` set your diagnostic plugin. default is `coc`,other value
   `nvim_lsp`, `ale`
 
-- `g:spaceline_diagnostic_errorsign` set the error sign.
-- `g:spaceline_diagnostic_warnsign` set the warn sign.
-- `g:spaceline_diagnostic_oksign` set the ok sign.
+- `g:spaceline_diagnostic_errorsign` set the error sign. default is `●`
+- `g:spaceline_diagnostic_warnsign` set the warn sign. default is `●`
+- `g:spaceline_diagnostic_oksign` set the ok sign. default is ``
 
 - `g:spaceline_git_branch_icon` set the git branch icon default is empty
 - `g:spaceline_custom_diff_icon` custom diff icon. default is
