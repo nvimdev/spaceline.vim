@@ -26,6 +26,7 @@ function! s:ActiveStatusLine()
     let s:statusline.="%{spaceline#vimode#vim_mode()}"
     let s:statusline.="%#HomeModeRight#"
     let s:statusline.=g:sep.homemoderight
+    let s:statusline.=spaceline#syntax#icon_syntax()
     let s:statusline.="%#FileName#"
     let s:statusline.="\ "
     let s:statusline.="%{spaceline#file#file_name()}"
