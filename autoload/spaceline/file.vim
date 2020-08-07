@@ -47,18 +47,10 @@ function! spaceline#file#file_name() abort
   endif
   let mo = s:file_is_modified()
   let fname = s:current_file_name()
-  let icon = winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-  if g:symbol == 1
-    if empty(mo)
-      return fname
-    else
-      return fname. ''.mo
-    endif
-  endif
   if empty(mo)
-    return icon .' '.fname
+    return fname
   else
-    return icon .' '.fname. ''.mo
+    return fname. ''.mo
   endif
 endfunction
 

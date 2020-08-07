@@ -2,13 +2,14 @@
 
 Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute/ThinkVim)
 
-![](https://user-images.githubusercontent.com/41671631/88384638-596df180-cddf-11ea-87ea-0ac764be5177.png)
+![syntax](https://user-images.githubusercontent.com/41671631/89653960-7d125b00-d8fa-11ea-9d59-432a737d3bcc.png)
 
 # Feature
 
 - We have airline, lightline, eleline, why make this plugin? They are great plugins, but they are limited and you can't set more separators.
 - More separator combinations make the status bar look better, and spaceline handles combinations in different situations, very well. The combination of each area is very good in different situations.
 - spaceline is faster than lightline and airline
+- syntax highlight in spaceline
 - middle color of spaceline will match your colorscheme background color (now only default colorscheme space support)
 - support scroll bar
 
