@@ -2,7 +2,7 @@
 
 Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute/ThinkVim)
 
-![syntax](https://user-images.githubusercontent.com/41671631/89653960-7d125b00-d8fa-11ea-9d59-432a737d3bcc.png)
+![22](https://user-images.githubusercontent.com/41671631/89704683-abd71280-d988-11ea-94f8-b253e6f7c4a4.png)
 
 # Feature
 
