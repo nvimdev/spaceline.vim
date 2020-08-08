@@ -58,12 +58,12 @@ endif
 
 function! spaceline#syntax#icon_syntax()
     let icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
-    let bg_color = synIDattr(hlID("FileName"), "bg")
+    let bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
 
     for color in keys(g:coldevicons_iconmap)
         let index = index(g:coldevicons_iconmap[color], icon)
         if index != -1
-          execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg='. bg_color
+          execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg=#' . bg_color
           break
         endif
     endfor
