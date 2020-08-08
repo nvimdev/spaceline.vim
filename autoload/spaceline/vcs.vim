@@ -58,7 +58,7 @@ function! spaceline#vcs#gitbranch_detect(path) abort
 endfunction
 
 function! s:add_diff_icon(type) abort
-  let diff_nerdfonts_icon = g:spaceline_custom_diff_icon
+  let diff_nerdfonts_icon = g:spaceline_diff_icon
   let difficon = get(diff_nerdfonts_icon,a:type,'')
   let diff_data = []
   if g:spaceline_diff == 'git-gutter'
