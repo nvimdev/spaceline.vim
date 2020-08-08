@@ -34,7 +34,6 @@ function! s:diagnostic_coc_error()
 endfunction
 
 function! s:diagnostic_coc_warn() abort
-  let warning_sign = get(g:, 'spaceline_diagnostic_warnsign','')
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info)
     return ''
