@@ -7,16 +7,15 @@
 
 " reference https://github.com/itchyny/vim-gitbranch/blob/master/plugin/gitbranch.vim
 function! spaceline#vcs#git_branch() abort
-  let git_branch_icon = exists('g:spaceline_git_branch_icon') ? get(g:,'spaceline_git_branch_icon') : ''
   if get(b:, 'gitbranch_pwd', '') !=# expand('%:p:h') || !has_key(b:, 'gitbranch_path')
     call spaceline#vcs#gitbranch_detect(expand('%:p:h'))
   endif
   if has_key(b:, 'gitbranch_path') && filereadable(b:gitbranch_path)
     let branch = get(readfile(b:gitbranch_path), 0, '')
     if branch =~# '^ref: '
-      return git_branch_icon .' '. substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '')
+      return g:spaceline_branch_icon .' '. substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '')
     elseif branch =~# '^\x\{20\}'
-      return git_branch_icon .' '. branch[:6]
+      return g:spaceline_branch_icon .' '. branch[:6]
     endif
   endif
   return ''
@@ -55,7 +54,7 @@ function! spaceline#vcs#gitbranch_detect(path) abort
 endfunction
 
 function! s:add_diff_icon(type) abort
-  let diff_nerdfonts_icon = exists('g:spaceline_custom_diff_icon') ? get(g:,'spaceline_custom_diff_icon'): ['','','']
+  let diff_nerdfonts_icon = g:spaceline_custom_diff_icon
   let difficon = get(diff_nerdfonts_icon,a:type,'')
   let diff_data = []
   if g:spaceline_diff == 'git-gutter'
