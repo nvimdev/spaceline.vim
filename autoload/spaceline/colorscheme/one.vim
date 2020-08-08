@@ -96,6 +96,7 @@ function! spaceline#colorscheme#one#one()
   call spaceline#colors#spaceline_hl('HeartSymbol', s:slc, 'orange',  'gray')
   call spaceline#colors#spaceline_hl('CocError',s:slc,  'red',  'gray')
   call spaceline#colors#spaceline_hl('CocWarn',s:slc,  'yellow',  'gray')
+  call spaceline#colors#spaceline_hl('GitBranchIcon',s:slc,  'orange',  'grey')
   call spaceline#colors#spaceline_hl('GitInfo',s:slc,  'lightgray',  'green')
   call spaceline#colors#spaceline_hl('GitAdd',s:slc,  'purple',  'green') " purple ok
   call spaceline#colors#spaceline_hl('GitRemove',s:slc,  'red',  'green')

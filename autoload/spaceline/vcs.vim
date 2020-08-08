@@ -5,6 +5,10 @@
 " License: MIT License
 " =============================================================================
 
+function! spaceline#vcs#git_branch_icon()
+  return g:spaceline_branch_icon
+endfunction
+
 " reference https://github.com/itchyny/vim-gitbranch/blob/master/plugin/gitbranch.vim
 function! spaceline#vcs#git_branch() abort
   if get(b:, 'gitbranch_pwd', '') !=# expand('%:p:h') || !has_key(b:, 'gitbranch_path')
@@ -13,9 +17,9 @@ function! spaceline#vcs#git_branch() abort
   if has_key(b:, 'gitbranch_path') && filereadable(b:gitbranch_path)
     let branch = get(readfile(b:gitbranch_path), 0, '')
     if branch =~# '^ref: '
-      return g:spaceline_branch_icon .' '. substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '')
+      return ' '. substitute(branch, '^ref: \%(refs/\%(heads/\|remotes/\|tags/\)\=\)\=', '', '')
     elseif branch =~# '^\x\{20\}'
-      return g:spaceline_branch_icon .' '. branch[:6]
+      return ' '. branch[:6]
     endif
   endif
   return ''

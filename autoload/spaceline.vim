@@ -50,8 +50,10 @@ function! s:ActiveStatusLine()
     if !empty(spaceline#vcs#git_branch())
         let s:statusline.="%#GitLeft#"
         let s:statusline.=g:sep.gitleft
-        let s:statusline.="%#GitInfo#"
+        let s:statusline.="%#GitBranchIcon#"
         let s:statusline.="\ "
+        let s:statusline.="%{spaceline#vcs#git_branch_icon()}"
+        let s:statusline.="%#GitInfo#"
         let s:statusline.="%{spaceline#vcs#git_branch()}"
         let s:statusline.="\ "
         if !empty(get(b:,'coc_git_status'))
