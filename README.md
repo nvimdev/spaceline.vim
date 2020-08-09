@@ -1,6 +1,6 @@
 # spaceline.vim
 
-Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/taigacute/ThinkVim)
+Vim Statusline Like Emacs Spaceline from [ThinkVim](https://github.com/hardcoreplayers/ThinkVim)
 
 ![22](https://user-images.githubusercontent.com/41671631/89704683-abd71280-d988-11ea-94f8-b253e6f7c4a4.png)
 

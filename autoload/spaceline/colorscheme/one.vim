@@ -1,7 +1,7 @@
 " =============================================================================
 " Filename: spaceline.vim
 " Author: Th3Whit3Wolf
-" URL: https://github.com/taigacute/spaceline.vim
+" URL: https://github.com/glepnir/spaceline.vim
 " License: MIT License
 " =============================================================================
 function! spaceline#colorscheme#one#one()
