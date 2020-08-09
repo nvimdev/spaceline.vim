@@ -35,7 +35,7 @@ if !exists('g:coldevicons_iconmap')     " Iconmap mapping colors to the Symbols 
         \'Brown'        : [''],
         \'Aqua'         : [''],
         \'LightBlue'    : [''],
-        \'Blue'         : ['','','','','','','','','','',''],
+        \'Blue'         : ['','','','','','','','','','',''],
         \'Darkblue'     : ['',''],
         \'Purple'       : ['','','','','',''],
         \'Red'          : ['','','','','',''],
