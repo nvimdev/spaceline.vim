@@ -25,7 +25,11 @@ function! spaceline#colorscheme#space#space()
   let l:mode=mode()
   if g:seperate_style  == 'slant'
       call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'teal', 'yellow')
-      call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'yellow', 'purple')
+      if empty(expand('%t'))
+        call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'yellow', 'darknavy')
+      else
+        call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'yellow', 'purple')
+      endif
       call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'navy','purple')
       call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'purple','navy')
       call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'navy',  'purple')

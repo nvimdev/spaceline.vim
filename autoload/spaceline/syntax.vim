@@ -59,9 +59,6 @@ endif
 function! spaceline#syntax#icon_syntax()
     let icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
     let bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
-    if empty(expand('%t'))
-      return ''
-    endif
 
     for color in keys(g:coldevicons_iconmap)
         let index = index(g:coldevicons_iconmap[color], icon)
