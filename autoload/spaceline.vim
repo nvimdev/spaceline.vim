@@ -59,20 +59,17 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#GitInfo#"
         let s:statusline.="%{spaceline#vcs#git_branch()}"
         let s:statusline.="\ "
-        if !empty(get(b:,'coc_git_status'))
-          let diff_data = get(b:,'coc_git_status', '')
-          if matchend(diff_data, '+') > 0
-            let s:statusline.="%#GitAdd#"
-            let s:statusline.= "%{spaceline#vcs#diff_add()}"
-          endif
-          if matchend(diff_data, '-') > 0
-            let s:statusline.="%#GitRemove#"
-            let s:statusline.= "%{spaceline#vcs#diff_remove()}"
-          endif
-          if matchend(diff_data, '\~') > 0
-            let s:statusline.="%#GitModified#"
-            let s:statusline.= "%{spaceline#vcs#diff_modified()}"
-          endif
+        if !empty(spaceline#vcs#diff_add())
+          let s:statusline.="%#GitAdd#"
+          let s:statusline.= "%{spaceline#vcs#diff_add()}"
+        endif
+        if !empty(spaceline#vcs#diff_remove())
+          let s:statusline.="%#GitRemove#"
+          let s:statusline.= "%{spaceline#vcs#diff_remove()}"
+        endif
+        if !empty(spaceline#vcs#diff_modified())
+          let s:statusline.="%#GitModified#"
+          let s:statusline.= "%{spaceline#vcs#diff_modified()}"
         endif
         let s:statusline.="%#GitRight#"
         let s:statusline.=g:sep.gitright
