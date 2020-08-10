@@ -27,8 +27,8 @@ function! spaceline#colorscheme#space#space()
       call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'yellow', 'purple')
       call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'navy','purple')
       call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'purple','navy')
-      call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'purple',  'navy')
-      call spaceline#colors#spaceline_hl('GitRight',s:slc,  'purple',  'darknavy')
+      call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'navy',  'purple')
+      call spaceline#colors#spaceline_hl('GitRight',s:slc,  'darknavy',  'purple')
       call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'yellow', 'navy')
       call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'yellow', 'navy')
   elseif g:seperate_style  == 'slant-cons'
@@ -97,8 +97,12 @@ function! spaceline#colorscheme#space#space()
   call spaceline#colors#spaceline_hl('GitModified',s:slc,  'orange',  'purple')
   call spaceline#colors#spaceline_hl('CocBar',s:slc,  'teal',  'darknavy')
   call spaceline#colors#spaceline_hl('VistaNearest',s:slc,  'teal',  'darknavy')
-  call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'purple',  'darknavy')
-  if g:seperate_style  ==? 'slant' || g:seperate_style ==? 'arrow' || g:seperate_style ==? 'curve' || g:seperate_style ==? 'slant-fade'
+  if g:seperate_style ==? 'slant'
+    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'darknavy',  'purple')
+  else
+    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'purple',  'darknavy')
+  endif
+  if g:seperate_style ==? 'arrow' || g:seperate_style ==? 'curve' || g:seperate_style ==? 'slant-fade'
     call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'purple',  'navy')
   else
     call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'navy',  'purple')

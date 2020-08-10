@@ -39,8 +39,8 @@ function! spaceline#colorscheme#one#one()
       call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
       call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'gray','green')
       call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'green','gray')
-      call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'green',  'gray')
-      call spaceline#colors#spaceline_hl('GitRight',s:slc,  'green',  'darknavy')
+      call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'gray',  'green')
+      call spaceline#colors#spaceline_hl('GitRight',s:slc,  'darknavy',  'green')
       call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'gray', 'gray')
       call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'gray', 'darknavy')
   elseif g:seperate_style == 'slant-cons'
@@ -92,18 +92,22 @@ function! spaceline#colorscheme#one#one()
 
   call spaceline#colors#spaceline_hl('InActiveFilename', s:slc, 'lightgray', 'gray')
   call spaceline#colors#spaceline_hl('FileName', s:slc, 'lightgray', 'green')
-  call spaceline#colors#spaceline_hl('Filesize', s:slc, 'darkgray', 'green')
+  call spaceline#colors#spaceline_hl('Filesize', s:slc, 'purple', 'gray')
   call spaceline#colors#spaceline_hl('HeartSymbol', s:slc, 'orange',  'gray')
   call spaceline#colors#spaceline_hl('CocError',s:slc,  'red',  'gray')
   call spaceline#colors#spaceline_hl('CocWarn',s:slc,  'yellow',  'gray')
-  call spaceline#colors#spaceline_hl('GitBranchIcon',s:slc,  'orange',  'grey')
+  call spaceline#colors#spaceline_hl('GitBranchIcon', s:slc, 'orange',  'green')
   call spaceline#colors#spaceline_hl('GitInfo',s:slc,  'lightgray',  'green')
   call spaceline#colors#spaceline_hl('GitAdd',s:slc,  'purple',  'green') " purple ok
   call spaceline#colors#spaceline_hl('GitRemove',s:slc,  'red',  'green')
   call spaceline#colors#spaceline_hl('GitModified',s:slc,  'orange',  'green')
   call spaceline#colors#spaceline_hl('CocBar',s:slc,  'teal',  'darknavy')
-  call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'green',  'darknavy')
-  if g:seperate_style == 'arrow-fade' || g:seperate_style == 'slant-cons'
+  if g:seperate_style == 'slant'
+    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'darknavy',  'green')
+  else
+    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'green',  'darknavy')
+  endif
+  if g:seperate_style == 'arrow-fade' || g:seperate_style == 'slant-cons' || g:seperate_style == 'slant'
       call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'gray',  'green')
   else
       call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'green',  'gray')
