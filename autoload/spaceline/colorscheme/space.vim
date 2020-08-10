@@ -17,6 +17,7 @@ function! spaceline#colorscheme#space#space()
   let s:slc.teal = ['008080', 6]
   let s:slc.green = ['afd700', 148]
   let s:slc.gray = ['3c3836', 237]
+  let s:slc.aqua= ['62b3b2',73]
   let s:slc.darknavy=[]
 
   call spaceline#colors#match_background_color(s:slc.darknavy)
@@ -32,14 +33,8 @@ function! spaceline#colorscheme#space#space()
       call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'yellow', 'navy')
       call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'yellow', 'navy')
   elseif g:seperate_style  == 'slant-cons'
-    if l:mode==#"n"
-      call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'teal', 'yellow')
-      call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'yellow', 'purple')
-    elseif l:mode==#"i"
-      call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'navy', 'green')
-      call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'green', 'purple')
-    endif
-
+    call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'teal', 'yellow')
+    call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'yellow', 'purple')
     call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'purple','navy')
     call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'purple','navy')
     call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'navy',  'purple')
@@ -85,13 +80,13 @@ function! spaceline#colorscheme#space#space()
   endif
 
   call spaceline#colors#spaceline_hl('InActiveFilename', s:slc, 'lightgray', 'navy')
-  call spaceline#colors#spaceline_hl('FileName', s:slc, 'lightgray', 'purple')
+  call spaceline#colors#spaceline_hl('FileName', s:slc, 'aqua', 'purple','bold')
   call spaceline#colors#spaceline_hl('Filesize', s:slc, 'green', 'navy')
   call spaceline#colors#spaceline_hl('HeartSymbol', s:slc, 'orange',  'navy')
   call spaceline#colors#spaceline_hl('CocError',s:slc,  'red',  'navy')
   call spaceline#colors#spaceline_hl('CocWarn',s:slc,  'blue',  'navy')
   call spaceline#colors#spaceline_hl('GitBranchIcon',s:slc,  'orange',  'purple')
-  call spaceline#colors#spaceline_hl('GitInfo',s:slc,  'lightgray',  'purple')
+  call spaceline#colors#spaceline_hl('GitInfo',s:slc,  'lightgray',  'purple','bold')
   call spaceline#colors#spaceline_hl('GitAdd',s:slc,  'green',  'purple')
   call spaceline#colors#spaceline_hl('GitRemove',s:slc,  'red',  'purple')
   call spaceline#colors#spaceline_hl('GitModified',s:slc,  'orange',  'purple')
