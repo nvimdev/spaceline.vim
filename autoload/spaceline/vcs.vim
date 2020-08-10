@@ -76,11 +76,7 @@ function! s:add_diff_icon(type) abort
   endif
   for item in diffdata
     if matchend(item,diff_flags) > 0
-        if g:symbol == 1
-          return item
-        else
-          return substitute(item, diff_flags, difficon, '').' '
-        endif
+        return substitute(item, diff_flags, difficon, '').' '
     endif
   endfor
 endfunction

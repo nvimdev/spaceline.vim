@@ -12,7 +12,6 @@ endif
 
 let g:loaded_spaceline = 1
 
-let g:symbol = get(g:, 'spaceline_disable_file_icon', 0)
 let g:seperate_style = get(g:, 'spaceline_seperate_style', 'slant')
 let g:spaceline_colorscheme = get(g:, 'spaceline_colorscheme', 'space')
 let g:spaceline_shortline_filetype = ['defx','coc-explorer','dbui','vista','vista_markdown','Mundo','MundoDiff','chadtree']

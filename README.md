@@ -42,10 +42,6 @@ let g:spaceline_seperate_style= 'arrow'
 | `slant-fade` | ![slant-fade](https://user-images.githubusercontent.com/41671631/89510136-c5e6e880-d802-11ea-8892-3677e90d7086.png) |
 | `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/89510589-5a514b00-d803-11ea-8228-dc8d8778f346.png) |
 
-- `g:spaceline_disable_file_icon` set 1 to disable filetype icon,default is 0.if
-  you don't like use the `ryanoasis/vim-devicons` plugin,you need set this
-  option to 1.
-
 - Use this setting to change the spaceline colorscheme,now builtin colorscheme
   `space`,`one`
 
