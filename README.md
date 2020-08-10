@@ -2,7 +2,7 @@
 
 The best vim statusline plugin.
 
-![22](https://user-images.githubusercontent.com/41671631/89704683-abd71280-d988-11ea-94f8-b253e6f7c4a4.png)
+![new](https://user-images.githubusercontent.com/41671631/89755347-b4a72000-db11-11ea-8a01-e69c69e020ff.png)
 
 # Feature
 
