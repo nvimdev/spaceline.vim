@@ -19,92 +19,95 @@ function! s:short_statusline() abort
 endfunction
 
 function! s:ActiveStatusLine()
-    let squeeze_width = winwidth(0) / 2
-    let s:statusline=""
-    let s:statusline.="%#HomeMode#"
-    let s:statusline.="\ "
-    let s:statusline.="%{spaceline#vimode#vim_mode()}"
-    let s:statusline.="%#HomeModeRight#"
-    let s:statusline.=g:sep.homemoderight
-    let s:statusline.=spaceline#syntax#icon_syntax()
-    let s:statusline.="%#FileName#"
-    let s:statusline.="\ "
-    let s:statusline.="%{spaceline#file#file_name()}"
-    let s:statusline.="\ "
-    let s:statusline.="%#FileNameRight#"
-    let s:statusline.=g:sep.filenameright
+  let l:file_icon = spaceline#syntax#icon_syntax()
+  let squeeze_width = winwidth(0) / 2
+  let s:statusline=""
+  let s:statusline.="%#HomeMode#"
+  let s:statusline.="\ "
+  let s:statusline.="%{spaceline#vimode#vim_mode()}"
+  let s:statusline.="%#HomeModeRight#"
+  let s:statusline.=g:sep.homemoderight
+  if !empty(l:file_icon)
+    let s:statusline.=l:file_icon
+  endif
+  let s:statusline.="%#FileName#"
+  let s:statusline.="\ "
+  let s:statusline.="%{spaceline#file#file_name()}"
+  let s:statusline.="\ "
+  let s:statusline.="%#FileNameRight#"
+  let s:statusline.=g:sep.filenameright
 
-    if !empty(spaceline#diagnostic#diagnostic_error())|| !empty(spaceline#diagnostic#diagnostic_warn()) && squeeze_width >40
-        let s:statusline.="%#CocError#"
-        let s:statusline.="\ "
-        let s:statusline.="%{spaceline#diagnostic#diagnostic_error()}"
-        let s:statusline.="\ "
-        let s:statusline.="%#CocWarn#"
-        let s:statusline.="%{spaceline#diagnostic#diagnostic_warn()}"
-        let s:statusline.="\ "
-    elseif !empty(spaceline#file#file_size()) && squeeze_width > 40
-        let s:statusline.="%#Filesize#"
-        let s:statusline.="%{spaceline#file#file_size()}"
-        let s:statusline.="\ "
-    endif
-    if !empty(spaceline#vcs#git_branch())
-        let s:statusline.="%#GitLeft#"
-        let s:statusline.=g:sep.gitleft
-        let s:statusline.="%#GitBranchIcon#"
-        let s:statusline.="\ "
-        let s:statusline.="%{spaceline#vcs#git_branch_icon()}"
-        let s:statusline.="%#GitInfo#"
-        let s:statusline.="%{spaceline#vcs#git_branch()}"
-        let s:statusline.="\ "
-        if !empty(get(b:,'coc_git_status'))
-          let diff_data = get(b:,'coc_git_status', '')
-          if matchend(diff_data, '+') > 0
-            let s:statusline.="%#GitAdd#"
-            let s:statusline.= "%{spaceline#vcs#diff_add()}"
-          endif
-          if matchend(diff_data, '-') > 0
-            let s:statusline.="%#GitRemove#"
-            let s:statusline.= "%{spaceline#vcs#diff_remove()}"
-          endif
-          if matchend(diff_data, '\~') > 0
-            let s:statusline.="%#GitModified#"
-            let s:statusline.= "%{spaceline#vcs#diff_modified()}"
-          endif
+  if !empty(spaceline#diagnostic#diagnostic_error())|| !empty(spaceline#diagnostic#diagnostic_warn()) && squeeze_width >40
+      let s:statusline.="%#CocError#"
+      let s:statusline.="\ "
+      let s:statusline.="%{spaceline#diagnostic#diagnostic_error()}"
+      let s:statusline.="\ "
+      let s:statusline.="%#CocWarn#"
+      let s:statusline.="%{spaceline#diagnostic#diagnostic_warn()}"
+      let s:statusline.="\ "
+  elseif !empty(spaceline#file#file_size()) && squeeze_width > 40
+      let s:statusline.="%#Filesize#"
+      let s:statusline.="%{spaceline#file#file_size()}"
+      let s:statusline.="\ "
+  endif
+  if !empty(spaceline#vcs#git_branch())
+      let s:statusline.="%#GitLeft#"
+      let s:statusline.=g:sep.gitleft
+      let s:statusline.="%#GitBranchIcon#"
+      let s:statusline.="\ "
+      let s:statusline.="%{spaceline#vcs#git_branch_icon()}"
+      let s:statusline.="%#GitInfo#"
+      let s:statusline.="%{spaceline#vcs#git_branch()}"
+      let s:statusline.="\ "
+      if !empty(get(b:,'coc_git_status'))
+        let diff_data = get(b:,'coc_git_status', '')
+        if matchend(diff_data, '+') > 0
+          let s:statusline.="%#GitAdd#"
+          let s:statusline.= "%{spaceline#vcs#diff_add()}"
         endif
-        let s:statusline.="%#GitRight#"
-        let s:statusline.=g:sep.gitright
-    endif
-    if !empty(expand('%:t')) && empty(spaceline#vcs#git_branch()) && &filetype != 'defx'&& &filetype!='chadtree' && &filetype != 'coc-explorer' && &filetype != 'debui'
-        let s:statusline.="%#emptySeperate1#"
-        let s:statusline.=g:sep.emptySeperate1
-    endif
-    if empty(expand('%:t')) && empty(spaceline#vcs#git_branch())
-        let s:statusline.="%#emptySeperate1#"
-        let s:statusline.=g:sep.emptySeperate1
-    endif
-    let s:statusline.="%#CocBar#"
+        if matchend(diff_data, '-') > 0
+          let s:statusline.="%#GitRemove#"
+          let s:statusline.= "%{spaceline#vcs#diff_remove()}"
+        endif
+        if matchend(diff_data, '\~') > 0
+          let s:statusline.="%#GitModified#"
+          let s:statusline.= "%{spaceline#vcs#diff_modified()}"
+        endif
+      endif
+      let s:statusline.="%#GitRight#"
+      let s:statusline.=g:sep.gitright
+  endif
+  if !empty(expand('%:t')) && empty(spaceline#vcs#git_branch()) && &filetype != 'defx'&& &filetype!='chadtree' && &filetype != 'coc-explorer' && &filetype != 'debui'
+      let s:statusline.="%#emptySeperate1#"
+      let s:statusline.=g:sep.emptySeperate1
+  endif
+  if empty(expand('%:t')) && empty(spaceline#vcs#git_branch())
+      let s:statusline.="%#emptySeperate1#"
+      let s:statusline.=g:sep.emptySeperate1
+  endif
+  let s:statusline.="%#CocBar#"
+  let s:statusline.="\ "
+  let s:statusline.="%{spaceline#status#coc_status()}"
+  let s:statusline.="%="
+  if squeeze_width >40
+    let s:statusline.="%#VistaNearest#"
+    let s:statusline.="%{spaceline#vista#vista_nearest()}"
+  endif
+  let s:statusline.="%#LineInfoLeft#"
+  let s:statusline.=g:sep.lineinfoleft
+  if squeeze_width > 40
+    let s:statusline.="%#StatusEncod#"
     let s:statusline.="\ "
-    let s:statusline.="%{spaceline#status#coc_status()}"
-    let s:statusline.="%="
-    if squeeze_width >40
-      let s:statusline.="%#VistaNearest#"
-      let s:statusline.="%{spaceline#vista#vista_nearest()}"
-    endif
-    let s:statusline.="%#LineInfoLeft#"
-    let s:statusline.=g:sep.lineinfoleft
-    if squeeze_width > 40
-      let s:statusline.="%#StatusEncod#"
-      let s:statusline.="\ "
-      let s:statusline.="%{spaceline#file#file_encode()}"
-      let s:statusline.="\ "
-      let s:statusline.="%#StatusFileFormat#%{spaceline#file#file_format()}"
-    endif
-    let s:statusline.="%#LineFormatRight#"
-    let s:statusline.=g:sep.lineformatright
-    let s:statusline.="%#StatusLineinfo#%{spaceline#file#file_type()}"
-    let s:statusline.="%#EndSeperate#"
-    let s:statusline.="%{spaceline#scrollbar#scrollbar_instance()}"
-    return s:statusline
+    let s:statusline.="%{spaceline#file#file_encode()}"
+    let s:statusline.="\ "
+    let s:statusline.="%#StatusFileFormat#%{spaceline#file#file_format()}"
+  endif
+  let s:statusline.="%#LineFormatRight#"
+  let s:statusline.=g:sep.lineformatright
+  let s:statusline.="%#StatusLineinfo#%{spaceline#file#file_type()}"
+  let s:statusline.="%#EndSeperate#"
+  let s:statusline.="%{spaceline#scrollbar#scrollbar_instance()}"
+  return s:statusline
 endfunction
 
 function! s:InActiveStatusLine()
