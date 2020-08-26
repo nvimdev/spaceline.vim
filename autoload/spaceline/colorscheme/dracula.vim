@@ -18,6 +18,7 @@ function! spaceline#colorscheme#dracula#dracula()
   let s:slc.green         = ['50FA7B', 84]
   let s:slc.cyan          = ['8BE9FD', 117]
   let s:slc.darkred       = ['BE5046', 196]
+  let s:slc.darknavy      = []
 
   if &background ==# 'dark'
     let s:slc.gray        = ['3e4452', 237]
@@ -36,13 +37,17 @@ function! spaceline#colorscheme#dracula#dracula()
   let l:mode=mode()
   if g:seperate_style  == 'slant'
       call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
-      call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
+      if empty(expand('%t'))
+        call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'gray')
+      else
+        call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
+      endif
       call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'gray','green')
       call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'green','gray')
       call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'gray',  'green')
       call spaceline#colors#spaceline_hl('GitRight',s:slc,  'darknavy',  'green')
-      call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'gray', 'gray')
-      call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'gray', 'darknavy')
+      call spaceline#colors#spaceline_hl('InActiveHomeRight', s:slc, 'blue', 'gray')
+      call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'blue', 'darknavy')
   elseif g:seperate_style == 'slant-cons'
     call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
     call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'blue', 'green')
