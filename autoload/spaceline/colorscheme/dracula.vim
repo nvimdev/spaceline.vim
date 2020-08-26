@@ -72,7 +72,7 @@ function! spaceline#colorscheme#dracula#dracula()
     call spaceline#colors#spaceline_hl('ShortRight', s:slc, 'gray', 'darknavy')
   elseif g:seperate_style  == 'curve'
     call spaceline#colors#spaceline_hl('HomeMode', s:slc, 'gray', 'blue')
-    call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'green', 'gray')
+    call spaceline#colors#spaceline_hl('HomeModeRight',s:slc,  'green', 'blue')
     call spaceline#colors#spaceline_hl('FileNameRight',s:slc, 'green','gray')
     call spaceline#colors#spaceline_hl('FileSizeRight',s:slc, 'gray','green')
     call spaceline#colors#spaceline_hl('GitLeft',s:slc,  'gray',  'green')
