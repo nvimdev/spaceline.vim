@@ -57,13 +57,13 @@ endif
 " Functions {{{
 
 function! spaceline#syntax#icon_syntax()
-    let icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
-    let bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
+    let l:icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
+    let l:bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
 
     for color in keys(g:coldevicons_iconmap)
-        let index = index(g:coldevicons_iconmap[color], icon)
-        if index != -1
-          execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg=#' . bg_color
+        let l:icon_index = index(g:coldevicons_iconmap[color], l:icon)
+        if l:icon_index != -1
+          execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg=#' . l:bg_color
           break
         endif
     endfor
