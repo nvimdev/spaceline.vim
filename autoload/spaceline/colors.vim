@@ -23,7 +23,11 @@ function! spaceline#colors#spaceline_hl(group,slc,  fg, ...)
             let histring .= 'guifg=fg ctermfg=fg '
         else
             let c = get(a:slc, a:fg)
-            let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
+            if c[0] == 'NONE'
+              let histring .= 'guifg=' . c[0] . ' ctermfg=' . c[1] . ' '
+            else
+              let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
+            endif
         endif
     endif
     if a:0 >= 1 && strlen(a:1)
@@ -31,7 +35,11 @@ function! spaceline#colors#spaceline_hl(group,slc,  fg, ...)
             let histring .= 'guibg=bg ctermbg=bg '
         else
             let c = get(a:slc, a:1)
-            let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
+            if c[0] == 'NONE'
+              let histring .= 'guibg=' . c[0] . ' ctermbg=' . c[1] . ' '
+            else
+              let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
+            endif
         endif
     endif
     if a:0 >= 2 && strlen(a:2)
@@ -42,6 +50,5 @@ function! spaceline#colors#spaceline_hl(group,slc,  fg, ...)
         let c = get(s:slc, a:3)
         let histring .= 'guisp=#' . c[0] . ' '
     endif
-    " echom histring
     execute histring
 endfunction

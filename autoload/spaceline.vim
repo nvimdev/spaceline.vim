@@ -128,13 +128,12 @@ function! spaceline#colorscheme_init()
 endfunction
 
 function! s:SetStatusline()
+    call spaceline#colorscheme_init()
     if index(g:spaceline_shortline_filetype, &filetype) >= 0
       let &l:statusline=s:short_statusline()
-      call spaceline#colorscheme_init()
       return
     endif
     let &l:statusline=s:ActiveStatusLine()
-    call spaceline#colorscheme_init()
 endfunction
 
 function! spaceline#setInActiveStatusLine()
