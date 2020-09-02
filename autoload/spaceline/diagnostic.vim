@@ -84,9 +84,7 @@ function! s:diagnostic_nvim_lsp_warn()
 endfunction
 
 function! s:diagnostic_nvim_lsp_ok()
-  if luaeval('#vim.lsp.buf_get_clients(0) == 0')
-    return g:spaceline_oksign
-  endif
+  return g:spaceline_oksign
 endfunction
 
 function! s:diagnostic_ale_warn() abort
