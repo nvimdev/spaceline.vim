@@ -61,7 +61,11 @@ endfunction
 
 function! s:diagnostic_nvim_lsp_error()
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
-    return g:spaceline_errorsign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
+    if luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")") == v:null
+      return ''
+    else
+      return g:spaceline_errorsign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Error\")")
+    end
   else
     return ''
   endif
@@ -69,7 +73,11 @@ endfunction
 
 function! s:diagnostic_nvim_lsp_warn()
   if luaeval('#vim.lsp.buf_get_clients(0) ~= 0')
-    return g:spaceline_warnsign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Warning\")")
+    if luaeval("vim.lsp.util.buf_diagnostics_count(\"Warning\")") == v:null
+      return ''
+    else
+      return g:spaceline_warnsign. luaeval("vim.lsp.util.buf_diagnostics_count(\"Warning\")")
+    end
   else
     return ''
   endif
