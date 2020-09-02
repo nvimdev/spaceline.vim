@@ -59,22 +59,22 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#GitInfo#"
         let s:statusline.="%{spaceline#vcs#git_branch()}"
         let s:statusline.="\ "
-        if !empty(spaceline#vcs#diff_add())
+        if split(spaceline#vcs#diff_add())[1] != 0
           let s:statusline.="%#GitAdd#"
           let s:statusline.= "%{spaceline#vcs#diff_add()}"
         endif
-        if !empty(spaceline#vcs#diff_remove())
+        if split(spaceline#vcs#diff_remove())[1] != 0
           let s:statusline.="%#GitRemove#"
           let s:statusline.= "%{spaceline#vcs#diff_remove()}"
         endif
-        if !empty(spaceline#vcs#diff_modified())
+        if split(spaceline#vcs#diff_modified())[1] != 0
           let s:statusline.="%#GitModified#"
           let s:statusline.= "%{spaceline#vcs#diff_modified()}"
         endif
         let s:statusline.="%#GitRight#"
         let s:statusline.=g:sep.gitright
     endif
-    if !empty(expand('%:t')) && empty(spaceline#vcs#git_branch()) && &filetype != 'defx'&& &filetype!='chadtree' && &filetype != 'coc-explorer' && &filetype != 'debui'
+    if !empty(expand('%:t')) && empty(spaceline#vcs#git_branch())
         let s:statusline.="%#emptySeperate1#"
         let s:statusline.=g:sep.emptySeperate1
     endif
