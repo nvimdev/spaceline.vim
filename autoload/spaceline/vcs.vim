@@ -58,24 +58,17 @@ function! spaceline#vcs#gitbranch_detect(path) abort
 endfunction
 
 function! s:add_diff_icon(type) abort
-  let difficon = get(g:spaceline_diff_icon,a:type,'')
-  let diff_data = []
-  if g:spaceline_diff == 'git-gutter'
-    let diffdata = s:get_hunks_gitgutter()
-  else
-    let diffdata = split(get(b:, 'coc_git_status', ''),' ')
-  endif
-  let diff_flags = ''
-  if a:type == 0
-    let diff_flags = '+'
-  elseif a:type == 1
-    let diff_flags = '-'
-  elseif a:type == 2
-    let diff_flags = '\~'
-  endif
-  for item in diffdata
-    if matchend(item,diff_flags) > 0
-        return substitute(item, diff_flags, difficon, '').' '
+  let l:difficon = g:spaceline_diff_icon[a:type]
+  let l:diff_data = {
+        \'git-gutter': s:get_hunks_gitgutter(),
+        \'coc-git' : split(get(b:, 'coc_git_status', ''),' '),
+        \}[g:spaceline_diff]
+
+  let l:diff_flags = ['+','-','\~'][a:type]
+
+  for item in l:diff_data
+    if matchend(item,l:diff_flags) > 0
+      return substitute(item, l:diff_flags, l:difficon, '')
     endif
   endfor
 endfunction
@@ -99,7 +92,7 @@ endfunction
 
 function! spaceline#vcs#check_diff_empty(type)
   if g:spaceline_diff == 'git-gutter'
-    return split(spaceline#vcs#diff_{a:type}())[1] != 0
+    return spaceline#vcs#diff_{a:type}()[3] != 0
   elseif g:spaceline_diff == 'coc-git'
     return !empty(spaceline#vcs#diff_{a:type}())
   end
