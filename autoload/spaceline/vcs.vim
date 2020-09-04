@@ -68,7 +68,7 @@ function! s:add_diff_icon(type) abort
 
   for item in l:diff_data
     if matchend(item,l:diff_flags) > 0
-      return substitute(item, l:diff_flags, l:difficon, '')
+      return substitute(item, l:diff_flags, l:difficon, '').' '
     endif
   endfor
 endfunction
@@ -91,8 +91,13 @@ function! s:get_hunks_gitgutter()
 endfunction
 
 function! spaceline#vcs#check_diff_empty(type)
+  let l:type_number = {
+      \'add': 0,
+      \'remove': 2,
+      \'delete': 3,
+      \}[a:type]
   if g:spaceline_diff == 'git-gutter'
-    return spaceline#vcs#diff_{a:type}()[3] != 0
+    return split(spaceline#vcs#diff_{a:type}(),g:spaceline_diff_icon[l:type_number])[0] != 0
   elseif g:spaceline_diff == 'coc-git'
     return !empty(spaceline#vcs#diff_{a:type}())
   end
