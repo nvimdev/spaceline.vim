@@ -91,13 +91,9 @@ function! s:get_hunks_gitgutter()
 endfunction
 
 function! spaceline#vcs#check_diff_empty(type)
-  let l:type_number = {
-      \'add': 0,
-      \'remove': 1,
-      \'modified': 2,
-      \}[a:type]
   if g:spaceline_diff == 'git-gutter'
-    return split(spaceline#vcs#diff_{a:type}(),g:spaceline_diff_icon[l:type_number])[0] != 0
+    let l:t_number = { 'add': 0,'remove': 1,'modified': 2}[a:type]
+    return split(spaceline#vcs#diff_{a:type}(),g:spaceline_diff_icon[l:t_number])[0] != 0
   elseif g:spaceline_diff == 'coc-git'
     return !empty(spaceline#vcs#diff_{a:type}())
   end
