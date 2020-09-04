@@ -100,7 +100,7 @@ endfunction
 function! spaceline#vcs#check_diff_empty(type)
   if g:spaceline_diff == 'git-gutter'
     return split(spaceline#vcs#diff_{a:type}())[1] != 0
-  else
+  elseif g:spaceline_diff == 'coc-git'
     return !empty(spaceline#vcs#diff_{a:type}())
   end
 endfunction
