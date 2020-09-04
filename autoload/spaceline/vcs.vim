@@ -97,7 +97,7 @@ function! s:get_hunks_gitgutter()
   return ['+'.a,'~'.m,'-'.r]
 endfunction
 
-function! s:spaceline#vcs#check_diff_empty(type)
+function! spaceline#vcs#check_diff_empty(type)
   if g:spaceline_diff == 'git-gutter'
     return split(spaceline#vcs#diff_{a:type}())[1] != 0
   else
