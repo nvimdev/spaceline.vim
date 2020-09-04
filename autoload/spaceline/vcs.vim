@@ -58,8 +58,7 @@ function! spaceline#vcs#gitbranch_detect(path) abort
 endfunction
 
 function! s:add_diff_icon(type) abort
-  let diff_nerdfonts_icon = g:spaceline_diff_icon
-  let difficon = get(diff_nerdfonts_icon,a:type,'')
+  let difficon = get(g:spaceline_diff_icon,a:type,'')
   let diff_data = []
   if g:spaceline_diff == 'git-gutter'
     let diffdata = s:get_hunks_gitgutter()
@@ -96,4 +95,12 @@ endfunction
 function! s:get_hunks_gitgutter()
   let [a,m,r] = GitGutterGetHunkSummary()
   return ['+'.a,'~'.m,'-'.r]
+endfunction
+
+function! s:spaceline#vcs#check_diff_empty(type)
+  if g:spaceline_diff == 'git-gutter'
+    return split(spaceline#vcs#diff_{a:type}())[1] != 0
+  else
+    return !empty(spaceline#vcs#diff_{a:type}())
+  end
 endfunction

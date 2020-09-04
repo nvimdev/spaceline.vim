@@ -59,15 +59,15 @@ function! s:ActiveStatusLine()
         let s:statusline.="%#GitInfo#"
         let s:statusline.="%{spaceline#vcs#git_branch()}"
         let s:statusline.="\ "
-        if split(spaceline#vcs#diff_add())[1] != 0
+        if s:spaceline#vcs#check_diff_empty(add)
           let s:statusline.="%#GitAdd#"
           let s:statusline.= "%{spaceline#vcs#diff_add()}"
         endif
-        if split(spaceline#vcs#diff_remove())[1] != 0
+        if s:spaceline#vcs#check_diff_empty(remove)
           let s:statusline.="%#GitRemove#"
           let s:statusline.= "%{spaceline#vcs#diff_remove()}"
         endif
-        if split(spaceline#vcs#diff_modified())[1] != 0
+        if s:spaceline#vcs#check_diff_empty(modified)
           let s:statusline.="%#GitModified#"
           let s:statusline.= "%{spaceline#vcs#diff_modified()}"
         endif
