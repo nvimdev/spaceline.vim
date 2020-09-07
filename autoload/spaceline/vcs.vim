@@ -57,12 +57,19 @@ function! spaceline#vcs#gitbranch_detect(path) abort
   endif
 endfunction
 
+function! s:get_hunks_gitgutter()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return ['+'.a,'~'.m,'-'.r]
+endfunction
+
 function! s:add_diff_icon(type) abort
   let l:difficon = g:spaceline_diff_icon[a:type]
-  let l:diff_data = {
-        \'git-gutter': s:get_hunks_gitgutter(),
-        \'coc-git' : split(get(b:, 'coc_git_status', ''),' '),
-        \}[g:spaceline_diff]
+  let l:diff_data = []
+  if g:spaceline_diff == 'coc-git'
+    let l:diff_data = split(get(b:, 'coc_git_status', ''),' ')
+  else
+    let l:diff_data = s:get_hunks_gitgutter()
+  end
 
   let l:diff_flags = ['+','-','\~'][a:type]
 
@@ -85,16 +92,11 @@ function! spaceline#vcs#diff_modified() abort
   return s:add_diff_icon(2)
 endfunction
 
-function! s:get_hunks_gitgutter()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return ['+'.a,'~'.m,'-'.r]
-endfunction
-
 function! spaceline#vcs#check_diff_empty(type)
   if g:spaceline_diff == 'git-gutter'
     let l:t_number = { 'add': 0,'remove': 1,'modified': 2}[a:type]
     return split(spaceline#vcs#diff_{a:type}(),g:spaceline_diff_icon[l:t_number])[0] != 0
-  elseif g:spaceline_diff == 'coc-git'
+  else
     return !empty(spaceline#vcs#diff_{a:type}())
   end
 endfunction
