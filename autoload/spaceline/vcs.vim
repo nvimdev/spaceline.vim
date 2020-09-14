@@ -4,6 +4,9 @@
 " URL: https://github.com/glepnir/spaceline.vim
 " License: MIT License
 " =============================================================================
+let s:add = 0
+let s:change = 0
+let s:delete = 0
 
 function! spaceline#vcs#git_branch_icon()
   return g:spaceline_branch_icon
@@ -72,19 +75,21 @@ function! s:add_diff_icon(type) abort
   let l:diff_data = []
   if g:spaceline_diff == 'coc-git'
     let l:diff_data = split(get(b:, 'coc_git_status', ''),' ')
+    let l:diff_flags = ['+','-','\~'][a:type]
+
+    for item in l:diff_data
+      if matchend(item,l:diff_flags) > 0
+        return substitute(item, l:diff_flags, l:difficon, '').' '
+      endif
+    endfor
   elseif g:spaceline_diff == 'git-gutter'
-    let l:diff_data = s:get_hunks_gitgutter()
+    let l:diff_data = GitGutterGetHunkSummary()
   elseif g:spaceline_diff == 'vim-signify'
-    let l:diff_data = s:get_hunks_signify()
+    let l:diff_data = sy#repo#get_stats()
   end
-
-  let l:diff_flags = ['+','-','\~'][a:type]
-
-  for item in l:diff_data
-    if matchend(item,l:diff_flags) > 0
-      return substitute(item, l:diff_flags, l:difficon, '').' '
-    endif
-  endfor
+  if l:diff_data[a:type] != 0
+    return l:difficon.l:diff_data[a:type]
+  end
 endfunction
 
 function! spaceline#vcs#diff_add() abort
@@ -100,9 +105,10 @@ function! spaceline#vcs#diff_modified() abort
 endfunction
 
 function! spaceline#vcs#check_diff_empty(type)
-  if g:spaceline_diff == 'git-gutter' || g:spaceline_diff == 'vim-signify'
-    let l:t_number = { 'add': 0,'remove': 1,'modified': 2}[a:type]
-    return split(spaceline#vcs#diff_{a:type}(),g:spaceline_diff_icon[l:t_number])[0] != 0
+  if g:spaceline_diff == 'git-gutter'
+    return GitGutterGetHunkSummary()[a:type] != 0
+  elseif g:spaceline_diff == 'vim-signify'
+    return sy#repo#get_stats()[a:type] != 0
   else
     return !empty(spaceline#vcs#diff_{a:type}())
   end
