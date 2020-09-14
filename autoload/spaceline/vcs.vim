@@ -88,7 +88,7 @@ function! s:add_diff_icon(type) abort
     let l:diff_data = sy#repo#get_stats()
   end
   if l:diff_data[a:type] != 0
-    return l:difficon.l:diff_data[a:type]
+    return l:difficon.l:diff_data[a:type].' '
   end
 endfunction
 
@@ -105,10 +105,11 @@ function! spaceline#vcs#diff_modified() abort
 endfunction
 
 function! spaceline#vcs#check_diff_empty(type)
+  let l:stats = {'add':0,'remove':1,'modified':2}[a:type]
   if g:spaceline_diff == 'git-gutter'
-    return GitGutterGetHunkSummary()[a:type] != 0
+    return GitGutterGetHunkSummary()[l:stats] != 0
   elseif g:spaceline_diff == 'vim-signify'
-    return sy#repo#get_stats()[a:type] != 0
+    return sy#repo#get_stats()[l:stats] != 0
   else
     return !empty(spaceline#vcs#diff_{a:type}())
   end
