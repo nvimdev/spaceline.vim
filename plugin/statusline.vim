@@ -20,7 +20,7 @@ let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
   \  ])
 
 let g:spaceline_diagnostic = get(g:,'spaceline_diagnostic_tool','coc')
-let g:spaceline_diff = get(g:,'spaceline_diff_tool','coc-git')
+let g:spaceline_diff = get(g:,'spaceline_diff_tool','vim-signify')
 
 let g:spaceline_errorsign = get(g:,'spaceline_diagnostic_errorsign', '●')
 let g:spaceline_warnsign = get(g:,'spaceline_diagnostic_warnsign', '●')
@@ -44,6 +44,6 @@ augroup spaceline
   autocmd Colorscheme * call spaceline#colorscheme_init()
   autocmd VimResized * call spaceline#spacelinetoggle()
   autocmd WinLeave * call spaceline#setInActiveStatusLine()
-  autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit,GitGutter call spaceline#spacelinetoggle()
+  autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit,GitGutter,Signify call spaceline#spacelinetoggle()
   autocmd User CocDiagnosticChange call spaceline#spacelinetoggle()
 augroup END "}}}

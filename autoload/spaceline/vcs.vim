@@ -66,16 +66,14 @@ function! s:get_hunks_gitgutter()
 endfunction
 
 function! s:get_hunks_signify()
-  if !empty(sy#repo#get_stats_decorated())
-    return sy#repo#get_stats_decorated()
-  end
-  return []
+  let [add,change,delete] = sy#repo#get_stats()
+  return ['+'.add,'~'.change,'-'.delete]
 endfunction
 
 function! s:add_diff_icon(type) abort
   let l:difficon = g:spaceline_diff_icon[a:type]
   let l:diff_data = []
-  let l:diff_flags = ['+','-','\~'][a:type]
+  let l:diff_flags = ['+','\~','-'][a:type]
   if g:spaceline_diff == 'coc-git'
     let l:diff_data = split(get(b:, 'coc_git_status', ''),' ')
   elseif g:spaceline_diff == 'vim-signify'
@@ -107,7 +105,7 @@ function! spaceline#vcs#check_diff_empty(type)
   if g:spaceline_diff == 'git-gutter'
     return GitGutterGetHunkSummary()[l:stats] != 0
   elseif g:spaceline_diff == 'vim-signify'
-    return sy#repo#get_stats()[l:stats] != 0
+    return sy#repo#get_stats()[l:stats] > 0
   else
     return !empty(spaceline#vcs#diff_{a:type}())
   end
