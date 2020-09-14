@@ -20,7 +20,7 @@ let g:spaceline_scroll_bar_chars = get(g:,'spaceline_scroll_bar_chars', [
   \  ])
 
 let g:spaceline_diagnostic = get(g:,'spaceline_diagnostic_tool','coc')
-let g:spaceline_diff = get(g:,'spaceline_diff_tool','vim-signify')
+let g:spaceline_diff = get(g:,'spaceline_diff_tool','coc')
 
 let g:spaceline_errorsign = get(g:,'spaceline_diagnostic_errorsign', '●')
 let g:spaceline_warnsign = get(g:,'spaceline_diagnostic_warnsign', '●')
