@@ -63,8 +63,8 @@ function! s:get_hunks_gitgutter()
 endfunction
 
 function! s:get_hunks_signify()
-  let [a,m,r] = sy#repo#get_stats()
-  return ['+'.a,'~'.m,'-'.r]
+  let [add,change,delete] = sy#repo#get_stats()
+  return ['+'.add,'~'.change,'-'.delete]
 endfunction
 
 function! s:add_diff_icon(type) abort
