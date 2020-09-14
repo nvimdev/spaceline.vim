@@ -75,7 +75,7 @@ function! s:add_diff_icon(type) abort
   elseif g:spaceline_diff == 'git-gutter'
     let l:diff_data = s:get_hunks_gitgutter()
   elseif g:spaceline_diff == 'vim-signify'
-    let l:diff_data = s:get_hunks_gitgutter()
+    let l:diff_data = s:get_hunks_signify()
   end
 
   let l:diff_flags = ['+','-','\~'][a:type]
