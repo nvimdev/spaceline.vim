@@ -73,23 +73,19 @@ endfunction
 function! s:add_diff_icon(type) abort
   let l:difficon = g:spaceline_diff_icon[a:type]
   let l:diff_data = []
+  let l:diff_flags = ['+','-','\~'][a:type]
   if g:spaceline_diff == 'coc-git'
     let l:diff_data = split(get(b:, 'coc_git_status', ''),' ')
-    let l:diff_flags = ['+','-','\~'][a:type]
-
-    for item in l:diff_data
-      if matchend(item,l:diff_flags) > 0
-        return substitute(item, l:diff_flags, l:difficon, '').' '
-      endif
-    endfor
-  elseif g:spaceline_diff == 'git-gutter'
-    let l:diff_data = GitGutterGetHunkSummary()
   elseif g:spaceline_diff == 'vim-signify'
-    let l:diff_data = sy#repo#get_stats()
+    let l:diff_data = sy#repo#get_stats_decorated()
+  elseif g:spaceline_diff == 'git-gutter'
+    let l:diff_data = s:get_hunks_gitgutter()
   end
-  if l:diff_data[a:type] != 0
-    return l:difficon.l:diff_data[a:type].' '
-  end
+  for item in l:diff_data
+    if matchend(item,l:diff_flags) > 0
+      return substitute(item, l:diff_flags, l:difficon, '').' '
+    endif
+  endfor
 endfunction
 
 function! spaceline#vcs#diff_add() abort

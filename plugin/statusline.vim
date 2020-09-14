@@ -47,4 +47,3 @@ augroup spaceline
   autocmd User CocStatusChange,CocGitStatusChange,ClapOnExit,GitGutter call spaceline#spacelinetoggle()
   autocmd User CocDiagnosticChange call spaceline#spacelinetoggle()
 augroup END "}}}
-
