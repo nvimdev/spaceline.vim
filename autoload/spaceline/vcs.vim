@@ -62,12 +62,19 @@ function! s:get_hunks_gitgutter()
   return ['+'.a,'~'.m,'-'.r]
 endfunction
 
+function! s:get_hunks_signify()
+  let [a,m,r] = sy#repo#get_stats()
+  return ['+'.a,'~'.m,'-'.r]
+endfunction
+
 function! s:add_diff_icon(type) abort
   let l:difficon = g:spaceline_diff_icon[a:type]
   let l:diff_data = []
   if g:spaceline_diff == 'coc-git'
     let l:diff_data = split(get(b:, 'coc_git_status', ''),' ')
-  else
+  elseif g:spaceline_diff == 'git-gutter'
+    let l:diff_data = s:get_hunks_gitgutter()
+  elseif g:spaceline_diff == 'vim-signify'
     let l:diff_data = s:get_hunks_gitgutter()
   end
 
@@ -93,7 +100,7 @@ function! spaceline#vcs#diff_modified() abort
 endfunction
 
 function! spaceline#vcs#check_diff_empty(type)
-  if g:spaceline_diff == 'git-gutter'
+  if g:spaceline_diff == 'git-gutter' || g:spaceline_diff == 'vim-signify'
     let l:t_number = { 'add': 0,'remove': 1,'modified': 2}[a:type]
     return split(spaceline#vcs#diff_{a:type}(),g:spaceline_diff_icon[l:t_number])[0] != 0
   else

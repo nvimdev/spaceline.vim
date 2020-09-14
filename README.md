@@ -71,7 +71,10 @@ let g:spaceline_colorscheme = 'space'
  ['','','']
 ```
 
-- `g:spaceline_diff_tool` set the git diff tool default is `coc`, other value is `git-gutter` need vim-gitgutter plugin
+- `g:spaceline_diff_tool` set the git diff tool default is `coc`
+  other value is `git-gutter` need vim-gitgutter plugin
+  `vim-signify` need mhinz/vim-signify plugin
+
 
 - `g:spaceline_function_icon` set the function icon
 
