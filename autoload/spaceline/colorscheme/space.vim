@@ -84,7 +84,7 @@ function! spaceline#colorscheme#space#space()
   endif
 
   call spaceline#colors#spaceline_hl('InActiveFilename', s:slc, 'lightgray', 'navy')
-  call spaceline#colors#spaceline_hl('FileName', s:slc, 'aqua', 'purple','bold')
+  call spaceline#colors#spaceline_hl('FileName', s:slc, 'orange', 'purple','bold')
   call spaceline#colors#spaceline_hl('Filesize', s:slc, 'green', 'navy')
   call spaceline#colors#spaceline_hl('HeartSymbol', s:slc, 'orange',  'navy')
   call spaceline#colors#spaceline_hl('CocError',s:slc,  'red',  'navy')
