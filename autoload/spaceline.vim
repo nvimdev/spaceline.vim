@@ -63,13 +63,13 @@ function! s:ActiveStatusLine()
           let s:statusline.="%#GitAdd#"
           let s:statusline.= "%{spaceline#vcs#diff_add()}"
         endif
-        if spaceline#vcs#check_diff_empty('remove')
-          let s:statusline.="%#GitRemove#"
-          let s:statusline.= "%{spaceline#vcs#diff_remove()}"
-        endif
         if spaceline#vcs#check_diff_empty('modified')
           let s:statusline.="%#GitModified#"
           let s:statusline.= "%{spaceline#vcs#diff_modified()}"
+        endif
+        if spaceline#vcs#check_diff_empty('remove')
+          let s:statusline.="%#GitRemove#"
+          let s:statusline.= "%{spaceline#vcs#diff_remove()}"
         endif
         let s:statusline.="%#GitRight#"
         let s:statusline.=g:sep.gitright

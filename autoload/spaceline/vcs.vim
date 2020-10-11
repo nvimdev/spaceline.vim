@@ -92,16 +92,16 @@ function! spaceline#vcs#diff_add() abort
   return s:add_diff_icon(0)
 endfunction
 
-function! spaceline#vcs#diff_remove() abort
+function! spaceline#vcs#diff_modified() abort
   return s:add_diff_icon(1)
 endfunction
 
-function! spaceline#vcs#diff_modified() abort
+function! spaceline#vcs#diff_remove() abort
   return s:add_diff_icon(2)
 endfunction
 
 function! spaceline#vcs#check_diff_empty(type)
-  let l:stats = {'add':0,'remove':1,'modified':2}[a:type]
+  let l:stats = {'add':0,'modified':1,'remove':2}[a:type]
   if g:spaceline_diff == 'git-gutter'
     return GitGutterGetHunkSummary()[l:stats] != 0
   elseif g:spaceline_diff == 'vim-signify'

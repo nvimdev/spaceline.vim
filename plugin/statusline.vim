@@ -27,7 +27,7 @@ let g:spaceline_warnsign = get(g:,'spaceline_diagnostic_warnsign', '●')
 let g:spaceline_oksign = get(g:,'spaceline_diagnostic_oksign', '')
 
 let g:spaceline_branch_icon = get(g:,'spaceline_git_branch_icon','')
-let g:spaceline_diff_icon = get(g:,'spaceline_custom_diff_icon', ['','',''])
+let g:spaceline_diff_icon = get(g:,'spaceline_custom_diff_icon', ['','',''])
 let g:spaceline_funcicon = get(g:,'spaceline_function_icon','')
 
 
