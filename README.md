@@ -68,7 +68,7 @@ let g:spaceline_colorscheme = 'space'
 - `g:spaceline_custom_diff_icon` custom diff icon. default is
 
 ```vim
- ['','','']
+ ['','','']
 ```
 
 - `g:spaceline_diff_tool` set the git diff tool default is `coc`
