@@ -58,7 +58,7 @@ endif
 "
 function! spaceline#syntax#get_icon()
   let l:icon = ''
-  if exists("*WebDevIconsGetFileTypeSymbol*")
+  if exists("*WebDevIconsGetFileTypeSymbol")
     let l:icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
   else
     let l:file_name = expand("%:t")
@@ -70,7 +70,7 @@ endfunction
 
 function! spaceline#syntax#icon_syntax()
   let l:icon = ''
-  if exists("*WebDevIconsGetFileTypeSymbol*")
+  if exists("*WebDevIconsGetFileTypeSymbol")
     let l:icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
   else
     let l:file_name = expand("%:t")
