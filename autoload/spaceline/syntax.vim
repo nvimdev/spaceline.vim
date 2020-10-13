@@ -57,18 +57,25 @@ endif
 " Functions {{{
 
 function! spaceline#syntax#icon_syntax()
+  let l:icon = ''
+  if exists("*WebDevIconsGetFileTypeSymbol*")
     let l:icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
-    let l:bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
+  else
+    let l:file_name = expand("%:t")
+    let l:file_extension = expand("%:e")
+    let l:icon = luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension)
+  endif
+  let l:bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
 
-    for color in keys(g:coldevicons_iconmap)
-        let l:icon_index = index(g:coldevicons_iconmap[color], l:icon)
-        if l:icon_index != -1
-          execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg=#' . l:bg_color
-          break
-        endif
-    endfor
+  for color in keys(g:coldevicons_iconmap)
+      let l:icon_index = index(g:coldevicons_iconmap[color], l:icon)
+      if l:icon_index != -1
+        execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg=#' . l:bg_color
+        break
+      endif
+  endfor
 
-    return '%#FileIcon'.color.'#' . ' %{WebDevIconsGetFileTypeSymbol()}'
+  return '%#FileIcon'.color.'#' . ' %{WebDevIconsGetFileTypeSymbol()}'
 endfunction
 
 
