@@ -21,7 +21,7 @@ The best vim statusline plugin.
 ```
 Plug 'hardcoreplayers/spaceline.vim'
 " Use the icon plugin for better behavior
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons' or 'kyazdani42/nvim-web-devicons' --neovim only
 ```
 
 # Options
