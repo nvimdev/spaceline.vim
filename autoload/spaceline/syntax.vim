@@ -55,6 +55,18 @@ endif
 
 
 " Functions {{{
+"
+function! spaceline#syntax#get_icon()
+  let l:icon = ''
+  if exists("*WebDevIconsGetFileTypeSymbol*")
+    let l:icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
+  else
+    let l:file_name = expand("%:t")
+    let l:file_extension = expand("%:e")
+    let l:icon = luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension)
+  endif
+  return l:icon
+endfunction
 
 function! spaceline#syntax#icon_syntax()
   let l:icon = ''
@@ -75,7 +87,7 @@ function! spaceline#syntax#icon_syntax()
       endif
   endfor
 
-  return '%#FileIcon'.color.'#' . ' %{WebDevIconsGetFileTypeSymbol()}'
+  return '%#FileIcon'.color.'#' . ' %{spaceline#syntax#get_icon()}'
 endfunction
 
 
