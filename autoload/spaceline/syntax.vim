@@ -63,24 +63,17 @@ function! spaceline#syntax#get_icon()
   else
     let l:file_name = expand("%:t")
     let l:file_extension = expand("%:e")
-    let l:icon = luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension)
-  endif
-  return l:icon
-endfunction
-
-function! spaceline#syntax#icon_syntax()
-  let l:icon = ''
-  if exists("*WebDevIconsGetFileTypeSymbol")
-    let l:icon = substitute(WebDevIconsGetFileTypeSymbol(), "\u00A0", '', '')
-  else
-    let l:file_name = expand("%:t")
-    let l:file_extension = expand("%:e")
     if luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension) == v:null
       let l:icon = ''
     else
       let l:icon = luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension)
     endif
   endif
+  return l:icon
+endfunction
+
+function! spaceline#syntax#icon_syntax()
+  let l:icon = spaceline#syntax#get_icon()
   let l:bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
 
   for color in keys(g:coldevicons_iconmap)
