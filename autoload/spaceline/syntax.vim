@@ -75,10 +75,10 @@ function! spaceline#syntax#icon_syntax()
   else
     let l:file_name = expand("%:t")
     let l:file_extension = expand("%:e")
-    let l:icon = luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension)
-    if l:icon == v:null
+    if luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension) == v:null
       let l:icon = ''
     endif
+    let l:icon = luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension)
   endif
   let l:bg_color = substitute(synIDattr(hlID("FileName"), "bg"),'#','','')
 
