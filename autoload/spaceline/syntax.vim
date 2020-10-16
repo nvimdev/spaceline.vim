@@ -80,7 +80,8 @@ function! spaceline#syntax#icon_syntax()
       let l:icon_index = index(g:coldevicons_iconmap[color], l:icon)
       if l:icon_index != -1
         execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg=#' . l:bg_color
-        break
+      else
+        execute 'highlight! FileIcon guifg=NONE ctermfg=NONE '. 'guibg=#' . l:bg_color
       endif
   endfor
 
