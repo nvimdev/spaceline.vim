@@ -46,7 +46,7 @@ if !exists('g:coldevicons_iconmap')     " Iconmap mapping colors to the Symbols 
         \'Pink'         : ['',''],
         \'Salmon'       : [''],
         \'Green'        : ['','','','',''],
-        \'Lightgreen'   : ['',''],
+        \'Lightgreen'   : ['','',''],
         \'White'        : ['','','','','','']
     \}
 endif
@@ -64,7 +64,7 @@ function! spaceline#syntax#get_icon()
     let l:file_name = expand("%:t")
     let l:file_extension = expand("%:e")
     if luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension) == v:null
-      let l:icon = ''
+      let l:icon = ''
     else
       let l:icon = luaeval("require('nvim-web-devicons').get_icon")(l:file_name,l:file_extension)
     endif
@@ -80,8 +80,7 @@ function! spaceline#syntax#icon_syntax()
       let l:icon_index = index(g:coldevicons_iconmap[color], l:icon)
       if l:icon_index != -1
         execute 'highlight! FileIcon'.color.' guifg=#'.g:coldevicons_colormap[color].' ctermfg='.s:rgb(g:coldevicons_colormap[color]) . ' guibg=#' . l:bg_color
-      else
-        execute 'highlight! FileIcon guifg=NONE ctermfg=NONE '. 'guibg=#' . l:bg_color
+        break
       endif
   endfor
 
