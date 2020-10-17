@@ -45,7 +45,7 @@ if !exists('g:coldevicons_iconmap')     " Iconmap mapping colors to the Symbols 
         \'Darkorange'   : ['','','','',''],
         \'Pink'         : ['',''],
         \'Salmon'       : [''],
-        \'Green'        : ['','','','',''],
+        \'Green'        : ['','','','','',''],
         \'Lightgreen'   : ['','',''],
         \'White'        : ['','','','','','']
     \}
