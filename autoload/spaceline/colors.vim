@@ -24,6 +24,7 @@ function! spaceline#colors#spaceline_hl(group,slc,  fg, ...)
         else
             let c = get(a:slc, a:fg)
             if c[0] == 'NONE'
+              echomsg a:group
               let histring .= 'guifg=' . c[0] . ' ctermfg=' . c[1] . ' '
             else
               let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '

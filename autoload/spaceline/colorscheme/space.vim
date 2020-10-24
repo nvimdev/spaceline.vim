@@ -97,9 +97,9 @@ function! spaceline#colorscheme#space#space()
   call spaceline#colors#spaceline_hl('CocBar',s:slc,  'teal',  'darknavy')
   call spaceline#colors#spaceline_hl('VistaNearest',s:slc,  'teal',  'darknavy')
   if g:seperate_style ==? 'slant'
-    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'darknavy',  'purple')
+    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'navy',  'purple')
   else
-    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'purple',  'darknavy')
+    call spaceline#colors#spaceline_hl('LineInfoLeft',s:slc,  'purple',  'navy')
   endif
   if g:seperate_style ==? 'arrow' || g:seperate_style ==? 'curve' || g:seperate_style ==? 'slant-fade'
     call spaceline#colors#spaceline_hl('LineFormatRight',s:slc,  'purple',  'navy')
