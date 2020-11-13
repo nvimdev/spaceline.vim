@@ -34,8 +34,8 @@ if !exists('g:coldevicons_iconmap')     " Iconmap mapping colors to the Symbols 
     let g:coldevicons_iconmap = {
         \'Brown'        : [''],
         \'Aqua'         : [''],
-        \'LightBlue'    : [''],
-        \'Blue'         : ['','','','','','','','','','','',''],
+        \'LightBlue'    : ['',''],
+        \'Blue'         : ['','','','','','','','','','','','',''],
         \'Darkblue'     : ['',''],
         \'Purple'       : ['','','','','',''],
         \'Red'          : ['','','','','',''],
