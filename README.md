@@ -4,22 +4,22 @@ The best vim statusline plugin.
 
 ![new](https://user-images.githubusercontent.com/41671631/89755347-b4a72000-db11-11ea-8a01-e69c69e020ff.png)
 
-# Feature
+# Features
 
 - Fast load speed
 - More separator support
-- High Custom
+- Highly customizable
 - More beautiful than other statusline plugins
-- Special Colorscheme
+- Special color scheme
 - File icon syntax highlight
-- Scoll bar
+- Scroll bar
 
 # Install
 
 - Easy installed with a plugin manager like vim-plug
 
 ```
-Plug 'hardcoreplayers/spaceline.vim'
+Plug 'glepnir/spaceline.vim'
 " Use the icon plugin for better behavior
 Plug 'ryanoasis/vim-devicons' or 'kyazdani42/nvim-web-devicons' --neovim only
 ```
@@ -29,10 +29,10 @@ Plug 'ryanoasis/vim-devicons' or 'kyazdani42/nvim-web-devicons' --neovim only
 - spaceline provide some separator groups, the default group is `arrow`
 
 ```viml
-let g:spaceline_seperate_style= 'arrow'
+let g:spaceline_seperate_style = 'arrow'
 ```
 
-| group        | ScreenShot                                                                                                          |
+| group        | Screen shot                                                                                                         |
 | ------------ | ------------------------------------------------------------------------------------------------------------------- |
 | `none`       | ![none](https://user-images.githubusercontent.com/41671631/89510132-c54e5200-d802-11ea-90f5-2346d7e049ca.png)       |
 | `arrow`      | ![arrow](https://user-images.githubusercontent.com/41671631/89510121-c2ebf800-d802-11ea-85d3-028ea21ab62d.png)      |
@@ -42,14 +42,14 @@ let g:spaceline_seperate_style= 'arrow'
 | `slant-fade` | ![slant-fade](https://user-images.githubusercontent.com/41671631/89510136-c5e6e880-d802-11ea-8892-3677e90d7086.png) |
 | `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/89510589-5a514b00-d803-11ea-8228-dc8d8778f346.png) |
 
-- Use this setting to change the spaceline colorscheme,now builtin colorscheme
+- Use this setting to change the spaceline colorscheme, now builtin colorscheme
   `space`,`one`
 
 ```viml
 let g:spaceline_colorscheme = 'space'
 ```
 
-- `g:spaceline_custom_vim_status` custom vim status display.default is
+- `g:spaceline_custom_vim_status` custom vim status display. Default is
 
 ```vim
  {"n": "🅝 ","V":"🅥 ","v":"🅥 ","\<C-v>": "🅥 ","i":"🅘 ","R":"🅡 ","s":"🅢 ","t":"🅣 ","c":"🅒 ","!":"SE"}
@@ -57,23 +57,23 @@ let g:spaceline_colorscheme = 'space'
 
 - `g:spaceline_custom_buffer_number` custom buffer number display value is list
 
-- `g:spaceline_diagnostic_tool` set your diagnostic plugin. default is `coc`,other value
+- `g:spaceline_diagnostic_tool` set your diagnostic plugin. Default is `coc`, other values are:
   `nvim_lsp`, `ale`
 
-- `g:spaceline_diagnostic_errorsign` set the error sign. default is `●`
-- `g:spaceline_diagnostic_warnsign` set the warn sign. default is `●`
-- `g:spaceline_diagnostic_oksign` set the ok sign. default is ``
+- `g:spaceline_diagnostic_errorsign` set the error sign. Default is `●`
+- `g:spaceline_diagnostic_warnsign` set the warn sign. Default is `●`
+- `g:spaceline_diagnostic_oksign` set the ok sign. Default is ``
 
 - `g:spaceline_git_branch_icon` set the git branch icon default is empty
-- `g:spaceline_custom_diff_icon` custom diff icon. default is
+- `g:spaceline_custom_diff_icon` custom diff icon. Default is
 
 ```vim
  ['','','']
 ```
 
-- `g:spaceline_diff_tool` set the git diff tool default is `coc`
-  other value is `git-gutter` need vim-gitgutter plugin
-  `vim-signify` need mhinz/vim-signify plugin
+- `g:spaceline_diff_tool` set the git diff tool default is `coc`.
+  Other values are: `git-gutter`, which requires needs the [vim-gitgutter](https://github.com/airblade/vim-gitgutter) plugin;
+  `vim-signify`, which requires the [vim-signify](https://github.com/mhinz/vim-signify) plugin.
 
 
 - `g:spaceline_function_icon` set the function icon
@@ -108,20 +108,20 @@ let g:spaceline_scroll_chars = ['⎺', '⎻', '⎼', '⎽', '⎯'] " on Linux
 
 # Goyo Support
 
-- check the thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
+- check out thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
 
 # FAQ
 
-- Why the symbols look weird in my vim ?
+- Why do the symbols look weird in my vim?
 
-Make sure you have installed nerdfont font from https://www.nerdfonts.com/, Different fonts may be inconsistent in the performance of symbols.
-The solution, If you use Mac with iterm2, you can set a different font for the symbol.
+Make sure you have installed nerdfont font from https://www.nerdfonts.com/, different fonts may be inconsistent in the performance of symbols.
+If you are using iTerm2 on macOS, you can set a different font for symbols.
 
 <center>
   <img src="https://user-images.githubusercontent.com/41671631/88161810-0c551880-cc43-11ea-9699-17150cd7813a.png" height="300", weight="300"/>
 </center>
 
-Another way I recommend you to use [kitty terminal](https://github.com/kovidgoyal/kitty), it has built-in symbol font support.Kitty support
+Another solution is to use [kitty terminal](https://github.com/kovidgoyal/kitty). Kitty has built-in symbol font support and supports both
 Mac and Linux.
 
 
