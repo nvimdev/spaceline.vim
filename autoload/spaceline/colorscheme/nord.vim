@@ -106,5 +106,5 @@ function! spaceline#colorscheme#nord#nord()
   call spaceline#colors#spaceline_hl('StatusFileFormat',s:slc,  'black',  'cyan')
   call spaceline#colors#spaceline_hl('StatusLineinfo',s:slc,  'white',  'gray')
   call spaceline#colors#spaceline_hl('EndSeperate',s:slc,  'purple',  'cyan')
-  call spaceline#colors#spaceline_hl('emptySeperate1',s:slc,  'gray',  'darknavy')
+  call spaceline#colors#spaceline_hl('emptySeperate1',s:slc,  'cyan',  'darknavy')
 endfunction
