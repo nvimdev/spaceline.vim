@@ -34,7 +34,7 @@ function! s:line_percent()
 endfunction
 
 function! spaceline#file#file_size()abort
-  if !filereadable(expand('%:t'))
+  if !filereadable(expand('%:p'))
     return ''
   endif
   let l:oksign = spaceline#diagnostic#diagnostic_ok()
