@@ -43,7 +43,7 @@ let g:spaceline_seperate_style = 'arrow'
 | `slant-cons` | ![slant-cons](https://user-images.githubusercontent.com/41671631/89510589-5a514b00-d803-11ea-8228-dc8d8778f346.png) |
 
 - Use this setting to change the spaceline colorscheme, now builtin colorscheme
-  `space`,`one`
+  `space`,`one`, `nord`, `dracula`
 
 ```viml
 let g:spaceline_colorscheme = 'space'
@@ -72,7 +72,7 @@ let g:spaceline_colorscheme = 'space'
 ```
 
 - `g:spaceline_diff_tool` set the git diff tool default is `coc`.
-  Other values are: `git-gutter`, which requires needs the [vim-gitgutter](https://github.com/airblade/vim-gitgutter) plugin;
+  Other values are: `git-gutter`, which requires the [vim-gitgutter](https://github.com/airblade/vim-gitgutter) plugin;
   `vim-signify`, which requires the [vim-signify](https://github.com/mhinz/vim-signify) plugin.
 
 
