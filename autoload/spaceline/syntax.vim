@@ -42,7 +42,7 @@ if !exists('g:coldevicons_iconmap')     " Iconmap mapping colors to the Symbols 
         \'Beige'        : ['','',''],
         \'Yellow'       : ['','','λ','',''],
         \'Orange'       : [''],
-        \'Darkorange'   : ['','','','',''],
+        \'Darkorange'   : ['','','','','',''],
         \'Pink'         : ['',''],
         \'Salmon'       : [''],
         \'Green'        : ['','','','','',''],
