@@ -106,7 +106,7 @@ let g:spaceline_scroll_chars = ['⎺', '⎻', '⎼', '⎽', '⎯'] " on Linux
 
 ```
 
-- `g:spaceline_empty_inactive` set empty statusline for inactive windows
+- `g:spaceline_empty_inactive` make spaceline completely empty in inactive windows. Default is `0`
 
 # Goyo Support
 
