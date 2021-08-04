@@ -108,16 +108,20 @@ function! s:ActiveStatusLine()
 endfunction
 
 function! s:InActiveStatusLine()
-    let s:statusline=""
-    let s:statusline.="%#HomeMode#"
-    let s:statusline.="%#HomeMode#%{spaceline#buffer#buffer()}"
-    let s:statusline.="%#InActiveHomeRight#"
-    let s:statusline.=g:sep.homemoderight
-    let s:statusline.="%#InActiveFilename#"
-    let s:statusline.="\ "
-    let s:statusline.="%{spaceline#file#file_name()}"
-    let s:statusline.="%="
-    let s:statusline.="%#StatusLineinfo#%{spaceline#file#file_type()}"
+    if g:spaceline_empty_inactive
+      let s:statusline="%="
+    else
+      let s:statusline=""
+      let s:statusline.="%#HomeMode#"
+      let s:statusline.="%#HomeMode#%{spaceline#buffer#buffer()}"
+      let s:statusline.="%#InActiveHomeRight#"
+      let s:statusline.=g:sep.homemoderight
+      let s:statusline.="%#InActiveFilename#"
+      let s:statusline.="\ "
+      let s:statusline.="%{spaceline#file#file_name()}"
+      let s:statusline.="%="
+      let s:statusline.="%#StatusLineinfo#%{spaceline#file#file_type()}"
+    endif
     return s:statusline
 endfunction
 
