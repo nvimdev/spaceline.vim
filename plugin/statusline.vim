@@ -30,6 +30,7 @@ let g:spaceline_branch_icon = get(g:,'spaceline_git_branch_icon','')
 let g:spaceline_diff_icon = get(g:,'spaceline_custom_diff_icon', ['','',''])
 let g:spaceline_funcicon = get(g:,'spaceline_function_icon','')
 
+let g:spaceline_empty_inactive = get(g:,'spaceline_empty_inactive',0)
 
 let g:sep= {}
 let g:sep = spaceline#seperator#spacelineStyle(g:seperate_style)

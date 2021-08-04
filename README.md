@@ -106,6 +106,8 @@ let g:spaceline_scroll_chars = ['⎺', '⎻', '⎼', '⎽', '⎯'] " on Linux
 
 ```
 
+- `g:spaceline_empty_inactive` make spaceline completely empty in inactive windows. Default is `0`
+
 # Goyo Support
 
 - check out thinkvim [usage](https://github.com/hardcoreplayers/ThinkVim/blob/master/modules/module-goyo.vim)
